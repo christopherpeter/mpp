@@ -1,0 +1,61 @@
+﻿@model MarksPlumbing.WWW.UI.Models.BaseModel
+
+<h1 class="contentTitle center">Account Recovery</h1>
+
+<div id="contentTabList">
+    <div id="recoveryDiv" class="noBorder">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <h2>Recover Username</h2>
+                        <div>
+                            <h3>If you <em>don't</em> know your username, start here:</h3>
+                            <hr />
+                            <div class="recoveryInput">
+                                <input placeholder="Email" class="settings ui-corner-all" type="text" data-bind="value: vm.RecoverEmail, attr: { placeholder: 'Email Address' }" title="Enter email address to recover username." />
+                                <input type="submit" id="RecoverUserName" class="loginClassButton marksButton" value="Send Email" data-bind="click: vm.RecoverUsernameClick" />
+                            </div>
+                            <p class="center">An email containing your username will be sent to the email address given, if we have a matching record on file.</p>
+                            <div class="noBorderChildren" data-bind="template: { name: 'ui-messagelist-template', data: vm.RecoverUsernameMessages }"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <h2>Recover Password</h2>
+                        <div>
+                            <h3>If you know your username, start here:</h3>
+                            <hr />
+                            <div class="recoveryInput">
+                                <input placeholder="Username" class="settings ui-corner-all" type="text" data-bind="value: vm.RecoverUser, attr: { placeholder: 'Username' }" title="Enter username to recover password." />
+                                <input type="submit" id="RecoverPassword" class="loginClassButton marksButton" value="Send Email" data-bind="click: vm.RecoverPasswordClick" />
+                            </div>
+                            <p class="center">An email containing a link to reset your password will be sent to the email address on file for the username given.</p>
+                            <div class="noBorderChildren" data-bind="template: { name: 'ui-messagelist-template', data: vm.RecoverPasswordMessages }"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="width: 750px">
+                    <td colspan="2">
+                        <h2></h2>
+                        <div class="emptyTitle">
+                            <p>If neither of these methods help you, it is safe to register for a <strong style="font-size:14px"><a href="@Url.Action("Register", "Account")">new web account.</a></strong></p>
+                            <p>Registering for a web account creates a link to an existing Mark's account, you will still only have one account. Registering on the website simply opens a portal to your internal account with us. </p>
+                            <p>Also note that once you have access to your online account, you can change your email address at any time.</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@Html.Partial("_UIMessageListTemplate")
+
+@section Scripts{
+
+    <script>
+        ko.applyBindings(vm, document.getElementById("recoveryDiv"));
+
+        $(".recoveryInput .settings").attr('value', '');
+    </script>
+}

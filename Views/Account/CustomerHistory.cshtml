@@ -1,0 +1,66 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Account.CustomerHistoryModel
+
+
+<h2 class="center">Part History</h2>
+<div id="customerHistoryDiv">
+    <select data-bind="value: vm.CustomerHistory.SelectedTimeFrameId">
+    
+            @foreach (var item in Model.TimeFrames)
+            {
+                if (item.Value == Model.SelectedTimeFrameId)
+                {
+                 <option value="@item.Value" selected="selected">@item.Text</option>
+                }
+                else
+                {
+                 <option value="@item.Value">@item.Text</option>
+                }
+            }
+    </select>
+    <div class="pagerDiv ui-corner-all">
+        <input class="pagerButton marksButton" type="button" value="<<" data-bind="click: vm.CustomerHistory.InvoiceList.MoveFirst" />
+        <input class="pagerButton marksButton" type="button" value="<" data-bind="click: vm.CustomerHistory.InvoiceList.MovePrevious" />
+        &nbsp;&nbsp;
+        <input class="pagerButton marksButton" type="button" value=">" data-bind="click: vm.CustomerHistory.InvoiceList.MoveNext" />
+        <input class="pagerButton marksButton" type="button" value=">>" data-bind="click: vm.CustomerHistory.InvoiceList.MoveLast" />
+        Page size:
+        <select data-bind="options:vm.CustomerHistory.InvoiceList.AvailablePageSizes, value: vm.CustomerHistory.InvoiceList.PageSize"></select>
+        Page:
+        <input type="number" data-bind="value: vm.CustomerHistory.InvoiceList.CurrentPage, attr: { 'max': vm.CustomerHistory.InvoiceList.PageCount }" min="1" />
+        of <span data-bind="    text: vm.CustomerHistory.InvoiceList.PageCount"></span>
+        &nbsp;&nbsp;&nbsp;<span data-bind="text: vm.CustomerHistory.InvoiceList.ShowingItemsString"></span>
+    </div>
+    <div data-bind="if:vm.CustomerHistory.InvoiceList().length>0">
+        <div data-bind="foreach:vm.CustomerHistory.InvoiceList.CurrentPageData">
+            <div data-bind="template: { name: 'history-invoice-template', data:$data,afterRender:vm.CustomerHistory.InitUIElements }"></div>
+        </div>
+    </div>
+    <div data-bind="if:vm.CustomerHistory.InvoiceList().length===0">
+        <span>No records found.</span>
+    </div>
+    <div class="pagerDiv ui-corner-all">
+        <input class="pagerButton marksButton" type="button" value="<<" data-bind="click: vm.CustomerHistory.InvoiceList.MoveFirst" />
+        <input class="pagerButton marksButton" type="button" value="<" data-bind="click: vm.CustomerHistory.InvoiceList.MovePrevious" />
+        &nbsp;&nbsp;
+        <input class="pagerButton marksButton" type="button" value=">" data-bind="click: vm.CustomerHistory.InvoiceList.MoveNext" />
+        <input class="pagerButton marksButton" type="button" value=">>" data-bind="click: vm.CustomerHistory.InvoiceList.MoveLast" />
+        Page size:
+        <select data-bind="options:vm.CustomerHistory.InvoiceList.AvailablePageSizes, value: vm.CustomerHistory.InvoiceList.PageSize"></select>
+        Page:
+        <input type="number" data-bind="value: vm.CustomerHistory.InvoiceList.CurrentPage, attr: { 'max': vm.CustomerHistory.InvoiceList.PageCount }" min="1" />
+        of <span data-bind="    text: vm.CustomerHistory.InvoiceList.PageCount"></span>
+        &nbsp;&nbsp;&nbsp;<span data-bind="text: vm.CustomerHistory.InvoiceList.ShowingItemsString"></span>
+    </div>
+    <div data-bind="template: { name: 'ui-messagelist-template', data: vm.CustomerHistory.UIMessages }"></div>
+</div>
+
+
+@Html.Partial("_PagerTemplate")
+@Html.Partial("_HistoryInvoiceTemplate")
+@Html.Partial("_HistoryInvoiceItemTemplate")
+
+@section Scripts{
+    <script>
+        var customerHistoryModel =@Html.Raw(Json.Encode(Model));
+    </script>
+}

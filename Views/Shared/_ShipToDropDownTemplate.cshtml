@@ -1,0 +1,25 @@
+﻿<script type="text/html" id="shipto-select-template">
+
+    <div data-bind="visible: ShipToDropDownVisible" class="outline-bordered">
+            <table class="bordered">
+                <thead>
+                    <tr>
+                        <th class="leftjustify">Address 1</th>
+                        <th class="leftjustify">Address 2</th>
+                        <th class="leftjustify">City</th>
+                        <th class="leftjustify">State</th>
+                        <th class="leftjustify">Zip</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: ShipToList">
+                    <tr data-bind="shipToId: CustomerLocationId, click: $parent.ShipToSelected ">
+                        <td data-bind="text: Address.Street1"></td>
+                        <td data-bind="text: Address.Street2"></td>
+                        <td data-bind="text: Address.City"></td>
+                        <td data-bind="text: Address.StateAbbreviation"></td>
+                        <td data-bind="text: Address.Zip"></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</script>

@@ -1,0 +1,23 @@
+﻿<script type="text/html" id="history-invoice-item-template">
+    <div class="history-invoice-item-container">
+        <div class="top">
+            <img class="partDetailSmall" data-bind="attr: { src: ImageUrl }" />
+            <div class="partno">
+                <a href="#" data-bind="click:ViewDetail"><span data-bind="text:PartNumber"></span></a>                
+            </div>
+            <div class="qty"><span class="label">Qty</span><span data-bind="text: Quantity"></span></div>
+        </div>
+        <div class="middle">
+            <span data-bind="text:Description"></span>
+        </div>
+        <div class="bottom">
+            <div class="reorder-price">
+                <span class="label">Reorder Price</span>
+                <span data-bind="text:ReorderPrice"></span>
+            </div>
+            <div>
+                <input type="button" class="marksButton" data-bind="click:AddToCart" value="+ Cart" />
+            </div>
+        </div>
+    </div>
+</script>

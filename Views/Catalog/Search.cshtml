@@ -1,0 +1,15 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Catalog.CatalogSearchResultModel
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>@Model.ContentHeading</h2>
+<div id="searchResultsDiv" style="display:none;" data-bind="visible:true">
+    @Html.Partial("_SearchResults",Model)
+</div>
+
+@section Scripts{ 
+    <script>
+        var searchResultModel =@Html.Raw(Json.Encode(Model));
+    </script>
+}

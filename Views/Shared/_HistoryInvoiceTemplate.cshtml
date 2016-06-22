@@ -1,0 +1,20 @@
+﻿<script type="text/html" id="history-invoice-template">
+    <div class="history-invoice-container">
+        <div class="history-invoice-head">
+            <div><span class="label">Invoice</span><span data-bind="text: InvoiceNumber"></span></div>
+            <div><span class="label">Date</span><span data-bind="text: InvoiceDate"></span></div>
+            <div>
+                <input type="button" class="marksButton" value="View Invoice" data-bind="click: ViewInvoice" /></div>
+        </div>
+        <div class="history-invoice-itemlist-container" >
+            <div class="sliding-div" data-bind="attr: { id: SliderId }, ">
+                <div class="history-invoice-itemlist-items" data-bind="style: { width: SlidingDivWidth} ">
+                    <!-- ko foreach: InvoiceLineList -->
+                    <div data-bind="template: { name: 'history-invoice-item-template', data: $data }"></div>
+                    <!-- /ko -->
+                </div>
+            </div>
+            <div class="history-invoice-slider slider" data-bind="slider: ScrollPosition, sliderOptions: SliderOptions "></div>
+        </div>
+    </div>
+</script>

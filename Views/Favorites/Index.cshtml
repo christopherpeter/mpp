@@ -1,0 +1,39 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Favorites.FavoritesModel
+
+
+<div id="favoritesDiv" style="display:none;" data-bind="visible:true">
+    <h2 class="center">Favorites / Print Labels</h2>
+    <div>
+        <input id="addNewListText" class="ui-corner-all" type="text" data-bind="value:vm.Favorites.NewListName" />
+        <input class="marksButton" id="addNewListButton" type="button" value="Add New List" data-bind="click:vm.Favorites.AddNewList" />
+        <br />
+        <br />
+        <div data-bind="template:{name:'ui-messagelist-template',data:vm.Favorites.UIMessages}"></div>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Manage List</th>
+                    <th>Copy List To Shopping Cart</th>
+                    <th>Delete List</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:vm.Favorites.FavoritesLists">
+                <tr>
+                    <td class="image"><a href="#" data-bind="text:CartName,click:vm.Favorites.ManageList"></a></td>
+                    <td class="image"><img src="~/Content/images/Shopping_cart.gif" alt="Shopping Cart Icon" data-bind="click:vm.Favorites.CopyToCart" /></td>
+                    <td class="image"><img src="~/Content/images/x.gif" alt="Delete Icon" data-bind="click:vm.Favorites.DeleteList" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <span><br /><br /><b>** Print Labels can be viewed inside favorite list(s).</b></span>
+</div>
+
+@section Scripts{
+ 
+    <script>
+        var favoritesModel =@Html.Raw(Json.Encode(Model));
+    </script>
+}

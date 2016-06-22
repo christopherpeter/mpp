@@ -1,0 +1,39 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Catalog.AdvancedCatalogSearchModel
+
+
+@using (Html.BeginForm("Search", "Catalog", null, FormMethod.Post, new { id = "advancedSearchForm" }))
+{
+    @Html.HiddenFor(m => m.SearchParamaters.IsAdvancedSearch)
+    @Html.HiddenFor(m => m.SearchParamaters.StartIndex)
+    @Html.HiddenFor(m => m.SearchParamaters.EndIndex)
+    @Html.HiddenFor(m => m.SearchParamaters.IncludeDiscontinuedItems)
+    <div style="width: 300px; margin: 100px 200px" id="contentTabList">
+        <br />
+        <h2 style="width: 296px">Advanced Search</h2>
+        <div>
+            <table class="userData">
+                <tr>
+                    <td><span class="label nowrapping">Part #</span></td>
+                    <td>@Html.TextBoxFor(m => m.SearchParamaters.PartNumber)</td>
+                </tr>
+                <tr>
+                    <td><span class="label nowrapping">Description</span></td>
+                    <td>@Html.TextBoxFor(m => m.SearchParamaters.Description)</td>
+                </tr>
+                <tr>
+                    <td><span class="label nowrapping">OEM Name</span></td>
+                    <td>@Html.TextBoxFor(m => m.SearchParamaters.VendorName)</td>
+                </tr>
+                <tr>
+                    <td><span class="label nowrapping">OEM Part #</span></td>
+                    <td>@Html.TextBoxFor(m => m.SearchParamaters.VendorPartNumber)</td>
+                </tr>
+                <tr>
+                    <td><span class="label nowrapping">OEM Description</span></td>
+                    <td>@Html.TextBoxFor(m => m.SearchParamaters.VendorPartDescription)</td>
+                </tr>
+            </table>
+            <input style="margin-top: 20px;" class="marksButton" type="submit" value="Search" />
+        </div>
+    </div>
+}

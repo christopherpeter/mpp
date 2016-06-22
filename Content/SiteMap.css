@@ -1,0 +1,24 @@
+﻿
+.smTable tbody tr:hover {
+    background-color:transparent;
+}
+.smTable {
+    border:0;
+    border-color:#fee;
+    border-width: 0px;
+}
+.smTable th, td {
+    border-width:0px;
+}
+
+.smTable td {
+    vertical-align:top;
+}
+
+.largeLink {
+    font-size:16px;
+}
+
+.smCenter {
+    text-align:center;
+}

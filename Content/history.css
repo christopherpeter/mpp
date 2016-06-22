@@ -1,0 +1,78 @@
+﻿div.history-invoice-container {
+    border: 1px solid lightgray;
+    height:150px;
+    width:700px;
+    margin-top:2px;
+    margin-bottom:2px;
+}
+
+div.history-invoice-head {
+    height: 126px;
+    width: 150px;
+    padding:10px 5px 10px 5px;
+    float:left;
+}
+div.history-invoice-itemlist-container {
+    float: right;
+    height: 142px;
+    width: 520px;
+    padding:2px 4px 2px 4px;    
+    border: solid 1px #0092CF;
+}
+div.history-invoice-itemlist-container div.sliding-div {
+    height: 120px;
+    width: 520px;
+    overflow: hidden;
+}
+
+div.history-invoice-itemlist-items {
+    height:120px;
+}
+div.history-invoice-slider.slider {
+    float: left;
+    width: 506px;
+    margin:5px 5px 5px 5px;
+}
+div.history-invoice-item-container {
+    float: left;
+    width: 220px;
+    height: 114px;
+    padding:2px 2px 2px 2px;
+    margin-right:2px;
+    border: solid 1px #0092CF;
+}
+
+div.history-invoice-item-container div.top,div.history-invoice-item-container div.bottom {
+    width: 210px;
+    height: 36px;
+}
+
+div.history-invoice-item-container div.top img{
+    float:left;
+}
+div.history-invoice-item-container div.top div{
+    float:left;
+    height:20px;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+div.history-invoice-item-container div.top div{
+    width:100px;
+    float:right;
+}
+div.history-invoice-item-container div.top div.partno{
+    width:100px;
+    float:right;
+    padding-top:2px
+}
+div.history-invoice-item-container div.middle {
+    clear:both;
+    height:36px;
+    
+}
+div.history-invoice-item-container div.bottom input[type='button'] {
+    float: right;
+}
+div.history-invoice-item-container div.bottom div.reorder-price {
+    height:20px;width:150px;float:left;        
+}

@@ -1,0 +1,45 @@
+﻿<script type="text/html" id="item-template">
+    <div class="partDetailSmall ui-corner-all">
+        <div class="partDetailSmallImage">
+            <a data-bind="attr: { href: ViewDetailRoute }">
+                <img class="partDetailSmall" data-bind="attr: { src: ThumbnailImagePath }" /></a>
+        </div>
+        <div class="partDetailSmallInfoBox">
+            <div>
+                Part <a class="detailBoldPartNum" data-bind="text: PartNumber, attr: { href: ViewDetailRoute, title: PartNumber }"></a><span data-bind="    if: TruckItem == true">
+                    <img src="/Content/images/truck.png" class="bottomTruckDetail" title="This item requires an additional shipping charge." /></span>
+            </div>
+            <p></p>
+            <div><span class="searchDescBold" data-bind="text: Description"></span></div>
+            <div><span data-bind="text: Line1"></span><span data-bind="    if: Line1 == ''">
+                <br />
+            </span></div>
+            <div><span data-bind="text: Line2"></span><span data-bind="    if: Line2 == ''">
+                <br />
+            </span></div>
+            <div><span data-bind="text: Line3"></span><span data-bind="    if: Line3 == ''">
+                <br />
+            </span></div>
+            <div><span data-bind="text: Line4"></span><span data-bind="    if: Line4 == ''">
+                <br />
+            </span></div>
+            <div data-bind="if: vm.IsLoggedIn() == true">
+                <p></p>
+                <div data-bind="if: IsAvailableForPurchase() == true">
+                    <span class="detailBoldPartNum paddingR10" data-bind="text: UnitPriceForDisplay"></span>
+                    <span style="float: right">
+                        <input class="ui-corner-all unitQty" id="searchUnitQty" type="text" data-bind="value: Quantity" />
+                        <span class="paddingL10"></span>
+                        <input class="marksButton" type="button" value="+ Cart" data-bind="    click: AddToCart" />
+                    </span>
+                </div>
+                <div class="unavailable" data-bind="if: IsAvailableForPurchase() == false">
+                    <span>This item is currently unavailable.</span>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+
+</script>

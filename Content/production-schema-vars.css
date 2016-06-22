@@ -1,0 +1,9 @@
+﻿:root {
+    --contactinfo-bg-color: #33A8D9;
+    --contactinfo-header-color: #000;
+
+    --light-bg-color: #0092CF;
+    --dark-bg-color: #0c294a;
+
+    --btn-featured-list-style: solid #008FCB 3px;
+}

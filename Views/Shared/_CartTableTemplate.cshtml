@@ -1,0 +1,58 @@
+﻿<script type="text/html" id="cart-table-template">
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th class="text dataSelect"><input  type="checkbox" data-bind=" checked: SelectAll" /></th>
+                <th></th>
+                <th class="lJustText">Part #</th>
+                <th class="lJustText">Description</th>
+                <th class="lJustText">Qty</th>
+                <th data-bind="visible:ShowAvailability">In Stock</th>
+                <th class="dataUpdate" data-bind="visible: ReadOnly()==false"></th>
+                <th class="rJustText">Price</th>
+                <th class="rJustText lastForCart">Ext. Price</th>
+                <th data-bind="visible:IsFavoritesCart()==true">Add to Cart</th>
+                <th class="centerText" data-bind="visible:ReadOnly()==false">Delete</th>
+                
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: CartItems">
+            <tr data-bind="attr: { id: TableRowId } ">
+                <td class="text dataSelect"><input  type="checkbox" data-bind="checked: Selected" /></td>
+                <td class="image" data-bind="click: Select"><img data-bind="attr: { src: FingernailImagePath }" /></td>
+                <td class="text"><a data-bind="text: PartNumber, attr: { href: ViewDetailRoute, title: PartNumber }"></a></td>
+                <td class="text" data-bind="text: Description,click:Select"></td>
+                <td class="text" data-bind="visible: $parent.ReadOnly()==false"><input class="ui-corner-all unitQty" type="text" data-bind="value: Quantity" /></td>
+                <td class="text" data-bind="visible: $parent.ReadOnly() == true,text:Quantity"></td>
+                <td class="image" data-bind="visible: $parent.ShowAvailability"><img data-bind="attr: { src: AvailabilityImagePath }" /></td>
+                <td class="dataUpdate" class="text" data-bind="visible: $parent.ReadOnly() == false"><a href="#" data-bind="click: Save, visible: $parent.ReadOnly() == false">Update</a></td>
+                <td class="number money" data-bind="text: UnitPrice, click: Select"></td>
+                <td class="number money" data-bind="text: ExtendedPrice, click: Select"></td>
+                <td data-bind="visible: $parent.IsFavoritesCart() == true,click:$parent.AddToCart" class="image addToCart"></td>
+                <td class="image delete" data-bind="click: $parent.RemoveItem,visible:$parent.ReadOnly()==false"></td>
+                
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="11"><div data-bind="visible: $parent.ReadOnly()==false, template: { name: 'ui-messagelist-template', data: UIMessages }"></div></td>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td class="dataSelect"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td data-bind="visible: ShowAvailability"></td>
+                <td class="dataUpdate" data-bind="visible: ReadOnly()==false"></td>
+                <td class="number">SubTotal:</td>
+                <td class="number money" data-bind="text: SubTotal"></td>
+                <td data-bind="visible: IsFavoritesCart() == true"></td>
+                <td data-bind="visible: ReadOnly()==false"></td>
+                
+            </tr>
+        </tfoot>
+    </table>
+</script>

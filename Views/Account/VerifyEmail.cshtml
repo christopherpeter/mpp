@@ -1,0 +1,10 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Account.VerifyEmailModel
+
+
+<h2>Email Verification</h2>
+
+@if(Model.EmailVerified){
+    <p>Thank you for verifying your email address.</p>    
+}else{
+    <p>There was an problem verifying you email address.</p>
+}

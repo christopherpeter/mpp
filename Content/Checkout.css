@@ -1,0 +1,208 @@
+﻿div#checkoutDiv {
+    margin-top: 20px;
+}
+
+.ui-tabs {
+    width: 1020px;
+}
+
+.ui-tabs-nav {
+    width: 1014px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ui-tabs-nav .ui-state-active > li {
+}
+
+.ui-tabs-nav > li {
+    width: 198px;
+    height: 85px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#checkoutDiv > #tabs .ui-tabs-anchor {
+    margin-left: -7px;
+}
+
+div.checkoutstep {
+    width: 200px;
+}
+
+span.checkoutstep {
+    clear: both;
+    display: block;
+    width: 190px;
+    white-space: pre-line;
+}
+
+.label-width {
+    display: inline-block;
+    width: 110px;
+}
+
+div.checkout.section {
+    width: 400px;
+    margin-bottom: 15px;
+}
+
+div.checkout.section span.label, div.checkout.section span.title {
+    font-weight: bold;
+}
+
+div.checkout.section input[type=text] {
+    display: block;
+}
+
+div#orderTotals {
+    clear: both;
+    margin-bottom: 10px;
+    height: 80px;
+    width: 270px;
+    background-color: #0092CF;
+    color:white;
+    margin-left: 713px;
+    border-radius: 0 0 10px 10px;
+    border-top: outset 5px;
+}
+
+div#orderTotals > div:nth-child(3) {
+    line-height: 20px!important;
+}
+
+div#orderTotals > div:nth-child(4) {
+    border-top: double 4px !important;
+    margin-top: 2px;
+}
+
+div#orderTotals > div:nth-child(1) > span.value{
+    border-top: none !important;
+}
+
+div.orderTotals {
+    background-color: #0092CF;
+    width: 270px;
+    clear: both;
+}
+
+div.orderTotals span.value, div.orderTotals span.label {
+    text-align: right;
+}
+
+div.orderTotals span.value {
+    position: absolute;
+    right: 25px;
+    width: 100px;
+}
+
+div.orderTotals span.label {
+    float: right;
+    margin-right: 134px;
+    width: 125px;
+}
+
+div.addressBlock {
+    width: 40%;
+    float:left;
+}
+div#shippingInfo {
+    height:150px;
+}
+
+#backorderOptions {
+    width:983px;
+    font-size:smaller;
+}
+
+div.ccheader {
+    background-color: #0092CF;
+    color :white;
+    padding-left:30px;
+    width:650px;
+}
+
+span.ccheader {
+    margin-left: 10px;
+    display:inline-block;
+    width: 150px;
+}
+
+span.ccdata {
+    display:inline-block;
+    width: 150px;
+    margin-left: 10px;
+}
+
+div#newCardlink {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+div#reviewBackorderMessage {
+    padding-bottom: 8px;
+}
+
+div#submitOrderQuote {
+    width: 12%;
+    margin-left: auto;
+    padding-top: 4px;
+}
+
+div#checkoutWarning {
+    width: 90%;
+    background-color: yellow;
+    display: inline;
+}
+
+.noBottomMargin > div {
+    margin: 0 !important;
+    padding: 1px !important;
+}
+
+#shippingInfo .addressBlock {
+    border: black 1px solid !important;
+    border-radius: 15px;
+}
+
+.addressBlock h4
+{
+    margin-top: 5px;
+}
+
+#newCCInfo div {
+    margin: 0 auto;
+    padding: 2px;
+}
+
+#newCCInfo span {
+    text-align: right;
+}
+
+#step-1 .dataSelect,
+#step-1 .dataUpdate,
+#step-4 .dataSelect,
+#step-4 .dataUpdate {
+    display: none;
+}
+
+#step-1 #cartTable thead th:nth-child(2),
+#step-4 #cartTable thead th:nth-child(2) {
+    border-top-left-radius: 15px;
+}
+
+#step-1 #cartTable tfoot td:nth-child(2) {
+    border-bottom-left-radius: 15px;
+}
+
+#step-1 #cartTable tbody td:nth-child(3) a,
+#step-4 #cartTable tbody td:nth-child(3) a {
+    pointer-events: none;
+    cursor: text;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#step-1 #cartTable .selected {
+    background: none !important;
+}

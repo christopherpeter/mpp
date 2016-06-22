@@ -1,0 +1,39 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Account.DocumentLookupModel
+
+<h2 class="center">Invoices</h2>
+<div id="documentlookupDiv">
+    <div style="padding-bottom: 5px;">        
+        <div style="float: left; padding-bottom: 5px;"><label>Starting Date</label><br/>
+             <input id="InvoiceDateFrom" type="text" class="date-picker" data-bind="value:vm.DocumentLookup.StartDate"/>
+        </div>
+        <div style="float: left; padding-bottom: 5px; padding-left: 15px;"><label>Ending Date</label><br/>
+            <input id="InvoiceDateTo" type="text" class="date-picker" data-bind="value:vm.DocumentLookup.EndDate"/>
+            <input type="button" class="marksButton" value="Search" data-bind="click:vm.DocumentLookup.Search"/>
+        </div>
+    </div>
+    <div data-bind="template: { name: 'sales-document-table-template', data: vm.DocumentLookup }"></div>
+    <div data-bind="template: { name: 'ui-messagelist-template', data: vm.DocumentLookup.UIMessages }"></div>
+</div>
+
+
+@Html.Partial("_SalesDocumentTableTemplate")
+
+@section Scripts{
+
+    <script>
+        var documentLookupModel =@Html.Raw(Json.Encode(Model));
+
+        window.onload = function() {
+            var invoiceFrom = document.querySelector("#InvoiceDateFrom").value,
+                invoiceTo = document.querySelector("#InvoiceDateTo").value;
+        
+            if (invoiceFrom.indexOf(":") > 0) {
+                document.querySelector("#InvoiceDateFrom").value = invoiceFrom.substring(0, invoiceFrom.indexOf(":") - 2).trim();
+            }
+
+            if (invoiceTo.indexOf(":") > 0) {
+                document.querySelector("#InvoiceDateTo").value = invoiceTo.substring(0, invoiceTo.indexOf(":") - 2).trim();
+            }
+        }
+    </script>
+}

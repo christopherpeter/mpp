@@ -1,0 +1,104 @@
+﻿@model MarksPlumbing.WWW.UI.Models.BaseModel
+
+<h2 class="center">Settings</h2>
+
+<div id="contentTabList">
+    <table>
+        <tbody>
+            <tr>
+                <td style="vertical-align: top" rowspan="2">
+                    <h2>Location</h2>
+                    <div>
+                        <h3>Personal Settings</h3>
+                       
+                        <hr />
+                        <div class="noBorder center" style="margin-bottom: -28px;">
+                            <h4 data-bind="text: 'Company Name: ' + vm.UserAccount.CompanyNameShow()"></h4>
+                            <span class="label">Default Ship To</span><span data-bind="text: vm.UserAccount.SelectedShipToText"></span>&nbsp;
+                            <a href="javascript:(0)" data-bind="click: vm.UserAccount.ShipToDropDownClicked">Change...</a>
+                        </div>
+                        <div id="shiptoListTable" class="noBorderChildren" data-bind="template: { name: 'shipto-select-template', data: vm.UserAccount }"></div>
+                        
+                        <br />
+                        <br />
+                        <div class="center noBorder">
+                            <h3>User Information</h3>
+                            <hr />
+                        </div>
+                        <table class="userData">
+                            <tr>
+                                <td><span class="label nowrapping right"><strong>First</strong></span></td>
+                                <td><input class="settings" type="text" data-bind="value: vm.UserAccount.FirstName" /></td>
+                            </tr>
+                            <tr>
+                                <td><span class="label right"><strong>Last</strong></span></td>
+                                <td><input class="settings" type="text" data-bind="value: vm.UserAccount.LastName" /></td>
+                            </tr>
+                            <tr>
+                                <td><span class="label right"><strong>Email</strong></span></td>
+                                <td><input class="settings" type="text" data-bind="value: vm.UserAccount.EmailAddress" /></td>
+                            </tr>
+                        </table>
+                        <div class="noBorderChildren" data-bind="template: { name: 'ui-messagelist-template', data: vm.UserAccount.SaveAccountInfoMessages }"></div>
+                        <input class="marksButton" type="button" value="Update" data-bind="click: vm.UserAccount.SaveAccountInfo" style="display: block; margin: 0 auto" />
+                    </div>
+                </td>
+                <td style="vertical-align: top">
+                    <h2>Website Defaults</h2>
+                    <div>
+                        <hr />
+                        @*<div class="setting nowrapping"><span class="label">Category Menu Default</span><select data-bind="options: vm.UserAccount.ExpandCollapseStates, optionsText: 'Key', optionsValue: 'Value', value: vm.UserAccount.CategoryMenuState"></select></div>
+                        <div class="setting nowrapping"><span class="label">Cart Preview Default</span><select data-bind="options: vm.UserAccount.ExpandCollapseStates, optionsText: 'Key', optionsValue: 'Value', value: vm.UserAccount.CartBoxState"></select></div>*@
+                        <div class="setting nowrapping noBorder" style="margin: 0 auto"><span class="label">Default Items Per Page</span><select data-bind="options: vm.UserAccount.PageSizeOptions, optionsText: 'Key', optionsValue: 'Value', value: vm.UserAccount.PageSize"></select></div>
+                        <div class="noBorderChildren" data-bind="template: { name: 'ui-messagelist-template', data: vm.UserAccount.SaveDefaultsMessages }"></div>
+                        <input class="marksButton" type="button" value="Update" data-bind="click: vm.UserAccount.SaveDefaults" style="display: block; margin: 0 auto"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%">
+                    <h2>Change Password</h2>
+                    <div>
+                        <hr/>
+                        <table class="userData center">
+                            <tr style="width: 250px">
+                                <td class="center"><span class="label nowrapping right"><strong>Old Password</strong></span></td>
+                                <td style="text-align: left"><input class="settings" type="password" data-bind="value: vm.UserAccount.OldPassword" maxlength="20" /></td>
+                            </tr>
+                            <tr style="width: 250px">
+                                <td><span class="label nowrapping right"><strong>New Password</strong></span></td>
+                                <td rowspan="2" style="width: 225px; vertical-align: top; text-align: left">
+                                    <input class="settings" type="password"    data-bind="value: vm.UserAccount.NewPassword, event: { paste: vm.UserAccount.PasswordMeter.PreventPaste, keyup: vm.UserAccount.PasswordMeter.CheckPasswordStrength }, attr: { title: vm.UserAccount.PasswordMeter.PasswordRequirementsText }" maxlength="20" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="passValid noBorder" data-bind="css: vm.UserAccount.PasswordMeter.PasswordCSS">
+                                        <span data-bind="text: vm.UserAccount.PasswordMeter.PasswordMeterText"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="noBorderChildren" data-bind="template: { name: 'ui-messagelist-template', data: vm.UserAccount.ChangePasswordMessages }"></div>
+                        <input class="marksButton" type="button" value="Change Password" data-bind="click: vm.UserAccount.ChangePassword" style="display: block; margin: 0 auto" />
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@Html.Partial("_ShipToDropDownTemplate")
+@Html.Partial("_UIMessageListTemplate")
+
+@section Scripts{
+    <script>
+        ko.bindingHandlers.shipToId = {
+            init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+                var value = valueAccessor();
+                var valueUnwrapped = ko.unwrap(value);
+                $(element).attr("data-shipto-id", valueUnwrapped);
+            }
+        };
+        ko.applyBindings(vm, document.getElementById("contentTabList"));
+    </script>
+}

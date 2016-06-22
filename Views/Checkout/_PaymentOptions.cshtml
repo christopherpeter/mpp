@@ -1,0 +1,127 @@
+﻿<div id="contentTabList" style="width: 900px; padding-bottom: 5px; margin: 0 auto">
+    <table>
+        <tr>
+            <td style="width: 440px; vertical-align: top">
+                <h2 style="width: 396px">Payment options</h2>
+                <div class="checkout section">
+                    <div data-bind="if: vm.UserAccount.IsCreditCardOnly() == false" class="noBorder">
+                        <span class="label" style="float: left; margin-right: 10px;">I will be paying with my</span>
+                        <select id="paymentSelector" data-bind="options: vm.Checkout.PaymentOptions.PaymentMethods, optionsText: 'Name', optionsValue: 'Id', value: vm.Checkout.PaymentOptions.SelectedPaymentMethodId" onchange="checkVisibleCC()"></select>
+                    </div>
+                    <hr />
+                    <table>
+                        <tr>
+                            <td style="text-align: right"><span class="label rJustText">P.O. Number</span></td>
+                            <td>
+                                <input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PurchaseOrderNumber, attr: { placeholder: 'P.O. Number' }" maxlength="20" /></td>
+                        </tr>
+                    </table>
+                    <div class="noBorderChildren" data-bind="if: vm.Checkout.PaymentOptions.SelectedPaymentMethodId() == 2">
+                        <div data-bind="if: vm.Checkout.PaymentOptions.CreditCards().length > 0">
+                            <div class="ccheader" style="width: 340px"><span class="ccheader">My Cards</span></div>
+                            <div data-bind="foreach: vm.Checkout.PaymentOptions.CreditCards">
+                                <div>
+                                    <input type="radio" name="PaymentCardGroup" data-bind="attr: { value: RowId }, checked: vm.Checkout.PaymentOptions.SelectedCardId, checkedValue: RowId" />
+                                    <span class="ccdata" data-bind="text: ProfileName"></span>
+                                    <span class="ccdata" data-bind="text: MaskedCardNumber"></span>
+                                    <span class="ccdata" data-bind="text: CardType"></span>
+                                    <span class="ccdata" data-bind="text: ExpirationDate"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="if: vm.Checkout.PaymentOptions.CreditCards().length == 0">
+                            No cards on file
+                        </div>
+                        <div id="newCardlink">
+                            <a href="#" onclick="showNewCCInfo()">Add New...</a>
+                        </div>
+                        <div data-bind="template: { name: 'ui-messagelist-template', data: vm.Checkout.PaymentOptions.UIMessages }"></div>
+                    </div>
+                </div>
+                @*<input class="marksButton" style="margin-left: 350px" type="button" data-bind="click: vm.Checkout.NextStep, button: { disabled: vm.Checkout.PaymentOptionsComplete() === false }" value="Continue" />*@
+            </td>
+            <td id="addCCInfo" style="width: 440px" data-bind="visible: vm.Checkout.PaymentOptions.IsAddingNewCard">
+                <h2 style="width: 396px">Add new credit card</h2>
+                <div style="width: 400px">
+                    <hr />
+                    <div id="newCCInfo" class="fieldset noBorderChildren">
+                        <div><span class="label label-width">Profile Name</span><input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PaymentOptions.NewCard.ProfileName" /></div>
+                        <div><span class="label label-width">First Name</span><input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PaymentOptions.NewCard.FirstName" /></div>
+                        <div><span class="label label-width">Last Name</span><input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PaymentOptions.NewCard.LastName" /></div>
+                        <div><span class="label label-width">Card Number</span><input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PaymentOptions.NewCard.CardNumber" /></div>
+                        <div>
+                            <span class="label label-width">Exp. Month</span>
+                            <select data-bind="options: vm.Checkout.MonthList, optionsText: 'Text', optionsValue: 'Value', value: vm.Checkout.PaymentOptions.NewCard.ExpirationMonth"></select>
+
+                            <span class="label">Exp. Year</span>
+                            <select data-bind="options: vm.Checkout.YearList, optionsText: 'Text', optionsValue: 'Value', value: vm.Checkout.PaymentOptions.NewCard.ExpirationYear"></select>
+                        </div>
+                        <div><span class="label label-width">CVV2</span><input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PaymentOptions.NewCard.CVV2" /></div>
+
+                        <div><span class="label label-width">Address 1</span><input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PaymentOptions.NewCard.Address1" /></div>
+                        <div><span class="label label-width">Address 2</span><input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PaymentOptions.NewCard.Address2" /></div>
+                        <div><span class="label label-width">City</span><input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PaymentOptions.NewCard.City" /></div>
+                        <div><span class="label label-width">State</span><select class="accountInfoSection" data-bind="options: vm.Checkout.StateList, optionsText: 'Text', optionsValue: 'Value', value: vm.Checkout.PaymentOptions.NewCard.State"></select></div>
+                        <div><span class="label label-width">Zip</span><input type="text" class="ui-corner-all" data-bind="value: vm.Checkout.PaymentOptions.NewCard.ZipCode" /></div>
+                    </div>
+                    <div class="noBorder" style="margin-bottom: 15px;">
+                        <p style="width: 250px; display: inline">To cancel adding a new card, switch back to Marks Account payment method.</p>
+                        <input class="marksButton" type="button" style="margin-top: 5px; float: right" onclick="vm.Checkout.PaymentOptions.AddNewCard()" value="Save Card" />
+                    </div>
+                </div>
+            </td>
+            <td id="addLabels" style="width: 440px;float:right" data-bind="visible: vm.Checkout.PaymentOptions.IsAddingNewCard()==false">
+                <h2 style="width: 396px">Add Optional Free Labels</h2>
+                <div style="width: 400px">
+                    <div style="border:none !important">
+                        <input type="radio" name="IsLabelSelected" value="No" data-bind="checked: vm.Checkout.RadioFreeLabel" />No
+                        <input type="radio" name="IsLabelSelected" value ="Yes" data-bind="checked: vm.Checkout.RadioFreeLabel" />Yes
+                    </div>
+                    
+<!-- ko if: vm.Checkout.RadioFreeLabel() === "Yes" -->
+                    <div style="border-top:solid #008FCB !important">
+                        <span>Select label style to be emailed to you as a PDF document.<br /></span>
+                        <span><img id="img01" class="labelPic" src="~/Images/avery-4-per-sheets-small.png" style="width:22%" data-bind="click: function () { vm.Checkout.fireEvent('4') }" onclick="javascript:fnChangeBorder('img01');" />
+                        <img id="img02" class="labelPic" src="~/Images/avery-6-per-sheets-small.png" style="width:22%"  data-bind="click: function () { vm.Checkout.fireEvent('6') }" onclick="javascript:fnChangeBorder('img02');"/>
+                        <img id="img03" class="labelPic" src="~/Images/avery-10-per-sheets-small.png" style="width:22%" data-bind="click: function () { vm.Checkout.fireEvent('10') } " onclick="javascript:fnChangeBorder('img03');"/>
+                        <img id="img04" class="labelPic" src="~/Images/avery-30-per-sheets-small.png" style="width:22%" data-bind="click: function () { vm.Checkout.fireEvent('30') }" onclick="javascript:fnChangeBorder('img04');"/></span>
+                    </div>
+<!-- /ko -->
+                </div>
+                <input class="marksButton" style="margin-left: 350px" type="button" data-bind="click: vm.Checkout.NextStep, button: { disabled: vm.Checkout.PaymentOptionsComplete() === false }" value="Continue" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function checkVisibleCC() {
+        var paymentMethod = $("#paymentSelector").find(":selected").text();
+
+        if (paymentMethod == "Marks Account") {
+            $("#addCCInfo").hide();
+            $("#addLabels").show();
+        }
+    }
+
+    function showNewCCInfo() {
+        $("#addCCInfo").show();
+        $("#addLabels").hide();
+
+    }
+
+    function fnChangeBorder(imgName) {
+
+        //class="labelPic" --loop through and make sure border turned off on all images
+        var cusid_ele = document.getElementsByClassName('labelPic');
+        for (var i = 0; i < cusid_ele.length; ++i) {
+            var item = cusid_ele[i];
+            //item.setAttribute("style", "border-color: yellow;width:22%;border-style: solid;");
+            item.setAttribute("style", "border-color: white;width:22%;border-style: solid;");
+        }
+
+        //turn on border for selected one
+        var imgElement = document.getElementById(imgName);
+        imgElement.setAttribute("style", "border-color: green;width:22%;border-style: solid;");
+    }
+</script>

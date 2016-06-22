@@ -1,0 +1,32 @@
+﻿<h3 style="float: left">Price and Availability</h3>
+
+
+<!-- ko ifnot: vm.ShoppingCart.CurrentPromoCode -->
+@* NO Promo Code *@
+<strong><span style="color: black; float: right; margin-top: 20px" data-bind="text: 'Current Promo Code: None'"></span></strong>
+<!-- /ko -->
+
+<!-- ko if: vm.ShoppingCart.CurrentPromoCode -->
+@* Show Promo Code *@
+<strong><span style="color: black; float: right; margin-top: 20px" data-bind="text: 'Current Promo Code: ' + vm.ShoppingCart.CurrentPromoCode()"></span></strong>
+<!-- /ko -->
+
+
+
+
+<div data-bind="template: { name: 'cart-table-template', data: vm.ShoppingCart }"></div>
+<input class="marksButton" style="margin: 10px auto 5px; display: block" type="button" onclick="$('#step-1 #cartTable .dataUpdate a').click();" value="Update Quantities" />
+<div>
+    <div>
+        <br />
+        <div data-bind="template: { name: 'ui-messagelist-template', data: vm.ShoppingCart.PromotionCodeMessages }"></div>
+        <div data-bind="template: { name: 'ui-messagelist-template', data: vm.ShoppingCart.UIMessages }"></div>
+    </div>
+    <div>
+        <h3>Select Backorder Preferences</h3>
+    </div>
+</div>
+<select id="backorderOptions" data-bind="options: vm.Checkout.BackorderOptions, optionsText: 'Text', optionsValue: 'Value', value: vm.Checkout.SelectedBackorderOption"></select>
+<br />
+<br />
+<input class="marksButton" style="margin-left: 87%" type="button" onclick="$('#step-1 #cartTable .dataUpdate a').click();" data-bind="click: vm.Checkout.NextStep, button: { disabled: vm.ShoppingCart.CheckoutEnabled() === false || vm.UserAccount.EmailVerifiedString() !== 'true' }" value="Save & Continue" />

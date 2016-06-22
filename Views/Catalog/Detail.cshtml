@@ -1,0 +1,80 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Catalog.PartDetailModel
+
+<div id="partDetailDiv" style="display: none;" data-bind="visible:true">
+    <br />
+    <div id="contentTabList">
+        <h2>
+            <span class="DetailDescBold" data-bind="text: vm.PartDetail.Part.Description"></span>
+            <span class="DetailDescBold" style="float: right; padding: 5px 20px" data-bind="text: 'Part ' + vm.PartDetail.Part.PartNumber"></span>
+        </h2>
+        <div>
+            <div class="noBorder" style="float: right">
+                <span data-bind="if: vm.PartDetail.Part.TruckItem == true">
+                    <img id="detailTruckImg" src="/Content/images/truck.png" class="bottomTruckDetail" title="This item requires an additional shipping charge." />
+                </span>
+            </div>
+            <hr />
+            <table>
+                <tr>
+                    <td class="center" id="partDetailImageBg" rowspan="2">
+                        <img data-bind="attr: { src: vm.PartDetail.Part.ImagePath, title: 'Part ' + vm.PartDetail.Part.PartNumber }" />
+                    </td>
+                    <td style="margin-left: 10px;">
+                        <div class="noBorderChildren" style="margin-bottom: 0px">
+                            <div style="margin-bottom: 0px; margin-top: 0px"><span data-bind="text: vm.PartDetail.Part.Line1"></span></div>
+                            <div style="margin-bottom: 0px; margin-top: 0px"><span data-bind="text: vm.PartDetail.Part.Line2"></span></div>
+                            <div style="margin-bottom: 0px; margin-top: 0px"><span data-bind="text: vm.PartDetail.Part.Line3"></span></div>
+                            <div style="margin-top: 0px"><span data-bind="text: vm.PartDetail.Part.Line4"></span></div>
+                            @*This is the Vendor Part Description.  We want this almost visible.*@
+                            <div style="margin-bottom: 0px; margin-top: 0px; color:lightslategray;"><span data-bind="text: vm.PartDetail.Part.Line5"></span></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin-left: 10px;">
+                        <div  class="noBorderChildren">
+                            <hr />
+                            <div data-bind="if:vm.IsLoggedIn()==true" style="height: 50px">
+                                <div data-bind="if:vm.PartDetail.Part.IsAvailableForPurchase() == true">
+                                    <span class="detailBoldPartNum" data-bind="text: vm.PartDetail.Part.UnitPriceForDisplay"></span>
+                                    <span style="float:right">
+                                        <span class="paddingL10" style="padding-right: 10px;" data-bind="text: vm.PartDetail.Part.UnitOfMeasureAbbreviation"></span>
+                                        <input class="ui-corner-all unitQty" type="text" data-bind="value: vm.PartDetail.Part.Quantity" />
+                                        <span class="paddingL10" data-bind="if:vm.PartDetail.Part.QuantityAvailable > 0">In Stock</span>
+                                        <input class="marksButton" type="button" value="+ Cart" data-bind="click: vm.PartDetail.Part.AddToCart" />
+                                    </span>
+                                </div>
+                                <div class="unavailable" data-bind="if:vm.PartDetail.Part.IsAvailableForPurchase() == false">
+                                    <span>This item is currently unavailable.</span>
+                                </div>
+                                <hr />
+                            </div>
+
+                            <div data-bind="if:vm.IsLoggedIn()==true && vm.PartDetail.Part.IsAvailableForPurchase() == true" class="flexbox flex-column text-right">
+                                <h4>Add to favorites list</h4>
+                                <span>Select List <select data-bind="options: vm.PartDetail.FavoritesLists, optionsText: 'CartName',optionsValue:'CartId', value: vm.PartDetail.AddToListSelectedOption"></select></span><br /> <br /> 
+                                <input class="marksButton" type="button" value="Add to Favorites / &#x00A;Print Labels" data-bind="click:vm.PartDetail.AddToList" />
+                            </span>
+
+                            <div>
+                                @if (Model.Part.HasMSDS)
+                                {
+                                <div class="noBorder">
+                                    <a href="~/Content/documents/MSDS/@Model.Part.MSDSFullFilePath" target="_blank">Download MSDS</a>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>
+        var partDetailModel =@Html.Raw(Json.Encode(Model));
+    </script>
+}

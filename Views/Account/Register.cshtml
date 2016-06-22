@@ -1,0 +1,188 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Account.AccountRegistrationModel
+
+<h2>Register</h2>
+
+<div id="registrationDiv" style="display:none;" data-bind="visible:true">
+    <div id="registrationSteps">
+        <div id="step1" class="registrationStep" data-bind="if:vm.Registration.RegistrationStep()==1">
+            <div style="font-size:20px">
+                <div><input style="float: left; margin-top: 1px;" type="radio" name="accountTypeGroup" value="true" data-bind="checked:vm.Registration.IsExistingCustomer.ForEditing" /><div style="margin-left: 18px;">I want to add online access to my <u>existing</u> Marks account.</div></div>
+                <br/>
+                <div><input style="float: left; margin-top: 1px;" type="radio" name="accountTypeGroup" value="false" data-bind="checked:vm.Registration.IsExistingCustomer.ForEditing" /><div style="margin-left: 18px;">I do not have an account with Marks and would like to create one now.</div></div>
+            </div>
+            <div>
+                <br /><br />
+                <hr />
+                <h2>Account Setup</h2>
+                <table class="userData">
+                    <tr>
+                        <td><span class="accountInfoSection label">Desired Username</span></td>
+                        <td><input class="accountInfoSection" type="text" data-bind="value:vm.Registration.UserName" /></td>
+                    </tr>
+                    <tr>
+                        <td><span class="accountInfoSection label">Email Address</span></td>
+                        <td><input class="accountInfoSection" type="text" data-bind="value:vm.Registration.EmailAddress" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div data-bind="template:{name:'ui-messagelist-template',data:vm.Registration.UIMessages}"></div>
+            <input type="button" class="marksButton accountInfoSection" value="Continue" data-bind="click:vm.Registration.StepOneContinue" />
+        </div>
+        <div id="step2" class="registrationStep" data-bind="if:vm.Registration.RegistrationStep()==2">
+            <div class="accountInfoSectionBlock" data-bind="if:vm.Registration.IsExistingCustomer()==true">
+                <span>Enter your Mark's customer number and zip code in the fields below to begin placing orders online. If you don't know your customer number, it can be found on a past invoice or packing slip or by calling our Customer Service Department.
+                </span>
+                <h3 class="accountInfoSection">Link to an existing Mark's account</h3>
+                <table class="userData">
+                    <tr>
+                        <td><span class="accountInfoSection label">Customer Number</span></td>
+                        <td><input class="accountInfoSection" type="text" data-bind="value:vm.Registration.CustomerNumber" /></td>
+                    </tr>
+                    <tr>
+                        <td><span class="accountInfoSection label">Billing Zip Code</span></td>
+                        <td><input class="accountInfoSection" type="text" data-bind="value:vm.Registration.BillingZipCode" /></td>
+                    </tr>
+                </table>
+                <hr class="accountInfoSection" />
+            </div>
+            <div class="accountInfoSectionBlock">
+                <h3 class="accountInfoSection">Create web account info</h3>
+
+                <table class="userData">
+                    <tr>
+                        <td><span class="accountInfoSection label">Desired Username</span></td>
+                        <td><span class="accountInfoSection" style="font-weight:bold;" data-bind="text:vm.Registration.UserName" /></td>
+                    </tr>
+                    <tr>
+                        <td><span class="accountInfoSection label">Email Address</span></td>
+                        <td><span class="accountInfoSection" style="font-weight:bold" data-bind="text:vm.Registration.EmailAddress" /></td>
+                    </tr>
+                    <tr><td></td><td></td></tr>
+                    <tr>
+                        <td><span class="accountInfoSection label">First Name</span></td>
+                        <td><input class="accountInfoSection" type="text" data-bind="value:vm.Registration.FirstName" /></td>
+                    </tr>
+                    <tr>
+                        <td><span class="accountInfoSection label">Last Name</span></td>
+                        <td><input class="accountInfoSection" type="text" data-bind="value:vm.Registration.LastName" /></td>
+                    </tr>
+                    <tr style="height: 20px">
+                        <td>
+                            <span class="accountInfoSection label">Create Password</span>
+                        </td>
+                        <td rowspan="2">
+                            <div style="height: 105px; margin-bottom: 5px;">
+                                @*, keyup:vm.Registration.PasswordMeter.CheckPasswordStrength*@
+                                <input class="accountInfoSection" type="password" data-bind="value:vm.Registration.Password,event:{paste:vm.Registration.PasswordMeter.PreventPaste},attr:{title:vm.Registration.PasswordMeter.PasswordRequirementsText}"  maxlength="20" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="passValid" style="width: 128px !important; margin-bottom: 40% !important;" data-bind="css:vm.Registration.PasswordMeter.PasswordCSS">
+                                <span data-bind="text:vm.Registration.PasswordMeter.PasswordMeterText"></span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <hr class="accountInfoSection" />
+            </div>
+            <div data-bind="template:{name:'ui-messagelist-template',data:vm.Registration.UIMessages}"></div>
+            <!-- determine if we show continue or complete/finished button -->
+            <div class="buttonBlock" data-bind="if:vm.Registration.IsExistingCustomer()==true">
+                <input type="button" class="marksButton accountInfoSection" value="Complete" data-bind="click:vm.Registration.StepTwoContinue" />
+            </div>
+            <div class="buttonBlock" data-bind="if:vm.Registration.IsExistingCustomer()==false">
+                <input type="button" class="marksButton accountInfoSection" value="Continue" data-bind="click:vm.Registration.StepTwoContinue" />
+            </div>
+
+        </div>
+        <div id="step3" class="registrationStep" data-bind="if:vm.Registration.RegistrationStep()==3">
+            <div class="accountInfoSectionBlock">
+                <h3>Billing Address</h3>
+                <div data-bind="template:{name:'address-template',data:vm.Registration.BillingAddress }"></div>
+            </div>
+            <div class="accountInfoSectionBlock">
+                <h3>Shipping Address</h3>
+                <div><input type="checkbox" data-bind="checked: vm.Registration.UseBillingAddressForShipping" />Same as Billing Address</div>
+                <div data-bind="template:{name:'address-template',data:vm.Registration.ShippingAddress },visible:vm.Registration.UseBillingAddressForShipping()==false"></div>
+            </div>
+            <div data-bind="template:{name:'ui-messagelist-template',data:vm.Registration.UIMessages}"></div>
+            <input type="button" class="marksButton accountInfoSection" value="Complete" data-bind="click:vm.Registration.StepThreeContinue" />
+        </div>
+        <div id="step4" class="registrationStep" data-bind="if:vm.Registration.RegistrationStep()==4">
+            <div data-bind="template:{name:'ui-messagelist-template',data:vm.Registration.UIMessages}"></div>
+            <span data-bind="if:$('.uimessage.error').toString().indexOf('Account Recovery') > 0">Please sign in with your new account.</span>
+        </div>
+    </div>
+    <div id="accountBenefitsDiv" data-bind="if:vm.Registration.RegistrationStep()!=4">
+        <span>If you do not have an account with Mark's you can also call our Customer Service Department at 1-800-772-2347 to open a new account.</span>
+        <h2>Benefits of a Mark's online account</h2>
+        <ol>
+            <li>Ability to enter orders online.</li>
+            <li>Customize favorite lists for frequently ordered parts.</li>
+            <li>View Orders, Quotes, and Invoices online.</li>
+            <li>Browse part order history with links back to original invoices.</li>
+            <li>Research purchases made 7+ years ago.</li>
+        </ol>
+    </div>    
+</div>
+
+
+@Html.Partial("_UIMessageListTemplate")
+
+<script type="text/html" id="address-template">
+    <div class="addressDiv">
+        <table class="userData">
+            <tr>
+                <td><span class="accountInfoSection label nowrapping">Company Name</span></td>
+                <td colspan="2"><input class="accountInfoSection" type="text" data-bind="value:CompanyName" /></td>
+            </tr>
+            <tr>
+                <td><span class="accountInfoSection label nowrapping">Attention</span></td>
+                <td colspan="2"><input class="accountInfoSection" type="text" data-bind="value:Attention" /></td>
+            </tr>
+            <tr>
+                <td><span class="accountInfoSection label nowrapping">Address 1</span></td>
+                <td colspan="2"><input class="accountInfoSection" type="text" data-bind="value:Street1"/></td>
+            </tr>
+            <tr>
+                <td><span class="accountInfoSection label nowrapping">Address 2</span></td>
+                <td colspan="2"><input class="accountInfoSection" type="text" data-bind="value:Street2" /></td>
+            </tr>
+            <tr>
+                <td><span class="accountInfoSection label nowrapping">City</span></td>
+                <td colspan="2"><input class="accountInfoSection" type="text" data-bind="value:City" /></td>
+            </tr>
+            <tr>
+                <td><span class="accountInfoSection label nowrapping">State</span></td>
+                <td colspan="2"><select class="accountInfoSection"  data-bind="options: vm.Registration.StateList, optionsText: 'Text', optionsValue: 'Value', value: State"></select></td>
+            </tr>
+            <tr>
+                <td><span class="accountInfoSection label nowrapping">Zip</span></td>
+                <td colspan="2"><input class="accountInfoSection" type="text" data-bind="value:Zip" /></td>
+            </tr>
+            <tr>
+                <td><span class="accountInfoSection label nowrapping">Phone #</span></td>
+                <td><input class="accountInfoSection phoneInput" type="text" data-bind="value:PhoneNumber" /></td>
+                <td>Ext:&nbsp;<input class="accountInfoSection phoneExtInput" type="text" data-bind="value:Extension"/></td>
+            </tr>
+            <tr>
+                <td><span class="accountInfoSection label nowrapping">Fax #</span></td>
+                <td colspan="2"><input class="accountInfoSection" type="text" data-bind="value:FaxNumber" /></td>
+            </tr>
+        </table>
+    </div>
+</script>
+
+
+
+
+
+@section Scripts{
+
+    <script>
+        var registrationModel =@Html.Raw(Json.Encode(Model));
+        
+    </script>
+}

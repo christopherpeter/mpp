@@ -1,0 +1,20 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Catalog.CatalogSearchModel
+
+
+@using (Html.BeginForm("Search", "Catalog", null, FormMethod.Post, new { id = "searchForm" }))
+{
+   
+    <input data-val="true" data-val-required="The IsSearchTextSearch field is required." id="SearchParamaters_IsSearchTextSearch" name="SearchParamaters.IsSearchTextSearch" type="hidden" value="true">
+   
+    
+    @Html.TextBoxFor(m => m.SearchParamaters.SearchText,
+    new
+    {
+        @class = "ui-corner-all",
+        id = "searchTextBox",
+        title = "Enter part number or part name to search",
+        data_bind = "value: vm.SearchText" //,attr:{placeholder: 'Search Box'}
+    })    
+    <input class="marksButton" type="submit" id="searchButton" value="Search" />
+}
+

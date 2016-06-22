@@ -1,0 +1,60 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Favorites.FavoritesListModel
+
+<script type="text/javascript">
+    function toQty(event) {
+        if (event.keyCode == 13) {
+            $("#favQty").focus();
+        }
+    }
+
+    function quickAdd(event) {
+        if (event.keyCode == 13) {
+            $("#addToListButton").click();
+        }
+    }
+</script>
+
+<div id="favoritesListDiv" style="display: none;" data-bind="visible:true">
+    <h2 class="center" data-bind="text:vm.FavoritesList.CartName"></h2>
+    <div id="favorites_quickAdd">
+        <span class="label">Part Number</span>
+        <input class="ui-corner-all" id="favPartNo" type="text" data-bind="value:vm.FavoritesList.QuickAddPartNumber,attr:{placeholder:'Part #'}" onkeyup="toQty(event)" />&nbsp;
+        <span class="label">Quantity</span>
+        <input class="ui-corner-all unitQty" id="favQty" type="text" data-bind="value:vm.FavoritesList.QuickAddQuantity,attr:{placeholder: 'Qty.'}" onkeyup="quickAdd(event)" />
+        <input class="marksButton" id="addToListButton" type="button" data-bind="click:vm.FavoritesList.QuickAddItem" value="Add To List" onclick="    favPartNo.focus(); favPartNo.value=''; favQty.value=''" />
+        <div data-bind="template: { name: 'ui-messagelist-template', data: vm.FavoritesList.UIMessages }"></div>
+    </div>
+    <br />
+    <div>
+        <div data-bind="template: { name: 'cart-table-template', data: vm.FavoritesList }"></div>
+    </div>
+    <br />
+    <div>
+        <input class="marksButton" id="deleteSelectedButton" type="button" data-bind="click:vm.FavoritesList.DeleteSelected" value="Delete Selected" />
+        <input class="marksButton" id="addSelectedToCartButton" type="button" data-bind="click:vm.FavoritesList.AddSelectedToCart" value="Add Selected To Cart" />
+        <input class="marksButton" id="partLabelsButton" style="float: right" type="button" data-bind="click:vm.FavoritesList.PartLabelSelectorClicked" value="Print Labels" />
+    </div>
+    <div data-bind="visible: vm.FavoritesList.PartLabelSelectorVisible" style="position: relative">
+        <table id="PartLabelTable" class="noBorderChildren" style="position: absolute; top: 0; left: 0; height: 200px; border: none; float: right">
+            <tbody>
+                <tr style="float: right">
+                    <td><img src="/Images/avery-4-per-sheets-small.png" data-bind="click: vm.FavoritesList.PartLabels4ByFavList" /></td>
+                    <td><img src="/Images/avery-6-per-sheets-small.png" data-bind="click: vm.FavoritesList.PartLabels6ByFavList" /></td>
+                    <td>
+                        <img src="/Images/avery-10-per-sheets-small.png" data-bind="click: vm.FavoritesList.PartLabels10ByFavList" /></td>
+                    <td>
+                        <img src="/Images/avery-30-per-sheets-small.png" data-bind="click: vm.FavoritesList.PartLabels30ByFavList" /></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@Html.Partial("_CartTableTemplate")
+
+@section Scripts{
+    <script>
+        var favoritesListModel =@Html.Raw(Json.Encode(Model));
+    </script>
+}

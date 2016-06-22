@@ -1,0 +1,444 @@
+﻿@using System.Web.Configuration
+@using MarksPlumbing.OrderEntry.Business
+@model MarksPlumbing.WWW.UI.Models.BaseModel
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    @{
+        string sBrowser = Context.Request.Browser.Browser.ToUpper();
+        string sBrowserType = Context.Request.Browser.Type.ToUpper();
+        string isTestProduction = "";
+        string isVariableCompliant = "vars";
+        if ((sBrowser == "INTERNETEXPLORER") | (sBrowser == "IE"))
+        {
+        <!-- tag that allows IE to emulate specific version -->
+        <meta http-equiv="x-ua-compatible" content="IE=EmulateIE9" />
+        <script src="~/scripts/html5shiv.js"></script>        
+            //decimal IE_Version = System.Convert.ToDecimal(Context.Request.Browser.Version);
+            //if (IE_Version < 9)
+            isVariableCompliant = "ie";
+        }
+        if (sBrowserType == "CHROME42")
+        {
+            isVariableCompliant = "ie";
+        }
+        if (HttpContext.Current.Request.Url.Host == "localhost" || HttpContext.Current.Request.Url.Host == "test-www.markspp.com")
+        {
+            isTestProduction = "test";
+        }
+        else
+        {
+            isTestProduction = "production";
+        }
+    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="@ViewBag.MetaDescription" />
+    <meta name="google-site-verification" content="8WPXIYtLKGtlkL8p_jyVA5N36sbUnuyiNSIEY_vIums" />
+    <title>Mark's</title>
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="@Url.Content("~/Content/themes/start/jquery-ui-1.10.4.custom.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Checkout.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/loading.widget.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Preferences.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Register.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ResetPassword.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/SearchResults.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/SiteMap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Contacts.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/history.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/" + isTestProduction + "-schema-" + isVariableCompliant + ".css")" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        function toQty(event) {
+            if (event.keyCode == 13) {
+                $("#qtyAmt").focus();
+            }
+        }
+
+        function quickAdd(event) {
+            if (event.keyCode == 13) {
+                //before we moveforward verify that sellquantity is a multiple of quantity entered.
+                $("#quickAddButton").click();
+            }
+        }
+
+        function switchHideShow(idSelector) {
+            idSelector = "#" + idSelector;
+            
+            if ($(idSelector).prop("value").search(/Hide/) >= 0) {
+                $(idSelector).prop("value", $(idSelector).prop("value").replace("Hide", "Show"));
+            } else {
+                $(idSelector).prop("value", $(idSelector).prop("value").replace("Show", "Hide"));
+            }
+        }
+
+        function applyPromo() {
+            if (event.keyCode == 13) {
+                $("#promotionCodeButton").click();
+            }
+        }
+
+    </script>
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @if (WebConfigurationManager.AppSettings["DownForMaintenance"] == "0")
+    {
+        <div style="display: none;" data-bind="visible:true">
+            <div>
+                <!-- ko if:vm.IsLoggedIn()==true && vm.UserAccount.EmailVerifiedString()!=='true' -->
+                <div id="emailVerifyNotice" data-bind="click:vm.TriggerEmailVerification">
+                    Your Email Address has not been verified and you cannot complete the checkout process. Please click here to resend the verification email.
+                </div>
+                <!-- /ko -->
+            </div>
+
+            @*This sets banner to blue or green so we can identify test mode or prod mode*@
+
+            <div id="header" data-bind="css: { header: vm.RunInTestMode() == false, headerTest: vm.RunInTestMode() == true }">
+                <div id="upperHeader">
+                    <div id="logoBox" style="text-decoration: none">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img id="mainlogo" width="200" height="90" src="/Content/images/MarksCyanLogo.png" alt="Mark's" /></a>
+                    </div>
+                    <div id="slogan">
+                        <span>America's Largest Selection of Faucet, Flushometer, Toilet, and Drinking Fountain Parts<br />
+                        </span>
+                        <span data-bind="text:'Toll Free: 800-772-2347'"></span>
+                    </div>
+                    @* <div id="catalogIcon">
+                        <a target="_blank" href="http://www.nxtbook.com/nxtbooks/marksplumbing/edition_h/#/0">
+                            <img title="Click to access our online catalog" width="64" height="75" src="/Content/images/Catalog-Icon.png" alt="Catalog">
+                            <span>Online Catalog</span>
+                        </a>
+                    </div>*@
+                  
+                    <div class="search_section">
+                          <div id="userInfo">
+                        @if (Model.IsLoggedIn)
+                        {
+                            <div>
+                                <span data-bind="text:'Welcome ' + vm.UserAccount.FullName()"></span>
+                                @*<span data-bind="text:'Customer Number: ' + vm.UserAccount.CustomerNumber()"></span>*@
+                                @Html.ActionLink("logout", "Logout", "Account", null, new { id = "logoutLink", data_bind = "if:vm.IsLoggedIn()==true" })
+                            </div>
+                        }
+                    </div>
+                    @* <div class="share42init" style="float:right; position:static;margin-top:-60px;margin-left: 800px; "></div>
+                    <div id="marksPhonediv" >
+                        <span class="marksGSAno" data-bind="text:'GSA# GS-07F0342U'"></span>
+                        
+                    </div>*@
+
+                        <div id="advancedSearch">
+
+                            @Html.ActionLink("Advanced Search", "AdvancedSearch", "Catalog", null, new { id = "advancedSearchLink" })
+                        </div>
+                        <div id="SearchBox">
+                            @{ Html.RenderAction("SearchBox", "Catalog"); }
+                        </div>
+                    </div>
+                </div>
+
+                <div id="headerMenuDiv">
+                    <ul id="headermenu" class="center">
+                        <li>
+                            <a class="inline" href="@Url.Action("Index", "Home")">Home</a>
+                            <ul>
+                                <li class="sub"><a href="@Url.Action("Index", "SiteMap")">Site Map</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="inline" href="#">Resources</a>
+                            <ul>
+                                <li class="sub"><a href="http://www.nxtbook.com/nxtbooks/marksplumbing/edition_h/#/0" target="_blank">Online Catalog</a></li>
+                                <li class="sub"><a href="@Url.Action("CompanyInformation", "Resources")">Company Information</a></li>
+                                <li class="sub"><a href="@Url.Action("Careers", "Resources")">Careers at Mark's</a></li>
+                                <li class="sub"><a href="~/Content/documents/creditapplication.pdf" target="_blank">Credit Application</a></li>
+                                <li class="sub"><a href="@Url.Action("StoreLocations", "Resources")">Store Locations</a></li>
+                                <li class="sub"><a href="@Url.Action("PrintingLabels", "Resources")">Printing Labels</a></li>
+                                <li class="sub"><a href="@Url.Action("Tutorials", "Resources")">Tutorials</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="inline" href="#">Customer Service</a>
+                            <ul>
+                                <li class="sub"><a href="@Url.Action("Contacts", "CustomerService")">Company Contacts</a></li>
+                                <li class="sub"><a href="@Url.Action("ReturnsPolicy", "CustomerService")">Returns Policy</a></li>
+                                <li class="sub"><a href="@Url.Action("Terms", "CustomerService")">Terms of Sale</a></li>
+                                <li class="sub"><a href="@Url.Action("TaxExemptInstructions", "CustomerService")">Tax Exempt Instructions</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="inline" href="http://www.nxtbook.com/nxtbooks/marksplumbing/edition_h/#/0" target="_blank">Online Catalog</a>
+
+                        </li>
+
+
+                        @if (Model.IsLoggedIn == true)
+                        {
+                            <li>
+                                <a class="inline" href="#">My Account</a>
+                                <ul>
+                                    <li class="sub"><a href="@Url.Action("Preferences", "Account")">Settings</a> </li>
+                                    <li class="sub"><a href="@Url.Action("Index", "Favorites")">Favorites / Print Labels</a> </li>
+                                    <li class="sub"><a href="@Url.Action("Invoices", "Account")">Invoices</a> </li>
+                                    <li class="sub"><a href="@Url.Action("Quotes", "Account")">Quotes</a> </li>
+                                    @*<li class="sub"><a href="@Url.Action("OrderHistory", "Account")">Order History</a> </li>*@
+                                    <li class="sub"><a href="@Url.Action("History", "Account")">Part History</a> </li>
+                                    <li class="sub">@Html.ActionLink("Pay Invoices", "ePay", "Account", null, new { target = "_blank" })</li>
+                                    <li class="sub">@Html.ActionLink("PrePay an Order", "ePay", "Account", null, new { target = "_blank" })</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="inline" href="#">My Reports</a>
+                                <ul>
+                                    <li class="sub"><a href="@Url.Action("PopularParts", "MyReports")">Popular Parts</a></li>
+                                    <li class="sub"><a href="@Url.Action("RepeatPurchases", "MyReports")">Repeat Purchases</a></li>
+                                    @*<li class="sub"><a href="@Url.Action("PrintLabels", "MyReports")">Label Printing</a></li>*@
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+
+                </div>
+            </div>
+
+          @*  @{ var controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+
+               if (controllerName == "Home")
+               {
+                @Html.Partial("~/Views/home/Banner.cshtml")
+               }
+              
+            }*@
+
+
+
+
+            @*   @RenderPage("_Banner.cshtml")*@
+
+
+
+            <div style="width: 100%; float: left">
+                @if (Model.ShowSideBar == true)
+                {
+                    <div id="content-sidebar" class="ui-corner-bottom">
+                        <div id="sidebar-top">
+                            @if (Model.IsLoggedIn == true)
+                            {
+                                <div>
+                                    <div id="promocodeDiv">
+                                        <input id="promoCodeText" placeholder="Enter promo code" class="ui-corner-all" title="Enter a promo code to get discounts on items" type="text" onkeyup="applyPromo()" data-bind="event: { keyup: vm.ShoppingCart.pcApplyBtn}" />
+                                        <input type="button" id="promotionCodeButton" class="marksButton" value="Apply" data-bind="click:vm.ShoppingCart.ApplyPromotionCode,button:{disabled:vm.ShoppingCart.pcApplyEnabled()===false} " onclick="    $('#promoCodeText').focus()" />
+                                        <br />
+                                        <span id="layoutPromoCode" style="color: white" data-bind="text:(vm.ShoppingCart.CurrentPromoCode() === undefined || vm.ShoppingCart.CurrentPromoCode() === '')? 'Current Promo Code: None' : 'Current Promo Code: ' + vm.ShoppingCart.CurrentPromoCode()"></span>
+                                        <div data-bind="template:{name:'ui-messagelist-template',data:vm.ShoppingCart.PromotionCodeMessages}"></div>
+                                    </div>
+                                    <hr />
+                                    <input id="showHideSwitchCart" class="section-toggle-btn" type="button" value="Hide Cart" data-bind="click:vm.ToggleCartPreview" onclick="    switchHideShow('showHideSwitchCart')" />
+                                    <div id="cartBox" data-bind="if:vm.ShowCartPreview()==true">
+                                        <table id="miniCart">
+                                            <thead>
+                                                <tr>
+                                                    <th>Part#</th>
+                                                    <th>Qty</th>
+                                                    <th>Price</th>
+                                                    <th>Ext. Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="foreach: vm.ShoppingCart.CartItems">
+                                                <tr>
+                                                    <td class="text rightBorder"><a data-bind="text: PartNumber, attr: { href: ViewDetailRoute, title: PartNumber }"></a></td>
+                                                    <td class="number rightBorder" data-bind="text: Quantity"></td>
+                                                    <td class="number rightBorder" data-bind="text: UnitPrice"></td>
+                                                    <td class="number" data-bind="text: ExtendedPrice"></td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="number">SubTotal:</td>
+                                                    <td class="number" data-bind="text: vm.ShoppingCart.SubTotal"></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <div id="cartButtonLine">
+                                            <input type="button" id="viewCartButton" value="View Cart" class="marksButton cartButton" data-actionurl="@Url.Action("Index", "ShoppingCart")" data-bind="click:vm.LinkButtonClick" />
+                                            <input type="button" id="quoteButton" value="Quote" class="marksButton cartButton" data-actionurl="/Checkout/2" data-bind="click:vm.LinkButtonClick,button:{disabled:vm.ShoppingCart.CheckoutEnabled()===false || vm.UserAccount.EmailVerifiedString()!=='true' }" />
+                                            <input type="button" id="checkoutButton" value="Checkout" class="marksButton cartButton" data-actionurl="/Checkout/1" data-bind="click:vm.LinkButtonClick,button:{disabled:vm.ShoppingCart.CheckoutEnabled()===false || vm.UserAccount.EmailVerifiedString()!=='true' }" />
+                                        </div>
+                                        <div data-bind="validationOptions: { insertMessages: false}">
+                                            <div id="quickPartAddLine">
+                                                <input id="partNo" class="ui-corner-all quickAdd" type="text" title="Enter a part number to purchase."
+                                                    data-bind="value:vm.ShoppingCart.QuickAddPartNumber,attr:{placeholder: 'Part #'}" onkeyup="toQty(event)" />
+                                                <input id="qtyAmt" class="ui-corner-all quickAdd" type="text" title="Enter a part quantity to purchase."
+                                                    data-bind="value:vm.ShoppingCart.QuickAddQuantity,attr:{placeholder: 'Qty.'}, pattern:'^\d+$' " onkeyup="quickAdd(event)" />
+                                                <input id="quickAddButton" value="Quick Add" type="button" class="marksButton quickAdd" data-bind="click: vm.ShoppingCart.QuickAddItem" onclick="    partNo.focus(); partNo.value=''; qtyAmt.value=''">
+                                            </div>
+                                            <div id="quickAddValidationMessages"><span class="error" data-bind="validationMessage:vm.ShoppingCart.QuickAddPartNumber"></span>&nbsp;<span class="error" data-bind="    validationMessage:vm.ShoppingCart.QuickAddQuantity"></span></div>
+                                            <div id="quickAddUIMessages" style="background-color: white; margin: 0 10px; border-radius: 15px;" data-bind="template: { name: 'ui-messagelist-template', data: vm.ShoppingCart.UIMessages }"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            @if (Model.IsLoggedIn == false)
+                            {
+                                <div>
+                                    @{ Html.RenderAction("LoginBox", "Account"); }
+                                </div>
+                            }
+                        </div>
+
+
+                        <div class="container breadcrumb" data-bind="foreach:vm.BreadCrumbs" style="display: none;">
+                            @*<div class="breadcrumb" data-bind="html:value"></div>*@
+                        </div>
+                        <input id="showHideSwitchProducts" class="section-toggle-btn" type="button" value="Hide Product Categories" data-bind="click:vm.ToggleCatalogMenu" onclick="switchHideShow('showHideSwitchProducts')" />
+                        <div id="catalog-menu">
+                            <div data-bind="if:vm.ShowCatalogMenu()==true">
+                                <ul id="catalogMenu" style="cursor: pointer" data-bind="foreach: vm.CatalogMenu.Items">
+                                    <li>
+                                        <a data-bind="text: Text, click:vm.CatalogMenu.ItemClicked"></a>
+                                        <ul data-bind="foreach: SubMenuItems">
+                                            <li><a data-bind="text: Text, click:vm.CatalogMenu.ItemClicked"></a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                }
+
+
+
+
+                <div id="content" style="float: right; width: 75%;">
+                    <div id="content-main" data-bind="stopBinding: true">
+                        <div id="loading_dialog"></div>
+                        @RenderBody()
+                    </div>
+
+
+                </div>
+
+
+
+
+                @*              <div style="width: 760px">
+                  <div style="width: 345px; height: 548px; margin: 0 auto">
+                      <a target="_blank" href="http://www.nxtbook.com/nxtbooks/marksplumbing/edition_h/#/0"><img style="width: 345px; height: 548px;" src="~/Content/images/CatalogH.jpg" /></a>
+                  </div>
+              </div>*@
+
+                @*                <div id="flyerGrid">
+                    @Html.Partial("_FlyerItemListTemplate", Model)
+                </div>*@
+
+            </div>
+
+
+            <div id="footer" class="center">
+                <div>
+                    <a href="http://www.nxtbook.com/nxtbooks/marksplumbing/edition_h/#/0" target="_blank">Online Catalog</a><span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                    <a href="~/Content/documents/creditapplication.pdf" target="_blank">Credit Application</a><span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                    <a href="@Url.Action("Index", "SiteMap")">Site Map</a>
+                </div>
+                <h4 class="greyText">Mark&#39;s Plumbing Parts is an Equal Opportunity Employer.<br />
+                    &copy; <span data-bind="text: new Date().getFullYear()"></span>Mark&#39;s Plumbing Parts. All Rights Reserved.<br />
+                    <span data-bind="text:'Toll Free: 800-772-2347'"></span>
+                </h4>
+                @*<tr style="align-items: center">
+                    <td><img src="~/Content/Images/Affiliations/AJA_CororateLogo.PNG"  />&nbsp;&nbsp;&nbsp;</td>
+                    <td><img src="~/Content/Images/Affiliations/PHCC-Logo-CP.PNG" />&nbsp;&nbsp;&nbsp;</td>
+                    <td><img src="~/Content/Images/Affiliations/Buy-Board-logo-CP.PNG" />&nbsp;&nbsp;&nbsp;</td>
+                </tr>*@
+                <div style="display: none;">
+                    <img src="~/Content/Images/Affiliations/AJA_CororateLogo.PNG" />
+                    <img src="~/Content/Images/Affiliations/PHCC-Logo-CP.PNG" />
+                    <img src="~/Content/Images/Affiliations/Buy-Board-logo-CP.PNG" />
+
+                </div>
+
+                <div class="browsericon" style="display: none;">
+                    @{
+                var serverName = System.Environment.MachineName;
+                        <span style="vertical-align: top">
+                            <img src="~/Images/GoogleChrome.jpg" height="18px" width="18px" title="@serverName" />&nbsp;&nbsp;&nbsp;Optimized for Google Chrome.</span>
+                    }
+                </div>
+                <div class="share42init" style="float: right; position: static; margin-top: -60px; margin-left: 800px;"></div>
+                <div id="marksPhonediv" style="display: none;">
+                    <span class="marksGSAno" data-bind="text:'GSA# GS-07F0342U'"></span>
+
+                </div>
+            </div>
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+        </div>
+    }
+    else
+    {
+        <div>
+            @{ Html.RenderAction("MaintenanceDown", "Home"); }
+        </div>
+@*<h1>We're sorry, but www.markspp.com is currently down for maintenance.</h1>*@
+    }
+    <div id="errorBox"></div>
+    <div id="confirmationDialog"></div>
+    @Html.Partial("_UIMessageListTemplate")
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    <script>
+        var viewModel = @Html.Raw(Json.Encode(Model));
+    </script>
+
+    @Scripts.Render("~/bundles/marks")
+    @Scripts.Render("~/Scripts/Marks/site.js")
+
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/Scripts/jquery.slides.min.js")
+    @Scripts.Render("~/Scripts/Marks/browser.js")
+    @Scripts.Render("~/Scripts/Marks/checkout.js")
+    @Scripts.Render("~/Scripts/Marks/customerhistory.js")
+    @Scripts.Render("~/Scripts/Marks/documentlookup.js")
+    @Scripts.Render("~/Scripts/Marks/favorites.js")
+    @Scripts.Render("~/Scripts/Marks/favoriteslist.js")
+    @Scripts.Render("~/Scripts/Marks/home.js")
+    @Scripts.Render("~/Scripts/Marks/partdetail.js")
+    @Scripts.Render("~/Scripts/Marks/partlabel.js")
+    @Scripts.Render("~/Scripts/Marks/registration.js")
+    @Scripts.Render("~/Scripts/Marks/resetpassword.js")
+    @Scripts.Render("~/Scripts/Marks/searchresults.js")
+    @Scripts.Render("~/Scripts/Marks/shoppingcart.js")
+    <script type="text/javascript" src="~/Scripts/SocialMedia/share42.js"></script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-68941915-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

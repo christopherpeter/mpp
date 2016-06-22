@@ -1,0 +1,42 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Login.LoginModel
+
+
+<div id="loginBox" data-bind="css: { loginBox: vm.RunInTestMode() == false, loginBoxTest: vm.RunInTestMode() == true }">
+    @{
+        var returnUrl = string.Empty;
+        if (Context.Request.Path == "/Account/Login")
+        {
+            returnUrl = Context.Request.QueryString["ReturnUrl"].ToString();
+        }
+        else
+        {
+            returnUrl = System.Web.HttpUtility.UrlEncode(Context.Request.Path);
+            if (Context.Request.QueryString != null && Context.Request.QueryString.Count > 0)
+            {
+                returnUrl += "?" + Context.Request.QueryString;
+            }
+        }
+    }
+
+    @using (Html.BeginForm("Login", "Account", new { returnUrl = @returnUrl }, FormMethod.Post, new { id = "loginForm" }))
+    {
+        if (Model.LoginError)
+        {
+            <span class="error">The username or password is invalid.</span>
+        }
+        @Html.LabelFor(m => m.UserName)
+        
+        @Html.TextBoxFor(m => m.UserName, new { @class = "ui-corner-all", title = "Enter user name to login with" })
+        
+        @Html.LabelFor(m => m.Password)
+        
+        @Html.PasswordFor(m => m.Password, new { @class = "ui-corner-all", title = "Enter password to login with",  maxlength = "20" })
+        
+        <input type="submit" id="loginButton" class="loginClassButton marksButton" value="Sign in" />
+        
+    }
+    <span id="loginTextQuestion">Don't Have a Login?</span>
+    <input id="registerButton" type="button" class="loginClassButton marksButton" value="Register to Order" data-actionurl="@Url.Action("Register", "Account")" data-bind="click: vm.LinkButtonClick"  />
+    <input id="resetPasswordButton" type="button" class="loginClassButton marksButton" value="Account Recovery" data-actionurl="@Url.Action("Recovery", "Account")" data-bind="click: vm.LinkButtonClick"  />
+</div>
+

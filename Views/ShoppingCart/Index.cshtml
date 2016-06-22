@@ -1,0 +1,78 @@
+﻿@model MarksPlumbing.WWW.UI.Models.ShoppingCart.ShoppingCartEditModel
+
+
+<h2>Viewing Shopping Cart</h2>
+
+<div id="shoppingCartDiv" style="display: none;" data-bind="visible:true">
+    <!-- ko if:vm.IsLoggedIn()==true && vm.UserAccount.EmailVerifiedString()!=='true' -->
+    <div id="emailVerifyNoticeVC" style="font-weight: bold; font-size: 14px;" data-bind="click:vm.TriggerEmailVerification">
+        Your Email Address has not been verified and you cannot
+        <br />
+        complete the checkout process. Please click here to resend the verification email.
+    </div>
+    <br />
+    <!-- /ko -->
+
+    <div>
+        <div>
+            <input type="button" class="marksButton" value="Remove Selected" data-bind="click:vm.ShoppingCart.DeleteSelected" />
+            <input type="button" class="marksButton" value="Add Selected to Favorites List:" data-bind="click:vm.EditCart.AddSelectedToList" />
+            <input type="button" class="marksButton" style="float: right" value="Print Labels" data-bind="click:vm.EditCart.PartLabelSelectorClicked" />
+            <select data-bind="options: vm.EditCart.FavoritesLists, optionsText: 'CartName',optionsValue:'CartId', value: vm.EditCart.AddToListSelectedOption"></select>
+
+            <div data-bind="visible: vm.EditCart.PartLabelSelectorVisible" style="position: relative; z-index: 1">
+                <table id="PartLabelTable" class="noBorderChildren" style="position: absolute; top: 0; left: 0; height: 200px; border: none; float: right">
+                    <tbody>
+                        <tr style="float: right;">
+                            <td>
+                                <img src="/Images/avery-4-per-sheets-small.png" data-bind="click: vm.EditCart.PartLabels4ByShoppingCart" /></td>
+                            <td>
+                                <img src="/Images/avery-6-per-sheets-small.png" data-bind="click: vm.EditCart.PartLabels6ByShoppingCart" /></td>
+                            <td>
+                                <img src="/Images/avery-10-per-sheets-small.png" data-bind="click: vm.EditCart.PartLabels10ByShoppingCart" /></td>
+                            <td>
+                                <img src="/Images/avery-30-per-sheets-small.png" data-bind="click: vm.EditCart.PartLabels30ByShoppingCart" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div data-bind="template:{name:'ui-messagelist-template',data:vm.EditCart.UIMessages}"></div>
+        </div>
+        <div data-bind="template: { name: 'cart-table-template', data: vm.ShoppingCart }"></div>
+    </div>
+    <div data-bind="template: { name: 'ui-messagelist-template', data: vm.ShoppingCart.UIMessages }"></div>
+    <div>
+        <input type="button" class="marksButton" value="<< Continue Shopping" data-bind="click:vm.EditCart.ContinueShopping" />
+
+        @*<span style="color: black" data-bind="text:vm.ShoppingCart.CurrentPromoCode() != undefined ? 'Current Promo Code: ' + vm.ShoppingCart.CurrentPromoCode() : ''"></span>*@
+
+        <!-- ko ifnot: vm.ShoppingCart.CurrentPromoCode -->
+        @* NO Promo Code *@
+        <span style="color: black;" data-bind="text: 'Current Promo Code: None'"></span>
+        <!-- /ko -->
+
+        <!-- ko if: vm.ShoppingCart.CurrentPromoCode -->
+        @* Show Promo Code *@
+        <strong><span style="color: black;" data-bind="text: 'Current Promo Code: ' + vm.ShoppingCart.CurrentPromoCode()"></span></strong>
+        <!-- /ko -->
+
+
+        <span style="float: right">
+            @*data-bind="click:vm.LinkButtonClick,button:{disabled:vm.ShoppingCart.CheckoutEnabled()===false || vm.UserAccount.EmailVerifiedString()!=='true' }"*@
+            <input type="button" class="marksButton" value="Save as Quote" data-bind="click:vm.EditCart.SaveAsQuote,button:{disabled:vm.ShoppingCart.CheckoutEnabled()===false || vm.UserAccount.EmailVerifiedString()!=='true'}" />
+            <span style="width: 20px; height: auto; display: inline-block;"></span>
+            <input type="button" class="marksButton" value="Check Out >>" data-bind="click:vm.EditCart.CheckOut,button:{disabled:vm.ShoppingCart.CheckoutEnabled()===false || vm.UserAccount.EmailVerifiedString()!=='true'}" />
+        </span>
+    </div>
+    <div data-bind="template:{name:'ui-messagelist-template',data:vm.ShoppingCart.PromotionCodeMessages}"></div>
+
+</div>
+@Html.Partial("_CartTableTemplate")
+@section Scripts{
+
+    <script>
+        var editCartModel =@Html.Raw(Json.Encode(Model));
+    </script>
+}

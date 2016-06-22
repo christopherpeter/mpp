@@ -1,0 +1,45 @@
+﻿
+#registrationSteps,#accountBenefitsDiv {
+    float:left;
+    width: 45%;
+    margin:2px;
+    padding:5px;
+}
+
+input.marksButton.accountInfoSection {
+    float:right;
+    margin-top:10px;
+}
+
+div.accountInfoSectionBlock > div {
+   text-align:right;
+   width:265px;
+   margin-left:auto;
+   margin-right:auto;
+}
+
+h3.accountInfoSection {
+    color: blue;
+}
+    
+hr.accountInfoSection {
+    clear: both;
+}
+
+input.accountInfoSection.phoneInput {
+    width: 100px;
+}
+input.accountInfoSection.phoneExtInput {
+    width: 26px;
+}
+select.accountInfoSection {
+    width:154px;
+}
+
+.userData .phoneInput {
+    width: 83px !important;
+}
+
+.userData .phoneExtInput {
+    width: 32px !important;
+}

@@ -1,0 +1,53 @@
+﻿<div id="contentTabList">
+    <h2>Shipping Information</h2>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <div class="checkout section noBorderChildren noBottomMargin">
+                        <div><h3><span class="label">Ship To</span></h3></div>
+                        <div><span data-bind="text: vm.UserAccount.CompanyNameShow()"></span></div>
+                        <div><span data-bind="text: vm.UserAccount.SelectedShipToAddress().Attention"></span></div>
+                        <div><span data-bind="text: vm.UserAccount.SelectedShipToAddress().Street1"></span></div>
+
+
+                        @* only print this if there is a value in the field *@
+                        <!-- ko if: vm.UserAccount.SelectedShipToAddress().Street2 -->
+                        <div><span data-bind="text: vm.UserAccount.SelectedShipToAddress().Street2"></span></div>
+                        <!-- /ko -->
+
+                     @* <div><span class="label">City</span><span data-bind="text: vm.UserAccount.SelectedShipToAddress().City"></span></div>
+                        <div><span class="label">State</span><span data-bind="text: vm.UserAccount.SelectedShipToAddress().StateAbbreviation"></span></div>
+                        <div><span class="label">Zip</span><span data-bind="text: vm.UserAccount.SelectedShipToAddress().Zip"></span></div>
+                        <div><span class="label">Phone Number</span><span data-bind="text: vm.UserAccount.SelectedShipToAddress().PhoneNumber"></span></div>*@
+       
+                        <div>
+                            <span data-bind="text: vm.UserAccount.SelectedShipToAddress().City"></span>
+                            <span data-bind="text: vm.UserAccount.SelectedShipToAddress().StateAbbreviation"></span>
+                            <span data-bind="text: vm.UserAccount.SelectedShipToAddress().Zip"></span>
+                        </div>
+                        <div><br /></div>
+
+                        <div><span class="label">Phone</span> <span data-bind="text: vm.UserAccount.SelectedShipToAddress().PhoneNumber"></span></div>
+
+                    </div>
+                </td>
+                <td style="width:1px; border-left: solid black 1px;"></td>
+                <td>
+                    <h3>Choose a Shipping Service</h3>
+                    <div class="checkout section noBorderChildren noBottomMargin" data-bind="foreach: vm.Checkout.ShippingMethods">
+                        <div>
+                            <input type="radio" name="ShippingMethodsGroup" data-bind="checkedValue: ShippingMethodId, checked: vm.Checkout.SelectedShippingMethodId" />
+                            <span data-bind="text: DisplayValue"></span>
+                        </div>
+                    </div>
+                    <div class="noBorderChildren" data-bind="if: vm.Checkout.ShowFreeShippingMessage() === true">
+                        <span class="success">This order qualifies for free shipping.</span>
+                    </div>
+                    <div class="noBorderChildren" data-bind="template: { name: 'ui-messagelist-template', data: vm.Checkout.UIMessages }"></div>
+                    <input class="marksButton" style="display: block; margin-left: 85%" type="button" data-bind="click: vm.Checkout.NextStep" value="Continue" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

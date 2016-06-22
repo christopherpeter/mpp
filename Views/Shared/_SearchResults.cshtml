@@ -1,0 +1,13 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Catalog.CatalogSearchResultModel
+
+
+
+<div class="pagerDiv ui-corner-all" data-bind="template:{name:'pager-template',data:vm.SearchResults }"></div>
+<div id="searchResultsDiv" data-bind="template: { name: 'item-template', foreach: vm.SearchResults.SearchResults }"></div>
+<div data-bind="if:!vm.SearchResults.HasResults">No records available.</div>
+<div class="pagerDiv ui-corner-all" data-bind="template: { name: 'pager-template', data: vm.SearchResults }"></div>
+
+
+
+@Html.Partial("_PagerTemplate")
+@Html.Partial("_SearchResultItemTemplate")

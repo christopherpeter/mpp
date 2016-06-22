@@ -1,0 +1,55 @@
+﻿<script type="text/html" id="sales-document-table-template">
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th class="leftjustify">Quote ID</th>
+                <th class="leftjustify">Labels</th>
+                <th class="leftjustify">Document Date</th>
+                <th class="leftjustify">Amount</th>
+                <th class="leftjustify">Contact</th>
+                <th class="leftjustify">Ship To</th>
+                <th class="leftjustify">Customer PO</th>
+                <th class="leftjustify">Action</th>
+                @*<th></th>*@
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: SalesDocumentList">
+            <tr>
+                <td><a href="#" data-bind="click: $parent.ViewDocument, text: SalesDocumentId"></a></td>
+                @*<td><a href="#" data-bind="click: $parent.ViewPartLabels10ByQuoteDocument">10</a></td>
+                <td><a href="#" data-bind="click: $parent.ViewPartLabels30ByQuoteDocument">30</a></td>*@
+                <td><a href="#" data-bind="click: PartLabelSelectorClicked, data: SalesDocumentId">Print Labels...</a><br />
+                    <div data-bind="visible: PartLabelSelectorVisible" style="position: relative">
+                        <table id="PartLabelTable" class="noBorderChildren" style="display: table-row; position: absolute; top: 0; left: 13px; height: 200px; border: none">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="/Images/avery-4-per-sheets-small.png" data-bind="click: $parent.ViewPartLabelInvoiceDoc4" /></td>
+                                    <td>
+                                        <img src="/Images/avery-6-per-sheets-small.png" data-bind="click: $parent.ViewPartLabelInvoiceDoc6" /></td>
+                                    <td>
+                                        <img src="/Images/avery-10-per-sheets-small.png" data-bind="click: $parent.ViewPartLabelInvoiceDoc10" /></td>
+                                    <td>
+                                        <img src="/Images/avery-30-per-sheets-small.png" data-bind="click: $parent.ViewPartLabelInvoiceDoc30" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td data-bind="datetext: DocumentDate"></td>
+                <td data-bind="text: DocumentAmountForDisplay"></td>
+                <td data-bind="text: TalkedToName"></td>
+                <td data-bind="text: CustomerLocationNumber"></td>
+                <td data-bind="text: CustomerPurchaseOrderNumber"></td>
+                <td><a href="#" data-bind="click: $parent.BuyQuote">Buy</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div data-bind="if: SalesDocumentList().length == 0">
+        No records to display
+    </div>
+
+</script>
+
+
+

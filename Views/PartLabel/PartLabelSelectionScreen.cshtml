@@ -1,0 +1,42 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Catalog.PartLabelModel
+@{
+    ViewBag.Title = "PartLabelSelectionScreen";
+}
+
+<h2 class="center">Part Label Generation</h2>
+<div id="partLabelDiv">
+        <table id="partLabelTable">
+        <thead>
+            <tr>
+                <th class="text dataSelect"><input  type="checkbox" data-bind=" checked: SelectAll" /></th>
+                <th class="lJustText">Part #</th>
+                <th class="lJustText">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PartLabelList)
+            {
+            <tr>
+                <td class="text dataSelect"><input  type="checkbox" />@item.IsSelected</td>
+                <td class="text">@item.PartNumber</td>
+                <td class="text">@item.PartDescription</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <input id="generatePLButton" type="button" class="marksButton" value="Print Labels" data-bind="click: $parent.GeneratePartLabelDocument"  />
+    @*<div data-bind="template: { name: 'ui-messagelist-template', data: vm.PartLabelLookup.UIMessages }"></div>*@
+</div>
+
+@if (Model.PartLabelList.Count > 0)
+  {
+    @Html.DisplayFor(m => m.PartLabelList.Count)
+  }
+  
+
+@section Scripts{
+
+    <script>
+        var partLabelModel =@Html.Raw(Json.Encode(Model));
+    </script>
+}

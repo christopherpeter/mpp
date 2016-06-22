@@ -1,0 +1,110 @@
+﻿@model MarksPlumbing.WWW.UI.Models.BaseModel
+
+<h2>Site Map Index</h2>
+<table class="smTable">
+    <tr>
+        <td class="center" colspan="3">
+            <a class="largeLink smCenter" href="@Url.Action("Index", "Home")">Home</a>
+        </td>
+    </tr>
+    <tr>
+        <th style="width: 40%"><span style="color: black; text-decoration: underline">Resources</span></th>
+        <th style="width: 20%"></th>
+        <th style="width: 40%"><span style="color: black; text-decoration: underline">Customer Service</span></th>
+    </tr>
+    <tr>
+        <td>
+            <ul style="width: 150px; margin: 0 auto; display: block">
+                <li class="sub"><a href="http://www.nxtbook.com/nxtbooks/marksplumbing/edition_h/#/0" target="_blank">Online Catalog</a></li>
+                <li class="sub"><a href="@Url.Action("CompanyInformation", "Resources")">Company Information</a></li>
+                <li class="sub"><a href="@Url.Action("Careers", "Resources")">Careers at Mark's</a></li>
+                <li class="sub"><a href="~/Content/documents/creditapplication.pdf">Credit Application</a></li>
+                <li class="sub"><a href="@Url.Action("StoreLocations", "Resources")">Store Locations</a></li>
+                <li class="sub"><a href="@Url.Action("PrintingLabels", "Resources")">Printing Labels</a></li>
+                <li class="sub"><a href="@Url.Action("Tutorials", "Resources")">Tutorials</a></li>
+            </ul>
+        </td>
+        <td class="center"><a href="@Url.Action("Recovery", "Account")">Account Recovery</a></td>
+        <td>
+            <ul style="width: 150px; margin: 0 auto; display: block">
+                <li class="sub"><a href="@Url.Action("Contacts", "CustomerService")">Company Contacts</a></li>
+                <li class="sub"><a href="@Url.Action("ReturnsPolicy", "CustomerService")">Returns Policy</a></li>
+                <li class="sub"><a href="@Url.Action("Terms", "CustomerService")">Terms of Sale</a></li>
+                <li class="sub"><a href="@Url.Action("TaxExemptInstructions", "CustomerService")">Tax Exempt Instructions</a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+@* Only show these options if user is logged in.  No point in showing logged in links when not logged in. *@
+@if (Model.IsLoggedIn == true)
+{
+    <h3 class="smCenter">Account Specific Pages (Signed In)</h3>
+    <table class="smTable">
+        <tr>
+            <th style="width: 50%"><span style="color: black; text-decoration: underline">My Account</span></th>
+            <th style="width: 50%"><span style="color: black; text-decoration: underline">My Reports</span></th>
+        </tr>
+        <tr>
+            <td>
+                <ul style="width: 150px; margin: 0 auto; display: block">
+                    <li class="sub"><a href="@Url.Action("Preferences", "Account")">Settings</a> </li>
+                    <li class="sub"><a href="@Url.Action("Index", "Favorites")">Favorites / Print Labels</a> </li>
+                    <li class="sub"><a href="@Url.Action("Invoices", "Account")">Invoices</a> </li>
+                    <li class="sub"><a href="@Url.Action("Quotes", "Account")">Quotes</a> </li>
+                    <li class="sub"><a href="@Url.Action("History", "Account")">Part History</a> </li>
+                    <li class="sub">@Html.ActionLink("Pay Invoices", "ePay", "Account", null, new { target = "_blank" })</li>
+                    <li class="sub">@Html.ActionLink("PrePay an Order", "ePay", "Account", null, new { target = "_blank" })</li>
+                </ul>
+            </td>
+            <td>
+                <ul style="width: 150px; margin: 0 auto; display: block">
+                    <li class="sub"><a href="@Url.Action("PopularParts", "MyReports")">Popular Parts</a></li>
+                    <li class="sub"><a href="@Url.Action("RepeatPurchases", "MyReports")">Repeat Purchases</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+}
+
+<h3 class="smCenter">Categories</h3>
+<table class="smTable">
+    <tr>
+        <td>
+            <ul>
+                @for (int i = 0, loopCnt = 0; i < Model.CatalogMenu.Items.Count; i++)
+                {
+                    if (loopCnt >= (Model.CatalogMenu.CatalogMenuCount / 3))
+                    {
+                        loopCnt = 0;
+                        @:</ul>
+                        @:</td>
+                        @:<td>
+                        @:<ul>
+                    }
+                    string val1 = Model.CatalogMenu.Items[i].Text;
+                    loopCnt++;
+                    
+                    <li>
+                        <a class="largeLink" href="@Url.Action("Browse", "Catalog", new { id = Model.CatalogMenu.Items[i].Id })">@val1.ToString()</a>
+
+                        @* Now create any sub links *@
+                        <ul>
+                            @for (int j = 0; j < Model.CatalogMenu.Items[i].SubMenuItems.Count; j++)
+                            {
+                                string val2 = Model.CatalogMenu.Items[i].SubMenuItems[j].Text;
+                                <li>
+                                    <a href="@Url.Action("Browse", "Catalog", new { id = Model.CatalogMenu.Items[i].SubMenuItems[j].Id })">@val2.ToString()</a>
+                                </li>
+                                loopCnt++;
+
+                            }
+                        </ul>
+                    </li>
+                    <br />   
+                }
+            </ul>
+        </td>
+    </tr>
+</table>
+

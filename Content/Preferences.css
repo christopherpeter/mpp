@@ -1,0 +1,120 @@
+﻿div.settings {
+    border: 5px solid lightgray;
+    padding: 10px;
+    margin: 5px 5px 5px 5px;
+    width: 325px;
+}
+
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+div.prefColumn {
+    width: 48%;
+}
+div.settings.siteDefaults {
+    height: 491px;
+}
+div.settings input.marksButton {
+    display:block;   
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:5px;
+}
+
+div.settings div.buttonLabel {
+    text-align: center;
+}
+div#shiptoListTable {
+    position:absolute;
+    width:500px;
+    z-index:999;
+}
+div.setting {
+    
+    width:250px;
+    text-align:right;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom:5px;
+}
+hr.settings {
+    width: 100%;
+}
+div.settings  h2 {
+    margin-left: auto;
+    margin-right: auto;
+    width:200px;
+}
+
+div.setting span.label {
+    font-weight: bold;
+}
+div.setting select {
+    width: 110px;
+    margin-left:5px;
+}
+
+/* This is for the pop up change default ship to address */
+  .bordered {
+border-spacing: 0;
+-moz-border-radius: 16px !important;
+-webkit-border-radius: 16px !important;
+border-radius: 16px !important;
+-webkit-box-shadow: 0 1px 1px #ccc !important;
+-moz-box-shadow: 0 1px 1px #ccc !important;
+overflow: hidden;
+} 
+.outline-bordered {
+    border: 3px solid !important;
+    border-radius: 19px;
+}
+
+/* new css settings */
+.nowrapping {
+     white-space: nowrap;
+}
+
+.leftjustify {
+    text-align:left;
+}
+
+.userData td > span {
+    margin-left: 20px;
+}
+
+.userData div {
+    margin-right: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.passValid {
+    width: 70px !important;
+    margin: 0 auto !important;
+}
+
+.userData tr:hover {
+    background-color: #E7E7E7;
+}
+
+.userData input {
+    border-radius: 3px;
+    width: 150px !important;
+    border: gray 1px solid;
+    padding-left: 2px;
+}
+
+#shiptoListTable tbody tr {
+    cursor: pointer;
+}
+
+#shiptoListTable tbody tr:hover {
+    background-color: #6EAC2C;
+    color: white;
+}
+

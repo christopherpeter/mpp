@@ -1,0 +1,17 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Account.DocumentLookupModel
+
+
+<h2 class="center">Quotes</h2>
+<div id="documentlookupDiv">
+    <div data-bind="template: { name: 'sales-document-table-template', data: vm.DocumentLookup }"></div>
+    <div data-bind="template: { name: 'ui-messagelist-template', data: vm.DocumentLookup.UIMessages }"></div>
+</div>
+
+@Html.Partial("_SalesDocumentQuoteTableTemplate")
+
+@section Scripts{
+
+    <script>
+        var documentLookupModel =@Html.Raw(Json.Encode(Model));
+    </script>
+}

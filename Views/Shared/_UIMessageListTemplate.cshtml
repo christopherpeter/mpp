@@ -1,0 +1,6 @@
+﻿<script type="text/html" id="ui-messagelist-template">
+    <div class="uimessagelist" data-bind="foreach: UIMessagList">
+        <span class="uimessage error" data-bind="text: Message, visible: IsError() == true"></span>
+        <span class="uimessage success" data-bind="text: Message, visible: IsError() == false"></span>
+    </div>
+</script>

@@ -1,0 +1,102 @@
+﻿<div id="contentTabList">
+    <h2>Finalize</h2>
+    <div>
+        <span class="label bold">P.O. Number</span>
+        <input type="text" disabled="disabled" class="ui-corner-all" data-bind="value: vm.Checkout.PurchaseOrderNumber, attr: { placeholder: 'No P.O. Entered' }" />
+
+        <!-- ko ifnot: vm.ShoppingCart.CurrentPromoCode -->
+        @* NO Promo Code *@
+        <strong><span style="color: black; float: right;" data-bind="text: 'Current Promo Code: None'"></span></strong>
+        <!-- /ko -->
+
+        <!-- ko if: vm.ShoppingCart.CurrentPromoCode -->
+        @* Show Promo Code *@
+        <strong><span style="color: black; float: right;" data-bind="text: 'Current Promo Code: ' + vm.ShoppingCart.CurrentPromoCode()"></span></strong>
+        <!-- /ko -->
+
+
+        <br />
+        <!-- Show text determining if we selected labels to email or not -->
+        <div style="border: none; float: right; padding: 0" data-bind="visible: vm.Checkout.RadioFreeLabel() === 'Yes' ">
+            <span style="font-weight: bold">Labels to be emailed</span>
+        </div>
+        <div style="border: none; float: right; padding: 0" data-bind="visible: vm.Checkout.RadioFreeLabel() === 'No' ">
+            <span style="font-weight: bold">User not getting labels</span>
+        </div>
+        <br />
+        <br />
+        <hr />
+        <div id="shippingInfo" class="noBorderChildren">
+            <h3 style="margin-bottom: 5px !important">Billing and Shipping Information</h3>
+            <table>
+                <tr>
+                    <td style="width: 50%">
+                        <div class="addressBlock" style="width: 75%">
+                            <h4>Billing</h4>
+                            <span data-bind="text: vm.UserAccount.CompanyNameShow()"></span>
+                            <br />
+                            <span data-bind="text: vm.UserAccount.BillingAddress.Attention"></span>
+                            <br />
+                            <span data-bind="text: vm.UserAccount.BillingAddress.Street1"></span>
+                            <br />
+                            <!-- ko if: vm.UserAccount.BillingAddress.Street2 -->
+                            <span data-bind="text: vm.UserAccount.BillingAddress.Street2"></span>
+                            <br />
+                            <!-- /ko -->
+                            <span data-bind="text: vm.UserAccount.BillingAddress.CityStateZip"></span>
+                        </div>
+                    </td>
+                    <td style="width: 50%">
+                        <div class="addressBlock" style="width: 75%">
+                            <h4>Shipping</h4>
+                            <span data-bind="text: vm.UserAccount.CompanyNameShow()"></span>
+                            <br />
+                            <span data-bind="text: vm.UserAccount.SelectedShipToAddress().Attention"></span>
+                            <br />
+                            <span data-bind="text: vm.UserAccount.SelectedShipToAddress().Street1"></span>
+                            <br />
+                            @* this will only show if there is a value in the field *@
+                            <!-- ko if: vm.UserAccount.SelectedShipToAddress().Street2 -->
+                            <span data-bind="text: vm.UserAccount.SelectedShipToAddress().Street2"></span>
+                            <br />
+                            <!-- /ko -->
+                            <span data-bind="text: vm.UserAccount.SelectedShipToAddress().CityStateZip"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <p class="bold" style="width: 400px" data-bind="text: vm.Checkout.PaymentOptions.SelectedPaymentMethodText"></p>
+    </div>
+</div>
+<div data-bind="template: { name: 'cart-table-template', data: vm.ShoppingCart }"></div>
+<div id="orderTotals">
+    <div class="orderTotals">
+        <span class="label">Sales Tax</span>
+        <span class="value money" data-bind="text: vm.ShoppingCart.SalesTaxAmount"></span>
+    </div>
+    <div class="orderTotals">
+        <span class="label">Shipping Charge</span>
+        <span class="value money" data-bind="text: vm.ShoppingCart.FreightCharges"></span>
+    </div>
+    <div class="orderTotals">
+        <span class="label">Shipping Tax</span>
+        <span class="value money" data-bind="text: vm.ShoppingCart.FreightTaxAmount"></span>
+    </div>
+    <div class="orderTotals">
+        <span class="label">Total</span>
+        <span class="value money" data-bind="text: vm.ShoppingCart.DocumentTotal"></span>
+    </div>
+</div>
+<div id="reviewBackorderMessage">
+    <span data-bind="text: vm.Checkout.SelectedBackorderOptionText"></span>
+</div>
+<div id="submitOrderQuote" data-bind="style: { float: vm.Checkout.SubmitAllowed() === false ? 'left' : '' }">
+    <input class="marksButton" type="button" data-bind="enable: vm.Checkout.SubmitAllowed, click: vm.Checkout.SubmitOrder, value: vm.Checkout.SubmitButtonText" />
+</div>
+<div id="checkoutWarning">
+    <span data-bind="visible: vm.Checkout.SubmitAllowed() == false">We're sorry, there is a problem with your Marks account that prevents checkout at this time.<br />
+        Please contact our accounting department for further assistance.</span>
+</div>
+

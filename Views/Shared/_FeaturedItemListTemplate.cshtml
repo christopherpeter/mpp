@@ -1,0 +1,33 @@
+﻿<script type="text/html" id="featured-item-list-template">
+    
+    @* This will make sure that featuredItems box only shows if there are items in the list.  Dont show an empty box *@
+    <!-- ko if:FeaturedItems.length > 0 -->
+    
+    <div class="featured"> <!--data-bind="style: { height: FiFlHeight + 'px !important' }"-->
+        <span class="title">Featured Parts</span>
+        <!-- had to set this ID for the slider control to work  The data-bind might be better solution but couldn't get it to work. -->
+        <div id="SliderControl" class="featured-list ui-corner-all">  <!--data-bind="attr: { id: SliderId }, style: { height: FiFlHeight + 'px !important' }"-->
+            <div class="featured-list-items"> <!--data-bind="style: { height: FiFlHeight + 'px !important' }"-->
+                <div data-bind="foreach: FeaturedItems">
+
+                    <div class="featured-list-item">
+                        <a data-bind="attr: { href: ViewDetailRoute }">
+                            <img class="partDetailSmall" data-bind="attr: { src: ThumbnailImagePath }" /></a>
+                        <div class="featured-list-item-text">
+                            <span data-bind="text: Description"></span>
+                            <br />
+                            <span id="featureListPartNbrLine"><span class="label">Part</span><a data-bind="text: PartNumber, attr: { href: ViewDetailRoute, title: PartNumber }"></a></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        @*<div class="slider" data-bind="slider: ScrollPosition, sliderOptions: { min: 0, max: 780, range: 'min', step: 10 }"></div>*@
+    </div>
+
+    <!-- /ko -->
+</script>
+
+

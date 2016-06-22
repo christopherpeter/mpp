@@ -1,0 +1,64 @@
+﻿#holidayScheduleContainer {
+    float: right;
+    width: 200px;
+    background-color: var(--contactinfo-bg-color);
+    list-style: none;
+    padding: 5px 4%;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#contactTable .firstChild {
+    background-color: #07527E;
+    border-radius: 15px 15px 0 0;
+}
+
+#contactTable h2 {
+    color: #D3D3D3;
+}
+
+#contactTable {
+    padding: 10px;
+    border-radius: 15px;
+    width: 700px;
+}
+
+#contactTable > tr:nth-child(2){
+    border-radius: 15px;
+}
+
+#contactTable tr:hover {
+    background-color: transparent;
+}
+
+#contactTable .contactInfo {
+    width: 200px;
+    background-color: var(--contactinfo-bg-color);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px !important;
+}
+
+#contactTable p {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 5px 5px 10px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: block;
+    width: 700px;
+}
+
+#contactTable th {
+    background-color: var(--contactinfo-bg-color);
+    color: var(--contactinfo-header-color);
+    width: 200px;
+}
+
+#contactTable .contactInfo td:nth-child(2) {
+    text-align: right;
+}
+
+#contactTable .contactInfo tr:nth-child(even) {
+    background-color: #E7E7E7 !important;
+}

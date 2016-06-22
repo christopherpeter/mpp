@@ -1,0 +1,28 @@
+﻿@model MarksPlumbing.WWW.UI.Models.Account.DocumentViewerModel
+
+<div id="buttonDiv">
+    @{
+        var quoteId = Model.DocumentId;
+        var returnButtonAction = string.Empty;
+        if (Model.DocumentTypeId == 1)
+        {    
+        <input style="float:left;" type="button" value="Buy Quote" class="marksButton" data-actionurl="@Url.Action("BuyQuote", "Checkout", new { id = quoteId })" data-bind="click: vm.LinkButtonClick" />    
+            returnButtonAction = "Quotes";
+        }
+        else if (Model.DocumentTypeId == 2 || Model.DocumentTypeId == 5)
+        {
+            returnButtonAction = "OrderHistory";
+        }
+        else if (Model.DocumentTypeId == 3)
+        {
+            returnButtonAction = "Invoices";
+        }
+        <input style="float:right;" type="button" value="Click here, or use browser back button to return to previous screen" class="marksButton" data-actionurl="@Url.Action(returnButtonAction, "Account")" data-bind="click: vm.LinkButtonClick" />    
+    }
+</div>
+@section Scripts{
+
+    <script>
+        ko.applyBindings(vm, document.getElementById("buttonDiv"));
+    </script>
+}

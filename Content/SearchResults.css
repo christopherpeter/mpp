@@ -1,0 +1,51 @@
+﻿
+div.partDetailSmall {
+    width: 368px;
+    height: 180px;
+    float: left;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+    margin: 1px 1px 1px 1px;
+}
+
+div.partDetailSmallImage {
+    display: table-cell;
+    vertical-align: middle;
+    text-align:center;
+  
+    height:150px;
+    width: 135px;
+}
+
+img.partDetailSmall {    
+    border: hidden;
+}
+
+div.partDetailSmallInfoBox {
+    display:table-cell;
+    margin: 5px 5px 5px 5px;
+    width: 235px;
+    
+}
+
+
+div.pagerDiv {
+    width: 738px;
+    padding: 2px 2px 2px 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+    clear: both;
+}
+
+#searchResultsDiv {
+    overflow: auto;
+    padding-bottom: 5px;
+}
+
+div.pagerDiv input[type=number] {
+    width: 50px;
+}
