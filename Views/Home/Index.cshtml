@@ -44,8 +44,8 @@
                     string pdfPath = "/Content/Images/SliderContent/Banners/PDFs/" + image.LinkLocation;
                     string imgHeight = @image.Height;
                     string imgWidth = @image.Width;
-               
-                    <div style="background: url(@imgPath) no-repeat center top; background-color:#fff; height:@imgHeight; width:@imgWidth; " class="SSItem" onclick="javascript:window.open('@pdfPath')"></div>
+                    <img src="@imgPath" style="width:100% !important;" class="SSItem"/>
+                  @*  <div style="background: url(@imgPath) no-repeat center top; background-color:#fff; height:@imgHeight; width:@imgWidth; " class="SSItem" onclick="javascript:window.open('@pdfPath')"></div>*@
                 }
             </div>
             <div id="RotatorNavHolder">
