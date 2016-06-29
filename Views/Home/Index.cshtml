@@ -27,7 +27,10 @@
         #prev { background-image: url("Content/Images/prev.png"); height: 20px; width: 11px; float: left; }
         #next { background-image: url("Content/Images/next.png"); height: 20px; width: 11px; float: right; }
         #nav a { background-image: url("Content/Images/pagination.png"); background-repeat: no-repeat; display: block; float: left; height: 0 !important; margin-left: 5px; overflow: hidden; padding-top: 13px; width: 13px; }
-            #nav a.activeSlide { background-image: url("Content/Images/pagination-active.png"); }
+        #nav a.activeSlide { background-image: url("Content/Images/pagination-active.png"); }
+
+        
+
     </style>
 </body>
 
@@ -36,26 +39,21 @@
 
     @if (Model.BannerImages.Count > 0)
     {
-        <div id="RotatorHolder">
-            <div id="slideshow">
+        <div class="rslides_container">
+            <ul class="rslides" id="slider1">
                 @foreach (var image in Model.BannerImages)
                 {
                     string imgPath = "/Content/Images/SliderContent/Banners/" + image.ImagePath;
                     string pdfPath = "/Content/Images/SliderContent/Banners/PDFs/" + image.LinkLocation;
                     string imgHeight = @image.Height;
                     string imgWidth = @image.Width;
-                    <img src="@imgPath" style="width:100% !important;" class="SSItem"/>
+                     <li>
+                    <img src="@imgPath"/></li>
                   @*  <div style="background: url(@imgPath) no-repeat center top; background-color:#fff; height:@imgHeight; width:@imgWidth; " class="SSItem" onclick="javascript:window.open('@pdfPath')"></div>*@
                 }
+                </ul>
             </div>
-            <div id="RotatorNavHolder">
-                @*                <a href="#"><span id="prev"></span></a> *@
-                <div id="RotatorNavHolder2">
-                    <div id="nav"></div>
-                </div>
-                @*                <a href="#"><span id="next"></span></a>*@
-            </div>
-        </div>
+          
         <br />
         <br />
         <br />
@@ -80,21 +78,31 @@
 
 @section Scripts{
 
-    @Scripts.Render("~/Scripts/jquery.cycle.all.js")
-    @Scripts.Render("~/Scripts/jquery.easing.1.3.js")
+    @Scripts.Render("~/Scripts/responsiveslides.min.js")
+
+    @* @Scripts.Render("~/Scripts/jquery.cycle.all.js")*@
+    @*@Scripts.Render("~/Scripts/jquery.easing.1.3.js")*@
     <script>
         var homeModel =@Html.Raw(Json.Encode(Model));
 
         $(function() {
             //$('#slideshow').before('<div id="nav" class="nav">').cycle({
-            $('#slideshow').cycle({
-                fx:     'fade',
-                timeout: 5000,
-                pager:  '#nav',
-                prev:   '#prev',
-                next:   '#next',
-                before: function() {  }
+
+            $("#slider1").responsiveSlides({
+                auto: true,
+                pager: true,
+                nav: true,
+                speed: 500,              
+                namespace: "centered-btns"
             });
+                        //$('#slideshow').cycle({
+            //    fx:     'fade',
+            //    timeout: 5000,
+            //    pager:  '#nav',
+            //    prev:   '#prev',
+            //    next:   '#next',
+            //    before: function() {  }
+            //});
         });
     </script>
 }

@@ -1,373 +1,1892 @@
-﻿body { font-size: 12px; font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif; color: #232323; background-color: #fff; width: 100%; margin: 0; }
-    body > div { width: 1024px; margin: 0 auto; }
-table { background-color: white; margin: 0px auto 0px auto; border-collapse: collapse; border-spacing: 0px; width: 100%; }
+﻿body {
+    font-size: 12px;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+}
 
-thead, tfoot { background-color: var(--light-bg-color); }
+    body > div {
+        width: 1024px;
+        margin: 0 auto;
+    }
 
-tbody tr:hover { background-color: #ACDD4A; }
+table {
+    background-color: white;
+    margin: 0px auto 0px auto;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+}
 
-tr.selected { background-color: yellow; }
+thead, tfoot {
+    background-color: var(--light-bg-color);
+}
 
-th, tfoot td { color: white; }
+tbody tr:hover {
+    background-color: #ACDD4A;
+}
+
+tr.selected {
+    background-color: yellow;
+}
+
+th, tfoot td {
+    color: white;
+}
 
 th, td { /*border-style: solid;
     border-width: 1px;
     border-color: lightgray;
-    border-spacing: 0px;*/ padding: 4px; }
-
-    td.image { text-align: center; }
-
-    td.text, th.text { text-align: left; }
-
-    td.number { text-align: right; }
-
-    td.image.addToCart { background: url(/Content/images/Shopping_cart.gif) center center no-repeat; }
-
-    td.image.delete { background: url(/Content/images/x.gif) center center no-repeat; width: 20px; }
-
-fieldset { border: 1px solid #ddd; padding: 0 1.4em 1.4em 1.4em; margin: 0 0 1.5em 0; }
-
-legend { font-size: 1.2em; font-weight: bold; }
-
-textarea { min-height: 75px; }
-
-.editor-label { margin: 1em 0 0 0; }
-
-.editor-field { margin: 0.5em 0 0 0; }
-
-span.label { margin-right: 2px; }
-
-    span.label:after { content: ":"; }
-
-.money:before { content: "$"; }
-
-.field-validation-error { color: #f00; }
-
-.field-validation-valid { display: none; }
-
-.input-validation-error { border: 1px solid #f00; background-color: #fee; }
-
-.validation-summary-errors { font-weight: bold; color: #f00; }
-
-.validation-summary-valid { display: none; }
-#content { float: left; width: 100%; }
-#homeDiv { float: left; width: 100%; margin: 10px 0 10px 0px; }
-#catalog-menu ul { border-radius: 0; border: 1px solid #ccc; }
-#content-main { display: inline-block; height: auto; /*width: 744px;*/ width: 100%; float: left; }
-#contentTabList { float: left; width: 100%; }
-#content-main > h2 { text-align: center; }
-#content-sidebar { display: inline-block; float: left; width: 25%; padding: 0px; margin: 0px 0 0; background: var(--light-bg-color); /* IE10 Consumer Preview */ background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */ background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */ background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */ background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */ background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */ background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); }
-#flyerGrid { float: left; width: 100%; }
-#catalog-menu { border: 1px solid #ccc; border-radius: 0; }
-#banner { display: block; margin-left: auto; margin-right: auto; margin-top: 10px; cursor: pointer; }
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img { width: 70%; margin: auto; }
-.content-sidebar { display: inline-block; float: right; width: 250px; padding: 3px; background: var(--light-bg-color); /* IE10 Consumer Preview */ background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */ background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */ background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */ background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */ background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */ background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); }
-.content-sidebarTest { display: inline-block; float: right; width: 250px; padding: 3px; background: var(--light-bg-color); /* IE10 Consumer Preview */ background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */ background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */ background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */ background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */ background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */ background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); }
-#footer { padding: 5px 0 25px; background: var(--light-bg-color); /* IE10 Consumer Preview */ background-image: -ms-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */ background-image: -moz-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */ background-image: -o-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */ background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */ background-image: -webkit-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */ background-image: linear-gradient(to bottom right, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); clear: both; float: left; width: 100%; padding: 30px 0; margin: 20px 0 0; }
-    #footer > div { width: 30%; float: left; margin: 30px 0 0; }
-        #footer > div a { color: #fff; text-decoration: none; }
-        #footer > div span { color: #fff; }
-    #footer > h4 { width: 40%; float: left; color: #fff; }
-.share42init { float: left; margin-left: 0; margin-top: 25px; position: static; }
-#emailVerifyNotice { width: 1024px; height: 20px; background-color: yellow; text-align: center; }
-#emailVerifyNoticeVC { width: 1024px; height: 40px; background-color: yellow; text-align: center; }
-.header { width: 100%; height: 140px; clear: both; padding: 0; background: #0092CF; /* IE10 Consumer Preview */ background-image: -ms-linear-gradient(top left, #0092CF 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */ background-image: -moz-linear-gradient(top left, #0092CF 0%, var(--dark-bg-color) 100%); /* Opera */ background-image: -o-linear-gradient(top left, #0092CF 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */ background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0092CF), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */ background-image: -webkit-linear-gradient(top left, #0092CF 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */ background-image: linear-gradient(to bottom right, #0092CF 0%, var(--dark-bg-color) 100%); }
-.headerTest { width: 100%; clear: both; float: left; padding: 0; margin: 0; }
-#upperHeader { width: 100%; clear: both; float: left; padding: 5px 0 25px; background: var(--light-bg-color); /* IE10 Consumer Preview */ background-image: -ms-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */ background-image: -moz-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */ background-image: -o-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */ background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */ background-image: -webkit-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */ background-image: linear-gradient(to bottom right, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); }
-
-div#slogan { display: inline-block; vertical-align: top; margin-top: 4px; margin-left: 10px; width: 250px; font-size: 18px; color: lightgray !important; }
-
-*:focus { outline: none; }
-
-
-div#headerMenuDiv { float: left; width: 100%; }
-
-ul#headermenu { /*display: inline;*/ display: block; width: 100%; background: #ededed; padding: 0; border-radius: 0; text-align: left; border: none; margin: 0; }
-
-#headermenu .ui-menu { z-index: 9999; width: 15%; }
-
-#headermenu li { display: inline-block; width: 140px; text-align: center; }
-
-    #headermenu li.sub { display: block; width: auto; text-align: left; border: 0 !important; }
-
-ul#headermenu li a.inline { display: block; padding: 10px 0; }
-
-/* only apply this to firefox because it fixes he issue for firefox and creates an issue for chrome ie and safari*/
-@-moz-document url-prefix() { ul #headermenu li a.inline.ui-state-focus;
-{ display: inline-block; }
+    border-spacing: 0px;*/
+    padding: 4px;
 }
 
-#searchForm { display: inline; float: right; }
+    td.image {
+        text-align: center;
+    }
 
-input#searchTextBox { width: 180px; }
+    td.text, th.text {
+        text-align: left;
+    }
+
+    td.number {
+        text-align: right;
+    }
+
+    td.image.addToCart {
+        background: url(/Content/images/Shopping_cart.gif) center center no-repeat;
+    }
+
+    td.image.delete {
+        background: url(/Content/images/x.gif) center center no-repeat;
+        width: 20px;
+    }
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+span.label {
+    margin-right: 2px;
+}
+
+    span.label:after {
+        content: ":";
+    }
+
+.money:before {
+    content: "$";
+}
+
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+#content {
+    float: right;
+    width: 74%;
+}
+
+#homeDiv {
+    float: left;
+    width: 100%;
+    margin: 10px 0 10px 0px;
+}
+
+#catalog-menu ul {
+    border-radius: 0;
+    border: 1px solid #ccc;
+}
+
+#content-main {
+    display: inline-block;
+    height: auto; /*width: 744px;*/
+    width: 100%;
+    float: left;
+}
+
+#contentTabList {
+    float: left;
+    width: 100%;
+}
+
+    #contentTabList img {
+        max-width: 100%;
+    }
+
+#content-main > h2 {
+    text-align: center;
+}
+
+#content-sidebar {
+    display: inline-block;
+    float: left;
+    width: 25%;
+    padding: 0px;
+    margin: 0px 0 0;
+    background: var(--light-bg-color); /* IE10 Consumer Preview */
+    background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
+    background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
+    background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
+    background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+}
+
+#flyerGrid {
+    float: left;
+    width: 100%;
+}
+
+#catalog-menu {
+    border: 1px solid #ccc;
+    border-radius: 0;
+}
+
+#banner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+}
+
+.content-sidebar {
+    display: inline-block;
+    float: right;
+    width: 250px;
+    padding: 3px;
+    background: var(--light-bg-color); /* IE10 Consumer Preview */
+    background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
+    background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
+    background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
+    background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+}
+
+.content-sidebarTest {
+    display: inline-block;
+    float: right;
+    width: 250px;
+    padding: 3px;
+    background: var(--light-bg-color); /* IE10 Consumer Preview */
+    background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
+    background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
+    background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
+    background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+}
+
+#footer {
+    padding: 5px 0 25px;
+    background: var(--light-bg-color); /* IE10 Consumer Preview */
+    background-image: -ms-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
+    background-image: -o-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: linear-gradient(to bottom right, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+    clear: both;
+    float: left;
+    width: 100%;
+    padding: 30px 0;
+    margin: 20px 0 0;
+}
+
+.footer_menu {
+    width: 30%;
+    float: left;
+    margin: 30px 0 0;
+}
+
+    .footer_menu ul {
+        width: 100%;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+
+        .footer_menu ul li {
+            border-right: 2px solid #ffffff;
+            float: left;
+            line-height: 15px;
+            list-style: outside none none;
+            padding: 0 5px;
+        }
+
+            .footer_menu ul li:last-child {
+                border-right: none;
+            }
+
+#footer > div a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#footer > div span {
+    color: #fff;
+}
+
+#footer > h4 {
+    width: 40%;
+    float: left;
+    color: #fff;
+}
+
+.share42init {
+    float: left;
+    margin-top: 25px;
+    width: 30%;
+}
+
+#emailVerifyNotice {
+    width: 1024px;
+    height: 20px;
+    background-color: yellow;
+    text-align: center;
+}
+
+#emailVerifyNoticeVC {
+    width: 1024px;
+    height: 40px;
+    background-color: yellow;
+    text-align: center;
+}
+
+.header {
+    width: 100%;
+    height: 140px;
+    clear: both;
+    padding: 0;
+    background: #0092CF; /* IE10 Consumer Preview */
+    background-image: -ms-linear-gradient(top left, #0092CF 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top left, #0092CF 0%, var(--dark-bg-color) 100%); /* Opera */
+    background-image: -o-linear-gradient(top left, #0092CF 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0092CF), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(top left, #0092CF 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: linear-gradient(to bottom right, #0092CF 0%, var(--dark-bg-color) 100%);
+}
+
+.headerTest {
+    width: 100%;
+    clear: both;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+#upperHeader {
+    width: 100%;
+    clear: both;
+    float: left;
+    padding: 5px 0 25px;
+    background: var(--light-bg-color); /* IE10 Consumer Preview */
+    background-image: -ms-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
+    background-image: -o-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: linear-gradient(to bottom right, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+}
+
+div#slogan {
+    float: left;
+    vertical-align: top;
+    margin-top: 4px;
+    margin-left: 10px;
+    width: 250px;
+    font-size: 18px;
+    color: lightgray !important;
+}
+
+*:focus {
+    outline: none;
+}
 
 
-#userInfo { float: right; padding: 4px 4px 4px 4px; font: 16px Arial; font-weight: bold; color: lightgray !important; }
+div#headerMenuDiv {
+    float: left;
+    width: 100%;
+}
 
-    #userInfo span { display: block; }
+ul#headermenu { /*display: inline;*/
+    display: block;
+    width: 100%;
+    background: #ededed;
+    padding: 0;
+    border-radius: 0;
+    text-align: left;
+    border: none;
+    margin: 0;
+}
 
-    #userInfo a { font: 10px Arial; float: right; }
+ul#menu {
+    display: none;
+}
 
+.mobileheader {
+    float: left;
+    width: 100%;
+}
 
-.loginBox { margin-left: auto; margin-right: auto; width: 248px; text-align: center; color: white; /*background-image: url(/Content/images/login_bg.jpg);*/ padding-bottom: 5px; background: #0092CF; /* IE10 Consumer Preview */ background-image: -ms-radial-gradient(center, ellipse farthest-side, #0092CF 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */ background-image: -moz-radial-gradient(center, ellipse farthest-side, #0092CF 0%, var(--dark-bg-color) 100%); /* Opera */ background-image: -o-radial-gradient(center, ellipse farthest-side, #0092CF 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */ background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, #0092CF), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */ background-image: -webkit-radial-gradient(center, ellipse farthest-side, #0092CF 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */ background-image: radial-gradient(ellipse farthest-side at center, #0092CF 0%, var(--dark-bg-color) 100%); }
+#headermenu .ui-menu {
+    z-index: 9999;
+    width: 15%;
+}
 
-.loginBoxTest { margin-left: auto; margin-right: auto; width: 100%; text-align: center; color: white; /*background-image: url(/Content/images/login_bg.jpg);*/ padding-bottom: 5px; background: var(--light-bg-color); /* IE10 Consumer Preview */ background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */ background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */ background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */ background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */ background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */ background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); }
+#headermenu li {
+    display: inline-block;
+    width: 140px;
+    text-align: center;
+}
 
+    #headermenu li.sub {
+        display: block;
+        width: auto;
+        text-align: left;
+        border: 0 !important;
+    }
 
-div#loginBox input[type=button] { width: 125px; }
+ul#headermenu li a.inline {
+    display: block;
+    padding: 10px 0;
+}
 
-div#loginBox input[type=submit] { margin-top: 10px; }
+/* only apply this to firefox because it fixes he issue for firefox and creates an issue for chrome ie and safari*/
+@-moz-document url-prefix() {
+    ul #headermenu li a.inline.ui-state-focus;
 
-div#loginBox input[type=text], div#loginBox input[type=password] { margin-bottom: 10px; width: 140px; }
+{
+    display: inline-block;
+}
 
-div#loginBox input { margin-bottom: 10px; }
+}
 
-    div#loginBox input[type=submit] { width: 55px; }
+#searchForm {
+    display: inline;
+    float: right;
+}
 
-div#loginBox label, div#loginBox input { display: block; clear: both; margin-left: auto; margin-right: auto; }
-
-#sidebar-top { display: block; text-align: center; padding-top: 10px; padding-bottom: 10px; }
-
-input.section-toggle-btn { width: 100%; background: #018B35; padding: 9px 0; border: none; }
-
-input[type=text].quickAdd { display: inline; width: 75px; }
-
-div#quickPartAddLine, div#cartButtonLine { margin-top: 10px; }
-
-input.cartButton { width: 75px; }
-
-#quoteButton { margin-left: 6px; margin-right: 6px; }
-
-.unitQty { width: 40px; }
-
-div.loading { background: yellow url("/Content/images/bluespin.gif") center center no-repeat; position: relative; width: 100%; height: 100%; }
-
-div.unavailable { padding-top: 5px; }
-
-    div.unavailable span { background-color: yellow; }
-
-
-.clsublinker { padding-left: 15px; }
-
-span.error { color: red; }
-
-span.success { color: green; }
-
-span.uimessage { clear: both; display: block; }
-
-span.validationMessage { display: block; clear: both; }
-
-.validationMessage { color: Red; }
-
-.customMessage { color: Orange; }
-
-.no-close .ui-dialog-titlebar-close { display: none; }
-
-.bottomTruck { vertical-align: bottom; }
-
-.bottomTruckDetail { vertical-align: text-top; }
-
-.searchDescBold { font-weight: bold; }
-
-.detailBoldPartNum { font: 18px Arial; font-weight: bold; }
-
-.paddingL10 { padding-left: 10px; }
-
-.paddingR10 { padding-right: 10px; }
-
-.DetailDescBold { font: 13px Arial; font-weight: bold; }
-
-span.floatRight .floatRight { float: right; }
-
-.bold { font-weight: bold; }
-
-.centerText { text-align: center; }
-
-div.passwordmeter { color: white; visibility: visible; width: 153px; text-align: center; float: right; overflow: visible; z-index: 999; }
-
-div.strong.passwordmeter { background-color: green; }
-div.medium.passwordmeter { background-color: orange; }
-div.weak.passwordmeter { background-color: orangered; }
-div.veryweak.passwordmeter { background-color: red; }
-.hidden { visibility: hidden; }
-.display-none { display: none; }
-input.ui-button { padding: 2px 4px 2px 4px; }
-
-div.content-heading { width: 100%; padding-top: 5px; padding-bottom: 5px; font-size: large; font-weight: bold; }
-div.breadcrumb a, div#userInfo a { color: lightgray; }
-div.container.breadcrumb { margin-top: 5px; margin-bottom: 5px; }
-
-div.featured { width: 739px; margin-left: auto; margin-right: 50px; position: relative; left: 5px; right: 5px; }
-
-div.featured-list { margin-bottom: 5px; width: 735px; /* The height value here shows the Featured Items boxes height */ overflow: hidden; display: inline-block; border: solid var(--btn-featured-list-style) 3px; border-top: none; margin-right: 50px !important; border-radius: 0; }
-
-div.featured span.title { background: -webkit-linear-gradient(right, var(--dark-bg-color), var(--light-bg-color)); background: -o-linear-gradient(left, var(--dark-bg-color), var(--light-bg-color)); background: -moz-linear-gradient(left, var(--dark-bg-color), var(--light-bg-color)); background: linear-gradient(to left, var(--dark-bg-color), var(--light-bg-color)); background-color: var(--light-bg-color); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--dark-bg-color)', endColorstr='var(--light-bg-color)',GradientType=0 ); padding: 5px 20px; margin: 10px -12px 0 0; border-top-left-radius: 20px; font-size: 16px; font-weight: bold; clear: both; display: block; color: white; }
-
-div.featured-list-items { width: 800px; }
-
-div.featured-list-item { width: 127px; height: 170px; margin-left: 11px; margin-right: 12px; margin-top: 25px; margin-bottom: 15px; float: left; position: relative; }
+input#searchTextBox {
+    width: 180px;
+}
 
 
-div.featured-list-item-text { position: absolute; bottom: 0px; height: 50px; width: 100%; vertical-align: bottom; }
-div.slider { margin-left: 7px; width: 740px; }
+#userInfo {
+    float: right;
+    padding: 4px 4px 4px 4px;
+    font: 16px Arial;
+    font-weight: bold;
+    color: lightgray !important;
+}
 
-#featureListPartNbrLine { font-weight: bold; font-size: 14px; }
-.search_section { float: right; width: 50%; }
-div#advancedSearch { width: 100%; clear: both; font: 12px Arial; font-weight: bold; float: right; margin: 20px 10px 20px; }
-    div#advancedSearch a { color: lightgray; display: inline; text-decoration: none; }
-#SearchBox { float: right; width: 100%; margin: 0 6px 0 0px; clear: both; }
+    #userInfo span {
+        display: block;
+    }
 
-a#logoutLink { margin-left: 88px; }
-a#advancedSearchLink { float: right; }
-form#advancedSearchForm { width: 240px; height: 160px; }
-    form#advancedSearchForm div { width: 100%; display: block; clear: both; }
-    form#advancedSearchForm input { float: right; }
-        form#advancedSearchForm input[type='submit'] { clear: both; }
-.marksGSAno { color: white; font-weight: bold; float: right; margin-top: -25px; }
-div#favorites_quickAdd { text-align: center; }
+    #userInfo a {
+        font: 10px Arial;
+        float: right;
+    }
 
-    div#favorites_quickAdd span.validationMessage { display: inline; }
 
-.lJustText { text-align: left; }
+.loginBox {
+    margin-left: auto;
+    margin-right: auto;
+    width: 248px;
+    text-align: center;
+    color: white; /*background-image: url(/Content/images/login_bg.jpg);*/
+    padding-bottom: 5px;
+    background: #0092CF; /* IE10 Consumer Preview */
+    background-image: -ms-radial-gradient(center, ellipse farthest-side, #0092CF 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
+    background-image: -moz-radial-gradient(center, ellipse farthest-side, #0092CF 0%, var(--dark-bg-color) 100%); /* Opera */
+    background-image: -o-radial-gradient(center, ellipse farthest-side, #0092CF 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, #0092CF), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
+    background-image: -webkit-radial-gradient(center, ellipse farthest-side, #0092CF 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: radial-gradient(ellipse farthest-side at center, #0092CF 0%, var(--dark-bg-color) 100%);
+}
 
-.rJustText { text-align: right; }
+.loginBoxTest {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+    color: white; /*background-image: url(/Content/images/login_bg.jpg);*/
+    padding-bottom: 5px;
+    background: var(--light-bg-color); /* IE10 Consumer Preview */
+    background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
+    background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
+    background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
+    background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+}
 
-.recoveryInput { background-color: #07507C; height: 25px; border-radius: 5px; padding: 3% !important; border: 2px solid slategray !important; display: block; margin: 0 auto; }
 
-input.marksButton { border: solid var(--dark-bg-color) 2px; background-color: var(--light-bg-color); }
+div#loginBox input[type=button] {
+    width: 125px;
+}
 
-    input.marksButton:hover { background-color: #006611; }
+div#loginBox input[type=submit] {
+    margin-top: 10px;
+}
 
-#cartTable thead th:first-of-type { border-top-left-radius: 10px; }
+div#loginBox input[type=text], div#loginBox input[type=password] {
+    margin-bottom: 10px;
+    width: 140px;
+}
+
+div#loginBox input {
+    margin-bottom: 10px;
+}
+
+    div#loginBox input[type=submit] {
+        width: 55px;
+    }
+
+div#loginBox label, div#loginBox input {
+    display: block;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sidebar-top {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input.section-toggle-btn {
+    width: 100%;
+    background: #018B35;
+    padding: 9px 0;
+    border: none;
+}
+
+input[type=text].quickAdd {
+    display: inline;
+    width: 75px;
+}
+
+div#quickPartAddLine, div#cartButtonLine {
+    margin-top: 10px;
+}
+
+input.cartButton {
+    width: 75px;
+}
+
+#quoteButton {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.unitQty {
+    width: 40px;
+}
+
+div.loading {
+    background: yellow url("/Content/images/bluespin.gif") center center no-repeat;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+div.unavailable {
+    padding-top: 5px;
+}
+
+    div.unavailable span {
+        background-color: yellow;
+    }
+
+
+.clsublinker {
+    padding-left: 15px;
+}
+
+span.error {
+    color: red;
+}
+
+span.success {
+    color: green;
+}
+
+span.uimessage {
+    clear: both;
+    display: block;
+}
+
+span.validationMessage {
+    display: block;
+    clear: both;
+}
+
+.validationMessage {
+    color: Red;
+}
+
+.customMessage {
+    color: Orange;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.bottomTruck {
+    vertical-align: bottom;
+}
+
+.bottomTruckDetail {
+    vertical-align: text-top;
+}
+
+.searchDescBold {
+    font-weight: bold;
+}
+
+.detailBoldPartNum {
+    font: 18px Arial;
+    font-weight: bold;
+}
+
+.paddingL10 {
+    padding-left: 10px;
+}
+
+.paddingR10 {
+    padding-right: 10px;
+}
+
+.DetailDescBold {
+    font: 13px Arial;
+    font-weight: bold;
+}
+
+span.floatRight .floatRight {
+    float: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.centerText {
+    text-align: center;
+}
+
+div.passwordmeter {
+    color: white;
+    visibility: visible;
+    width: 153px;
+    text-align: center;
+    float: right;
+    overflow: visible;
+    z-index: 999;
+}
+
+div.strong.passwordmeter {
+    background-color: green;
+}
+
+div.medium.passwordmeter {
+    background-color: orange;
+}
+
+div.weak.passwordmeter {
+    background-color: orangered;
+}
+
+div.veryweak.passwordmeter {
+    background-color: red;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.display-none {
+    display: none;
+}
+
+input.ui-button {
+    padding: 2px 4px 2px 4px;
+}
+
+div.content-heading {
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: large;
+    font-weight: bold;
+}
+
+div.breadcrumb a, div#userInfo a {
+    color: lightgray;
+}
+
+div.container.breadcrumb {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+div.featured {
+    width: 739px;
+    margin-left: auto;
+    margin-right: 50px;
+    position: relative;
+    left: 5px;
+    right: 5px;
+}
+
+div.featured-list {
+    margin-bottom: 5px;
+    width: 735px; /* The height value here shows the Featured Items boxes height */
+    overflow: hidden;
+    display: inline-block;
+    border: solid var(--btn-featured-list-style) 3px;
+    border-top: none;
+    margin-right: 50px !important;
+    border-radius: 0;
+}
+
+div.featured span.title {
+    background: -webkit-linear-gradient(right, var(--dark-bg-color), var(--light-bg-color));
+    background: -o-linear-gradient(left, var(--dark-bg-color), var(--light-bg-color));
+    background: -moz-linear-gradient(left, var(--dark-bg-color), var(--light-bg-color));
+    background: linear-gradient(to left, var(--dark-bg-color), var(--light-bg-color));
+    background-color: var(--light-bg-color);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--dark-bg-color)', endColorstr='var(--light-bg-color)',GradientType=0 );
+    padding: 5px 20px;
+    margin: 10px -12px 0 0;
+    border-top-left-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    clear: both;
+    display: block;
+    color: white;
+}
+
+div.featured-list-items {
+    width: 800px;
+}
+
+div.featured-list-item {
+    width: 127px;
+    height: 170px;
+    margin-left: 11px;
+    margin-right: 12px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    float: left;
+    position: relative;
+}
+
+
+div.featured-list-item-text {
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    vertical-align: bottom;
+}
+
+div.slider {
+    margin-left: 7px;
+    width: 740px;
+}
+
+#featureListPartNbrLine {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.search_section {
+    float: right;
+    width: 50%;
+}
+
+div#advancedSearch {
+    width: 100%;
+    clear: both;
+    font: 12px Arial;
+    font-weight: bold;
+    float: right;
+    margin: 20px 10px 20px;
+}
+
+    div#advancedSearch a {
+        color: lightgray;
+        display: inline;
+        text-decoration: none;
+    }
+
+#SearchBox {
+    float: right;
+    width: 100%;
+    margin: 0 6px 0 0px;
+    clear: both;
+}
+
+a#logoutLink {
+    margin-left: 88px;
+}
+
+a#advancedSearchLink {
+    float: right;
+}
+
+form#advancedSearchForm {
+    width: 240px;
+    height: 160px;
+}
+
+    form#advancedSearchForm div {
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+
+    form#advancedSearchForm input {
+        float: right;
+    }
+
+        form#advancedSearchForm input[type='submit'] {
+            clear: both;
+        }
+
+.marksGSAno {
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-top: -25px;
+}
+
+div#favorites_quickAdd {
+    text-align: center;
+}
+
+    div#favorites_quickAdd span.validationMessage {
+        display: inline;
+    }
+
+.lJustText {
+    text-align: left;
+}
+
+.rJustText {
+    text-align: right;
+}
+
+.recoveryInput {
+    background-color: #07507C;
+    height: 25px;
+    border-radius: 5px;
+    padding: 3% !important;
+    border: 2px solid slategray !important;
+    display: block;
+    margin: 0 auto;
+}
+
+input.marksButton {
+    border: solid var(--dark-bg-color) 2px;
+    background-color: var(--light-bg-color);
+}
+
+    input.marksButton:hover {
+        background-color: #006611;
+    }
+
+#cartTable thead th:first-of-type {
+    border-top-left-radius: 10px;
+}
 
 #checkoutDiv #step-4 th.lastForCart,
-#cartTable thead th:last-of-type { border-top-right-radius: 10px; }
+#cartTable thead th:last-of-type {
+    border-top-right-radius: 10px;
+}
 
-#cartTable tfoot td:first-of-type { border-bottom-left-radius: 10px; }
+#cartTable tfoot td:first-of-type {
+    border-bottom-left-radius: 10px;
+}
 
-#cartTable tfoot td:last-of-type { border-bottom-right-radius: 10px; }
+#cartTable tfoot td:last-of-type {
+    border-bottom-right-radius: 10px;
+}
 
-#searchForm .marksButton { margin-top: -5px; }
+#searchForm .marksButton {
+    margin-top: -5px;
+}
 
-#loginBox > .loginClassButton { width: 130px !important; }
+#loginBox > .loginClassButton {
+    width: 130px !important;
+}
 
-#contentTabList h2 { background: -webkit-linear-gradient(right, var(--light-bg-color), var(--dark-bg-color)); background: -o-linear-gradient(left, var(--light-bg-color), var(--dark-bg-color)); background: -moz-linear-gradient(left, var(--light-bg-color), var(--dark-bg-color)); background: linear-gradient(to left, var(--light-bg-color), var(--dark-bg-color)); background-color: var(--light-bg-color); padding: 5px 0 5px 20px; border-top-left-radius: 0px; margin: 0 5px !important; color: white; text-align: left !important; }
+#contentTabList h2 {
+    background: -webkit-linear-gradient(right, var(--light-bg-color), var(--dark-bg-color));
+    background: -o-linear-gradient(left, var(--light-bg-color), var(--dark-bg-color));
+    background: -moz-linear-gradient(left, var(--light-bg-color), var(--dark-bg-color));
+    background: linear-gradient(to left, var(--light-bg-color), var(--dark-bg-color));
+    background-color: var(--light-bg-color);
+    padding: 5px 0 5px 20px;
+    border-top-left-radius: 0px;
+    margin: 0 5px !important;
+    color: white;
+    text-align: left !important;
+}
 
-#contentTabList h3 { padding: 5px 0 5px 5px; margin: 0 5px -5px !important; text-align: center; }
+#contentTabList h3 {
+    padding: 5px 0 5px 5px;
+    margin: 0 5px -5px !important;
+    text-align: center;
+}
 
-#contentTabList div { border: solid var(--dark-bg-color) 3px; border-top: none; padding: 5px; margin: 0 5px 10px; }
+#contentTabList div {
+    border: solid var(--dark-bg-color) 3px;
+    border-top: none;
+    padding: 5px;
+    margin: 0 5px 10px;
+    max-width: 100%;
+}
 
-#cartButtonLine .marksButton { width: 75px; }
+    #contentTabList div img {
+        max-width: 100%;
+    }
 
-#quickPartAddLine .marksButton { width: 75px; margin-left: 5px; }
+#cartButtonLine .marksButton {
+    width: 75px;
+}
 
-#quickPartAddLine #partNo, #quickPartAddLine #qtyAmt { width: 70px; }
+#quickPartAddLine .marksButton {
+    width: 75px;
+    margin-left: 5px;
+}
 
-#quickPartAddLine #partNo { margin-right: 9px; }
+#quickPartAddLine #partNo, #quickPartAddLine #qtyAmt {
+    width: 70px;
+}
 
-#promoCodeText { width: 180px; }
+#quickPartAddLine #partNo {
+    margin-right: 9px;
+}
 
-#promotionCodeButton { width: 60px; margin-bottom: 5px; }
+#promoCodeText {
+    width: 180px;
+}
 
-#searchButton { width: 60px; }
+#promotionCodeButton {
+    width: 60px;
+    margin-bottom: 5px;
+}
 
-#SliderControl { padding: 5px; }
+#searchButton {
+    width: 60px;
+}
 
-#shoppingCartDiv input { margin: 5px; }
+#SliderControl {
+    padding: 5px;
+}
 
-#promocodeDiv select { width: 140px; }
+#shoppingCartDiv input {
+    margin: 5px;
+}
 
-tr.recoveryRow { height: 120px !important; margin: 0px 20px 5px 20px; }
+#promocodeDiv select {
+    width: 140px;
+}
 
-    tr.recoveryRow:hover { background-color: transparent; }
+tr.recoveryRow {
+    height: 120px !important;
+    margin: 0px 20px 5px 20px;
+}
 
-.recoveryInput input { margin-left: 4%; }
+    tr.recoveryRow:hover {
+        background-color: transparent;
+    }
 
-.emptyTitle { text-align: left; }
+.recoveryInput input {
+    margin-left: 4%;
+}
 
-#miniCart tbody td.rightBorder { border-right: solid 1px #D3D3D3; }
+.emptyTitle {
+    text-align: left;
+}
 
-#logoBox { display: inline-table; width: 20%; }
+#miniCart tbody td.rightBorder {
+    border-right: solid 1px #D3D3D3;
+}
 
-    #logoBox #mainlogo { margin: 12px 1% -6px 10px; border: none; }
+#logoBox {
+    float: left;
+    width: 20%;
+}
 
-#contentTabList tr:hover { background-color: transparent; }
+    #logoBox #mainlogo {
+        margin: 12px 1% -6px 10px;
+        border: none;
+    }
+
+#contentTabList tr:hover {
+    background-color: transparent;
+}
 
 .noBorderChildren,
 .noBorderChildren div,
-.noBorder { border: none !important; }
+.noBorder {
+    border: none !important;
+}
 
-#partDetailImageBg { width: 48%; border-radius: 30px; background-color: #DDD; background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px; background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px; }
+#partDetailImageBg {
+    width: 48%;
+    border-radius: 30px;
+    background-color: #DDD;
+    background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
 
-#quickAddUIMessages > div > span { padding: 4px 0; }
+#quickAddUIMessages > div > span {
+    padding: 4px 0;
+}
 
-#catalogIcon { display: inline-block; margin-left: 100px; width: 88px; height: 75px; padding: 3.5px 13px; text-align: center; }
+#catalogIcon {
+    display: inline-block;
+    margin-left: 100px;
+    width: 88px;
+    height: 75px;
+    padding: 3.5px 13px;
+    text-align: center;
+}
 
-    #catalogIcon span { border-radius: 5px; padding: 0 4px 3px; }
+    #catalogIcon span {
+        border-radius: 5px;
+        padding: 0 4px 3px;
+    }
 
-    #catalogIcon a:hover span { background-color: white; }
+    #catalogIcon a:hover span {
+        background-color: white;
+    }
 
     #catalogIcon a:link,
-    #catalogIcon a:visited { color: white; }
+    #catalogIcon a:visited {
+        color: white;
+    }
 
-    #catalogIcon a:hover { color: var(--dark-bg-color); }
+    #catalogIcon a:hover {
+        color: var(--dark-bg-color);
+    }
 
-div#PartLabelTable { position: absolute; width: 500px; z-index: 999; }
+div#PartLabelTable {
+    position: absolute;
+    width: 500px;
+    z-index: 999;
+}
 
-#PartLabelTable tbody tr { cursor: pointer; }
+#PartLabelTable tbody tr {
+    cursor: pointer;
+}
 
-    #PartLabelTable tbody tr:hover { background-color: #6EAC2C; color: white; }
-#flyerGridTable tbody tr:hover { background-color: white; }
+    #PartLabelTable tbody tr:hover {
+        background-color: #6EAC2C;
+        color: white;
+    }
+
+#flyerGridTable tbody tr:hover {
+    background-color: white;
+}
 
 /* ------- Overrides -------- */
 
-.ui-widget-header { border: 1px solid var(--light-bg-color); background: var(--light-bg-color); color: #eaf5f7; font-weight: bold; }
+.ui-widget-header {
+    border: 1px solid var(--light-bg-color);
+    background: var(--light-bg-color);
+    color: #eaf5f7;
+    font-weight: bold;
+}
+
     .ui-state-default,
     .ui-widget-content .ui-state-default,
-    .ui-widget-header .ui-state-default { border: 1px solid var(--light-bg-color); background: var(--light-bg-color); font-weight: normal; color: #ffffff; }
+    .ui-widget-header .ui-state-default {
+        border: 1px solid var(--light-bg-color);
+        background: var(--light-bg-color);
+        font-weight: normal;
+        color: #ffffff;
+    }
+
     .ui-state-hover,
     .ui-widget-content .ui-state-hover,
     .ui-widget-header .ui-state-hover,
     .ui-state-focus,
     .ui-widget-content .ui-state-focus,
-    .ui-widget-header .ui-state-focus { border: 1px solid var(--light-bg-color); background: var(--light-bg-color); font-weight: normal; color: #ffffff; }
+    .ui-widget-header .ui-state-focus {
+        border: 1px solid var(--light-bg-color);
+        background: var(--light-bg-color);
+        font-weight: normal;
+        color: #ffffff;
+    }
 
 
 /* ------- Helpers -------- */
 
-.flexbox { display: flexbox; }
-.flex-column { flex-direction: column; }
-.text-right { text-align: right; }
-
-
-
-
-
-@media only screen and (min-width: 240px) {
-    body > div { width: 100%; margin: 0 auto; }
+.flexbox {
+    display: flexbox;
 }
 
-@media only screen and (min-width: 480px) {
-    body > div { width: 100%; margin: 0 auto; }
+.flex-column {
+    flex-direction: column;
 }
 
-@media only screen and (min-width: 600px) {
-    body > div { width: 100%; margin: 0 auto; }
+.text-right {
+    text-align: right;
 }
 
-@media only screen and (min-width: 768px) {
-    body > div { width: 100%; margin: 0 auto; }
-    .search_section { float: right; width: 38%; }
-    #slogan span:nth-child(1) { float: left; width: 100%; font-size: 16px; }
-    #slogan span:nth-child(2) { float: left; width: 100%; font-size: 16px; }
-    #logoBox { display: inline; float: left; width: 28%; }
+
+div.partDetailSmall {
+    margin: 2px;
+    width: 49%;
+    height: 180px;
+    float: left;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
 }
 
-@media only screen and (min-width: 1024px) {
-    body > div { width: 100%; margin: 0 auto; }
+/*slider changes*/
+
+.rslides {
+    margin: 0 auto;
 }
 
-@media only screen and (min-width: 1025px) {
-    body > div { width: 1024px; margin: 0 auto; }
+.rslides_container {
+    margin-bottom: 0px;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.centered-btns_nav {
+    z-index: 3;
+    position: absolute;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    top: 50%;
+    left: 0;
+    opacity: 0.7;
+    text-indent: -9999px;
+    overflow: hidden;
+    text-decoration: none;
+    height: 61px;
+    width: 38px;
+    background: transparent url("../Content/images/themes.gif") no-repeat left top;
+    margin-top: -45px;
+}
+
+    .centered-btns_nav:active {
+        opacity: 1.0;
+    }
+
+    .centered-btns_nav.next {
+        left: auto;
+        background-position: right top;
+        right: 0;
+    }
+
+.transparent-btns_nav {
+    z-index: 3;
+    position: absolute;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    top: 0;
+    left: 0;
+    display: block;
+    background: #fff; /* Fix for IE6-9 */
+    opacity: 0;
+    filter: alpha(opacity=1);
+    width: 48%;
+    text-indent: -9999px;
+    overflow: hidden;
+    height: 91%;
+}
+
+    .transparent-btns_nav.next {
+        left: auto;
+        right: 0;
+    }
+
+.large-btns_nav {
+    z-index: 3;
+    position: absolute;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    opacity: 0.6;
+    text-indent: -9999px;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #000 url("themes.gif") no-repeat left 50%;
+    width: 38px;
+}
+
+    .large-btns_nav:active {
+        opacity: 1.0;
+    }
+
+    .large-btns_nav.next {
+        left: auto;
+        background-position: right 50%;
+        right: 0;
+    }
+
+    .centered-btns_nav:focus,
+    .transparent-btns_nav:focus,
+    .large-btns_nav:focus {
+        outline: none;
+    }
+
+.centered-btns_tabs,
+.transparent-btns_tabs,
+.large-btns_tabs {
+    margin-top: 10px;
+    text-align: center;
+}
+
+    .centered-btns_tabs li,
+    .transparent-btns_tabs li,
+    .large-btns_tabs li {
+        display: inline;
+        float: none;
+        _float: left;
+        *float: left;
+        margin-right: 5px;
+    }
+
+    .centered-btns_tabs a,
+    .transparent-btns_tabs a,
+    .large-btns_tabs a {
+        text-indent: -9999px;
+        overflow: hidden;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        background: #ccc;
+        background: rgba(0,0,0, .2);
+        display: inline-block;
+        _display: block;
+        *display: block;
+        -webkit-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
+        -moz-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
+        box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
+        width: 9px;
+        height: 9px;
+    }
+
+.centered-btns_here a,
+.transparent-btns_here a,
+.large-btns_here a {
+    background: #222;
+    background: rgba(0,0,0, .8);
+}
+
+body > div {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+ul.header_menu ul#menu1 li:first-child + li + li + li + li {
+    border-bottom: none;
+}
+
+ul.header_menu ul#menu2 li:first-child + li + li + li + li + li + li + li + li + li {
+    border-bottom: none;
+}
+
+ul.header_menu ul#menu3 li:first-child {
+    border-bottom: none;
+}
+
+ul.header_menu ul#menu4 li:first-child + li + li + li {
+    border-bottom: none;
+}
+
+ul.header_menu ul#menu5 li:first-child {
+    border-bottom: none;
+}
+
+ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
+    border-bottom: none;
+}
+
+.mobile_menu {
+    display: none;
+}
+
+.header_menu {
+    display: none;
+}
+
+.mobileheader {
+    display: none;
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    body > div {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .search_section {
+        float: right;
+        width: 38%;
+    }
+
+    #slogan span:nth-child(1) {
+        float: left;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #slogan span:nth-child(2) {
+        float: left;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #logoBox {
+        display: inline;
+        float: left;
+        width: 28%;
+    }
+
+    #searchResultsDiv {
+        float: left;
+        width: 100%;
+    }
+
+    div.partDetailSmall {
+        margin: 2px;
+        width: 48%;
+        height: 180px;
+        float: left;
+        border-width: 1px;
+        border-style: solid;
+        border-color: lightgray;
+    }
+
+    #headermenu .ui-menu {
+        width: 25%;
+        z-index: 9999;
+    }
+
+    .rslides_container {
+        margin-bottom: 0px;
+        position: relative;
+        float: left;
+        width: 98%;
+    }
+
+    .footer_menu ul li {
+        border-right: medium none;
+        float: none;
+        line-height: 15px;
+        list-style: outside none none;
+        padding: 0 5px;
+        text-align: center;
+    }
+
+    .footer_menu {
+        float: left;
+        margin: 15px 0 0;
+        width: 25%;
+    }
+
+    #footer > h4 {
+        color: #ffffff;
+        float: left;
+        width: 45%;
+    }
+
+    div#slogan {
+        color: #d3d3d3 !important;
+        float: left;
+        font-size: 18px;
+        margin-left: 10px;
+        margin-top: 16px;
+        vertical-align: top;
+        width: 250px;
+    }
+}
+
+
+
+@media only screen and (min-width: 591px) and (max-width: 768px) {
+    body > div {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .search_section {
+        float: right;
+        width: 38%;
+    }
+
+    #slogan span:nth-child(1) {
+        float: left;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #slogan span:nth-child(2) {
+        float: left;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #logoBox {
+        display: inline;
+        float: left;
+        width: 28%;
+    }
+
+    #searchResultsDiv {
+        float: left;
+        width: 100%;
+    }
+
+    div.partDetailSmall {
+        margin: 2px;
+        width: 48%;
+        height: 180px;
+        float: left;
+        border-width: 1px;
+        border-style: solid;
+        border-color: lightgray;
+    }
+
+    #headermenu .ui-menu {
+        width: 25%;
+        z-index: 9999;
+    }
+
+    .rslides_container {
+        margin-bottom: 0px;
+        position: relative;
+        float: left;
+        width: 98%;
+    }
+
+    .footer_menu ul li {
+        border-right: medium none;
+        float: none;
+        line-height: 15px;
+        list-style: outside none none;
+        padding: 0 5px;
+        text-align: center;
+    }
+
+    .footer_menu {
+        float: left;
+        margin: 15px 0 0;
+        width: 25%;
+    }
+
+    #footer > h4 {
+        color: #ffffff;
+        float: left;
+        width: 45%;
+    }
+
+    div#slogan {
+        color: #d3d3d3 !important;
+        float: left;
+        font-size: 18px;
+        margin-left: 10px;
+        margin-top: 16px;
+        vertical-align: top;
+        width: 250px;
+    }
+}
+
+
+
+@media only screen and (min-width: 500px) and (max-width: 590px) {
+    body > div {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+
+    ul#headermenu {
+        display: none;
+    }
+
+    .header_menu li:hover ul, .header_menu li li:hover ul, .header_menu li li li:hover ul {
+        display: block;
+    }
+
+    .header_menu {
+        display: none;
+        margin: 0px 0 0 5px;
+        padding: 0;
+        float: right;
+        width: 100%;
+        position: relative;
+        z-index: 101;
+        border-top: 2px solid #ffffff;
+    }
+
+    ul.header_menu ul {
+        display: none;
+        margin: 2px 0 0;
+        padding: 0 5px;
+        background: #F1F1F1;
+        position: inherit;
+        z-index: 9999;
+    }
+
+    .header_menu li {
+        float: none;
+        padding: 2px 0;
+        list-style: none;
+        background: #1974CF;
+        cursor: pointer;
+        border-bottom: 1px solid #FFFFFF;
+        margin: 0 0 1px;
+    }
+
+        .header_menu li a {
+            padding: 0px 7px;
+            text-decoration: none;
+            font-size: 13px;
+            color: #fff;
+            font-weight: normal;
+            border-right: none;
+            white-space: nowrap;
+        }
+
+    .header_menu ul li {
+        margin: 0;
+        padding: 5px 3px;
+        float: none;
+        border-bottom: 2px solid #e0e0e0;
+        list-style: circle;
+    }
+
+    .mobile_menu {
+        display: block;
+        margin: 0;
+        width: 100%;       
+        float: right;      
+        font-size: 18px;
+        font-weight: bold;
+        padding: 3px 1px;
+    }
+    #homeDiv {
+    float: left;
+    margin: 0;
+    width: 100%;
+}
+
+    #content-sidebar {
+        display: none;
+    }
+
+    #content {
+        float: right;
+        width: 100%;
+    }
+
+    .search_section {
+        display: none;
+    }
+
+    #logoBox {
+        float: left;
+        width: 50%;
+    }
+
+    div#slogan {
+        color: #d3d3d3 !important;
+        float: left;
+        font-size: 16px;
+        margin-left: 0;
+        margin-top: 15px;
+        vertical-align: top;
+        width: 50%;
+    }
+
+     .mobileheader {
+        display: block;
+    }
+
+        .mobileheader ul {
+            float: left;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+            .mobileheader ul li {
+                float: left;
+                width: 32%;
+                margin: 0;
+                padding: 0;
+                border-right: 2px solid #AECEE7;
+                cursor: pointer;
+            }
+
+                .mobileheader ul li:last-child {
+                    border-right: none;
+                }
+}
+
+
+@media only screen and (min-width: 400px) and (max-width: 499px) {
+     body > div {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    ul#headermenu {
+        display: none;
+    }
+
+    .header_menu li:hover ul, .header_menu li li:hover ul, .header_menu li li li:hover ul {
+        display: block;
+    }
+
+    .header_menu {
+        display: none;
+        margin: 0px 0 0 5px;
+        padding: 0;
+        float: right;
+        width: 100%;
+        position: relative;
+        z-index: 101;
+        border-top: 2px solid #ffffff;
+    }
+
+        .header_menu ul {
+            display: none;
+            margin: 2px 0 0;
+            padding: 0 5px;
+            background: #f1f1f1 !important;
+            position: inherit;
+            z-index: 9999;
+        }
+            .header_menu ul li a {
+            color:#000;
+            }
+
+        .header_menu li {
+            float: none;
+            padding: 4px 0;
+            list-style: none;
+            background: #0193CE;
+            cursor: pointer;
+            border-bottom: 1px solid #CCCDCC;
+            margin: 0;
+        }
+
+            .header_menu li a {
+                padding: 0px 7px;
+                text-decoration: none;
+                font-size: 13px;
+                color: #fff ;
+                font-weight: normal;
+                border-right: none;
+                white-space: nowrap;
+            }
+
+        .header_menu ul li {
+            margin: 0;
+            padding: 5px 3px;
+            float: none;
+            border-bottom: 1px solid #e0e0e0;
+            list-style: circle;
+            background:#f1f1f1 !important;
+        }
+
+    .mobile_menu {
+        display: block;
+        margin: 0;
+        width: 32%;
+        background: #fff;
+        float: left;
+        color: #000;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 3px 1px;
+    }
+
+    #content-sidebar {
+        display: none;
+    }
+
+    #content {
+        float: right;
+        width: 100%;
+    }
+
+    .search_section {
+        display: none;
+    }
+
+    #logoBox {
+        float: left;
+        width: 50%;
+    }
+
+        #logoBox #mainlogo {
+            border: medium none;
+            height: 67px;
+            width: 150px;
+        }
+
+    div#slogan {
+        color: #d3d3d3 !important;
+        float: left;
+        font-size: 12px;
+        margin-left: 0;
+        margin-top: 5px;
+        vertical-align: top;
+        width: 50%;
+    }
+
+    .mobileheader {
+        display: block;
+    }
+
+        .mobileheader ul {
+            float: left;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+            .mobileheader ul li {
+                float: left;
+                width: 32%;
+                margin: 0;
+                padding: 0;
+                border-right: 2px solid #AECEE7;
+                cursor: pointer;
+            }
+
+                .mobileheader ul li:last-child {
+                    border-right: none;
+                }
+
+    #homeDiv {
+        float: left;
+        margin: 0;
+        width: 100%;
+    }
+
+    #mobsearch_section {
+        float: left;
+        width: 100%;
+    }
+
+    .loginBoxTest {
+        float: left;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    body > div {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    ul#headermenu {
+        display: none;
+    }
+
+    .header_menu li:hover ul, .header_menu li li:hover ul, .header_menu li li li:hover ul {
+        display: block;
+    }
+
+    .header_menu {
+        display: none;
+        margin: 0px 0 0 5px;
+        padding: 0;
+        float: right;
+        width: 100%;
+        position: relative;
+        z-index: 101;
+        border-top: 2px solid #ffffff;
+    }
+
+        .header_menu ul {
+            display: none;
+            margin: 2px 0 0;
+            padding: 0 5px;
+            background: #1974CF;
+            position: inherit;
+            z-index: 9999;
+        }
+
+        .header_menu li {
+            float: none;
+            padding: 4px 0;
+            list-style: none;
+            background: #0193CE;
+            cursor: pointer;
+            border-bottom: 1px solid #CCCDCC;
+            margin: 0;
+        }
+
+            .header_menu li a {
+                padding: 0px 7px;
+                text-decoration: none;
+                font-size: 13px;
+                color: #fff;
+                font-weight: normal;
+                border-right: none;
+                white-space: nowrap;
+            }
+
+        .header_menu ul li {
+            margin: 0;
+            padding: 5px 3px;
+            float: none;
+            border-bottom: 1px solid #e0e0e0;
+            list-style: circle;
+        }
+
+    .mobile_menu {
+        display: block;
+        margin: 0;
+        width: 32%;
+        background: #fff;
+        float: left;
+        color: #000;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 3px 1px;
+    }
+
+    #content-sidebar {
+        display: none;
+    }
+
+    #content {
+        float: right;
+        width: 100%;
+    }
+
+    .search_section {
+        display: none;
+    }
+
+    #logoBox {
+        float: left;
+        width: 50%;
+    }
+
+        #logoBox #mainlogo {
+            border: medium none;
+            height: 67px;
+            width: 150px;
+        }
+
+    div#slogan {
+        color: #d3d3d3 !important;
+        float: left;
+        font-size: 12px;
+        margin-left: 0;
+        margin-top: 5px;
+        vertical-align: top;
+        width: 50%;
+    }
+
+    .mobileheader {
+        display: block;
+    }
+
+        .mobileheader ul {
+            float: left;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+            .mobileheader ul li {
+                float: left;
+                width: 32%;
+                margin: 0;
+                padding: 0;
+                border-right: 2px solid #AECEE7;
+                cursor: pointer;
+            }
+
+                .mobileheader ul li:last-child {
+                    border-right: none;
+                }
+
+    #homeDiv {
+        float: left;
+        margin: 0;
+        width: 100%;
+    }
+
+    #mobsearch_section {
+        float: left;
+        width: 100%;
+    }
+
+    .loginBoxTest {
+        float: left;
+    }
 }

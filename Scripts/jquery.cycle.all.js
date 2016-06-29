@@ -369,8 +369,10 @@
                 maxh = h > maxh ? h : maxh;
             }
             if (opts.containerResize && maxw > 0 && maxh > 0)
-                $cont.css({ width: maxw + 'px', height: maxh + 'px' });
+                //$cont.css({ width: maxw + 'px', height: maxh + 'px' });
+                $cont.css({ width: '100%', height: maxh + 'px' });
             if (opts.containerResizeHeight && maxh > 0)
+                //$cont.css({ height: maxh + 'px' });
                 $cont.css({ height: maxh + 'px' });
         }
 
