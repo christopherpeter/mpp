@@ -1,59 +1,42 @@
 ﻿@model MarksPlumbing.WWW.UI.Models.Home.HomeModel
 
-@if(Model.flyerCnt >0)
+@if (Model.flyerCnt > 0)
 {
-<h1 style="text-align: center">Featured Products</h1>
+    <h1 style="text-align: center">Featured Products</h1>
 }
 <div id="flyerGridDiv">
-    <table id="flyerGridTable" style="align-content: center">
-        <thead style="background-color: transparent !important;">
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i <= Model.flyerCnt - 1; i += 3)
-            {
+    <div id="flyerGridTable" style="align-content: center">
+        @*<thead style="background-color: transparent !important;">
                 <tr>
-                    @if (i <= Model.flyerCnt - 1)
-                    {
-                        <td style="text-align: center; vertical-align: middle;">
-                            <a href="@Url.Content(Model.FlyerItemLists[i].LinkLocation)" target="_blank" >
-                                <img src="@Url.Content(Model.FlyerItemLists[i].ImagePath)" alt="@Url.Content(Model.FlyerItemLists[i].AltText)" /></a>
-                        </td>
-                    }
-                    else
-                    {
-                        <td></td>
-                    }
-                    @if ((i + 1) <= Model.flyerCnt - 1)
-                    {
-                        <td style="text-align: center; vertical-align: middle;">
-                            <a href="@Url.Content(Model.FlyerItemLists[i + 1].LinkLocation)" target="_blank" >
-                                <img src="@Url.Content(Model.FlyerItemLists[i + 1].ImagePath)" alt="@Url.Content(Model.FlyerItemLists[i + 1].AltText)"/></a>
-                        </td>
-                    }
-                    else
-                    {
-                        <td></td>
-                    }
-                    @if ((i + 2) <= Model.flyerCnt - 1)
-                    {
-                        <td style="text-align: center; vertical-align: middle;">
-                            <a href="@Url.Content(Model.FlyerItemLists[i + 2].LinkLocation)" target="_blank" >
-                                <img src="@Url.Content(Model.FlyerItemLists[i + 2].ImagePath)" alt="@Url.Content(Model.FlyerItemLists[i + 2].AltText)"/></a>
-                        </td>
-                    }
-                    else
-                    {
-                        <td></td>
-                    }
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>*@
+        <div>
+            <ul style="text-align: center; vertical-align: middle;">
+                @for (int i = 0; i <= Model.flyerCnt - 1; i++)
+                {
+                    <li>
+
+                        @if (i <= Model.flyerCnt - 1)
+                        {
+
+                            <a href="@Url.Content(Model.FlyerItemLists[i].LinkLocation)" target="_blank">
+                                <img src="@Url.Content(Model.FlyerItemLists[i].ImagePath)" alt="@Url.Content(Model.FlyerItemLists[i].AltText)" />
+                            </a>
+                        }
+                        else
+                        {
+                            <div></div>
+                        }
+                      
+                    </li>
+
+                }
+            </ul>
+        </div>
+    </div>
 </div>
 
 

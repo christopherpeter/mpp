@@ -1,24 +1,48 @@
 ﻿
 .smTable tbody tr:hover {
-    background-color:transparent;
-}
-.smTable {
-    border:0;
-    border-color:#fee;
-    border-width: 0px;
-}
-.smTable th, td {
-    border-width:0px;
+    background-color: transparent;
 }
 
-.smTable td {
-    vertical-align:top;
+.smTable {
+    border: 0;
+    border-color: #fee;
+    border-width: 0px;
+    float:left;
+    width:100%;
 }
+
+.smTable > div  {
+    float:left;
+    width:100%;
+
+}
+.smTable > div p {
+    float:left;
+
+
+}
+    .smTable > ul {
+        float: left;
+        width: 33%;
+        padding: 0;
+    }
+
+        .smTable > ul li {
+            list-style: none;
+        }
+
+    .smTable th, td {
+        border-width: 0px;
+    }
+
+    .smTable td {
+        vertical-align: top;
+    }
 
 .largeLink {
-    font-size:16px;
+    font-size: 16px;
 }
 
 .smCenter {
-    text-align:center;
+    text-align: center;
 }

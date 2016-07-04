@@ -1,20 +1,16 @@
 ﻿@model MarksPlumbing.WWW.UI.Models.BaseModel
 
 <h2>Site Map Index</h2>
-<table class="smTable">
-    <tr>
-        <td class="center" colspan="3">
+<div class="smTable">
+    <div>
+        <div class="center" colspan="3">
             <a class="largeLink smCenter" href="@Url.Action("Index", "Home")">Home</a>
-        </td>
-    </tr>
-    <tr>
-        <th style="width: 40%"><span style="color: black; text-decoration: underline">Resources</span></th>
-        <th style="width: 20%"></th>
-        <th style="width: 40%"><span style="color: black; text-decoration: underline">Customer Service</span></th>
-    </tr>
-    <tr>
-        <td>
-            <ul style="width: 150px; margin: 0 auto; display: block">
+        </div>
+    </div>
+    <div>
+        <div style="float:left; width: 40%">
+            <span style="float:left;color: black; text-decoration: underline;width:100%;">Resources</span>
+            <ul style="float:left;width:40%; margin: 0 auto; display: block">
                 <li class="sub"><a href="http://www.nxtbook.com/nxtbooks/marksplumbing/edition_h/#/0" target="_blank">Online Catalog</a></li>
                 <li class="sub"><a href="@Url.Action("CompanyInformation", "Resources")">Company Information</a></li>
                 <li class="sub"><a href="@Url.Action("Careers", "Resources")">Careers at Mark's</a></li>
@@ -23,18 +19,25 @@
                 <li class="sub"><a href="@Url.Action("PrintingLabels", "Resources")">Printing Labels</a></li>
                 <li class="sub"><a href="@Url.Action("Tutorials", "Resources")">Tutorials</a></li>
             </ul>
-        </td>
-        <td class="center"><a href="@Url.Action("Recovery", "Account")">Account Recovery</a></td>
-        <td>
-            <ul style="width: 150px; margin: 0 auto; display: block">
+
+        </div>
+
+       
+
+        <div style="float:left;width:20%;" class="center"><a href="@Url.Action("Recovery", "Account")">Account Recovery</a></div>
+        <div style="float:left;width: 40%">
+            <span style="float:left;color: black; text-decoration: underline;width:100%;">Customer Service</span>
+        
+            <ul style="float:left;width:100%; margin: 0 auto; display: block">
                 <li class="sub"><a href="@Url.Action("Contacts", "CustomerService")">Company Contacts</a></li>
                 <li class="sub"><a href="@Url.Action("ReturnsPolicy", "CustomerService")">Returns Policy</a></li>
                 <li class="sub"><a href="@Url.Action("Terms", "CustomerService")">Terms of Sale</a></li>
                 <li class="sub"><a href="@Url.Action("TaxExemptInstructions", "CustomerService")">Tax Exempt Instructions</a></li>
             </ul>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+    
+</div>
 
 @* Only show these options if user is logged in.  No point in showing logged in links when not logged in. *@
 @if (Model.IsLoggedIn == true)
@@ -68,9 +71,8 @@
 }
 
 <h3 class="smCenter">Categories</h3>
-<table class="smTable">
-    <tr>
-        <td>
+<div class="smTable">
+   
             <ul>
                 @for (int i = 0, loopCnt = 0; i < Model.CatalogMenu.Items.Count; i++)
                 {
@@ -78,8 +80,6 @@
                     {
                         loopCnt = 0;
                         @:</ul>
-                        @:</td>
-                        @:<td>
                         @:<ul>
                     }
                     string val1 = Model.CatalogMenu.Items[i].Text;
@@ -101,10 +101,9 @@
                             }
                         </ul>
                     </li>
-                    <br />   
+                    //<br />   
                 }
             </ul>
-        </td>
-    </tr>
-</table>
+      
+</div>
 

@@ -12,6 +12,24 @@
         margin: 0 auto;
     }
 
+.active {
+    background: red;
+}
+
+#flyerGridTable ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+}
+
+    #flyerGridTable ul li {
+        float: left;
+        width: 33%;
+        list-style-type: none;
+        margin: 5px 0;
+    }
+
+
 table {
     background-color: white;
     margin: 0px auto 0px auto;
@@ -158,7 +176,7 @@ span.label {
 }
 
 #content-sidebar {
-    display: inline-block;
+    display: block;
     float: left;
     width: 25%;
     padding: 0px;
@@ -197,7 +215,7 @@ span.label {
 }
 
 .content-sidebar {
-    display: inline-block;
+    display: block;
     float: right;
     width: 250px;
     padding: 3px;
@@ -338,13 +356,14 @@ span.label {
 }
 
 div#slogan {
+    color: #d3d3d3 !important;
     float: left;
-    vertical-align: top;
-    margin-top: 4px;
-    margin-left: 10px;
-    width: 250px;
     font-size: 18px;
-    color: lightgray !important;
+    line-height: 22px;
+    margin-left: 18px;
+    margin-top: 12px;
+    vertical-align: top;
+    width: 250px;
 }
 
 *:focus {
@@ -1278,6 +1297,11 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     display: none;
 }
 
+#advancedSearchForm #contentTabList {
+    width: 300px;
+    margin: 100px 200px;
+}
+
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
     body > div {
@@ -1360,8 +1384,8 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         color: #d3d3d3 !important;
         float: left;
         font-size: 18px;
-        margin-left: 10px;
-        margin-top: 16px;
+        margin-left: 5px;
+        margin-top: 12px;
         vertical-align: top;
         width: 250px;
     }
@@ -1377,19 +1401,23 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
 
     .search_section {
         float: right;
-        width: 38%;
+        width: 35%;
+    }
+
+    input#searchTextBox {
+        width: 65%;
     }
 
     #slogan span:nth-child(1) {
         float: left;
         width: 100%;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     #slogan span:nth-child(2) {
         float: left;
         width: 100%;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     #logoBox {
@@ -1397,6 +1425,13 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         float: left;
         width: 28%;
     }
+
+        #logoBox #mainlogo {
+            border: medium none;
+            height: 75px;
+            width: 165px;
+            margin: 12px 1% -6px 5px;
+        }
 
     #searchResultsDiv {
         float: left;
@@ -1414,7 +1449,7 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     }
 
     #headermenu .ui-menu {
-        width: 25%;
+        width: 30%;
         z-index: 9999;
     }
 
@@ -1450,10 +1485,23 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         color: #d3d3d3 !important;
         float: left;
         font-size: 18px;
+        line-height: 18px;
         margin-left: 10px;
-        margin-top: 16px;
+        margin-top: 12px;
         vertical-align: top;
-        width: 250px;
+        width: 195px;
+    }
+
+    #flyerGridTable ul li a img {
+        max-width: 90%;
+    }
+
+    div#advancedSearch {
+        clear: both;
+        float: right;
+        font: bold 12px Arial;
+        margin: 18px 10px 18px 0;
+        width: 100%;
     }
 }
 
@@ -1482,60 +1530,79 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         width: 100%;
         position: relative;
         z-index: 101;
-        border-top: 2px solid #ffffff;
+        border-top: 1px solid #ffffff;
     }
 
-    ul.header_menu ul {
-        display: none;
-        margin: 2px 0 0;
-        padding: 0 5px;
-        background: #F1F1F1;
-        position: inherit;
-        z-index: 9999;
-    }
-
-    .header_menu li {
-        float: none;
-        padding: 2px 0;
-        list-style: none;
-        background: #1974CF;
-        cursor: pointer;
-        border-bottom: 1px solid #FFFFFF;
-        margin: 0 0 1px;
-    }
-
-        .header_menu li a {
-            padding: 0px 7px;
-            text-decoration: none;
-            font-size: 13px;
-            color: #fff;
-            font-weight: normal;
-            border-right: none;
-            white-space: nowrap;
+        .header_menu ul {
+            display: none;
+            margin: 2px 0 0;
+            padding: 0 5px;
+            background: #f1f1f1 !important;
+            position: inherit;
+            z-index: 9999;
         }
 
-    .header_menu ul li {
+            .header_menu ul li a {
+                color: #000;
+            }
+
+        .header_menu li {
+            float: none;
+            padding: 0;
+            line-height: 25px;
+            list-style: none;
+            background: #0193CE;
+            cursor: pointer;
+            border-bottom: 1px solid #CCCDCC;
+            margin: 0;
+        }
+
+            .header_menu li a {
+                padding: 0px 7px;
+                text-decoration: none;
+                font-size: 13px;
+                color: #fff;
+                font-weight: normal;
+                border-right: none;
+                white-space: nowrap;
+            }
+
+        .header_menu ul li {
+            margin: 0;
+            padding: 0px 3px;
+            float: none;
+            border-bottom: 1px solid #e0e0e0;
+            list-style: circle;
+            background: #f1f1f1 !important;
+        }
+
+    .mobile_menu {
+        display: block;
         margin: 0;
-        padding: 5px 3px;
-        float: none;
-        border-bottom: 2px solid #e0e0e0;
-        list-style: circle;
+        width: 32%;
+        background: #fff;
+        float: left;
+        color: #000;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 3px 1px;
     }
 
     .mobile_menu {
         display: block;
         margin: 0;
-        width: 100%;       
-        float: right;      
+        width: 100%;
+        float: right;
         font-size: 18px;
         font-weight: bold;
         padding: 3px 1px;
     }
+
     #homeDiv {
-    float: left;
-    margin: 0;
-    width: 100%;
-}
+        float: left;
+        margin: 0;
+        width: 100%;
+    }
 
     #content-sidebar {
         display: none;
@@ -1555,30 +1622,45 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         width: 50%;
     }
 
+        #logoBox #mainlogo {
+            border: medium none;
+            height: 67px;
+            width: 150px;
+            margin: 0 0 0 10px;
+        }
+
     div#slogan {
         color: #d3d3d3 !important;
-        float: left;
-        font-size: 16px;
+        float: right;
+        font-size: 13px;
+        line-height: 16px;
         margin-left: 0;
-        margin-top: 15px;
+        margin-top: 0px;
         vertical-align: top;
-        width: 50%;
+        width: 210px;
     }
 
-     .mobileheader {
+    #upperHeader {
+        float: left;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .mobileheader {
         display: block;
     }
 
         .mobileheader ul {
             float: left;
-            width: 100%;
+            width: 99.5%;
             margin: 0;
             padding: 0;
+             border: 2px solid #AECEE7;
         }
 
             .mobileheader ul li {
                 float: left;
-                width: 32%;
+                width: 32.9%;
                 margin: 0;
                 padding: 0;
                 border-right: 2px solid #AECEE7;
@@ -1586,13 +1668,81 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
             }
 
                 .mobileheader ul li:last-child {
+                    width: 33%;
+                }
+
+                .mobileheader ul li:last-child {
                     border-right: none;
                 }
+
+    #content-sidebar {
+        position: absolute;
+        width: 44%;
+        z-index: 9999;
+    }
+
+    .footer_menu {
+        float: left;
+        margin: 0px 0 10px;
+        width: 100%;
+    }
+
+        .footer_menu ul li {
+            float: none;
+            border-right: 0 solid #ffffff;
+        }
+
+    #footer > h4 {
+        color: #ffffff;
+        float: left;
+        width: 100%;
+        margin: 0;
+    }
+
+    .share42init {
+        float: left;
+        margin-top: 25px;
+        width: 100%;
+    }
+
+    #mobsearch_section {
+        float: left;
+        width: 100%;
+    }
+
+    #flyerGridTable ul li img {
+        max-width: 90%;
+    }
+     .footer_menu ul {
+        clear: both;
+        float: none;
+        margin: 0 auto;
+        padding: 0;
+        width: 58%;
+    }
+
+        .footer_menu ul li {
+            border-right: 2px solid #fff;
+            float: left;
+            text-align: center;
+            padding: 0 5px;
+        }
+
+            .footer_menu ul li:last-child {
+                border-right: medium none;
+                width: 20%;
+            }
+
+    #footer > div a {
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: underline;
+    }   
 }
 
 
 @media only screen and (min-width: 400px) and (max-width: 499px) {
-     body > div {
+    body > div {
         width: 100%;
         margin: 0 auto;
     }
@@ -1613,7 +1763,7 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         width: 100%;
         position: relative;
         z-index: 101;
-        border-top: 2px solid #ffffff;
+        border-top: 0px solid #ffffff;
     }
 
         .header_menu ul {
@@ -1624,13 +1774,15 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
             position: inherit;
             z-index: 9999;
         }
+
             .header_menu ul li a {
-            color:#000;
+                color: #000;
             }
 
         .header_menu li {
             float: none;
-            padding: 4px 0;
+            padding: 0;
+            line-height: 25px;
             list-style: none;
             background: #0193CE;
             cursor: pointer;
@@ -1642,7 +1794,7 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
                 padding: 0px 7px;
                 text-decoration: none;
                 font-size: 13px;
-                color: #fff ;
+                color: #fff;
                 font-weight: normal;
                 border-right: none;
                 white-space: nowrap;
@@ -1650,11 +1802,11 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
 
         .header_menu ul li {
             margin: 0;
-            padding: 5px 3px;
+            padding: 0px 3px;
             float: none;
             border-bottom: 1px solid #e0e0e0;
             list-style: circle;
-            background:#f1f1f1 !important;
+            background: #f1f1f1 !important;
         }
 
     .mobile_menu {
@@ -1691,41 +1843,56 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
             border: medium none;
             height: 67px;
             width: 150px;
+            margin: 0 0 0 10px;
         }
 
     div#slogan {
         color: #d3d3d3 !important;
-        float: left;
+        float: right;
         font-size: 12px;
+        line-height: 16px;
         margin-left: 0;
-        margin-top: 5px;
+        margin-top: 0px;
         vertical-align: top;
-        width: 50%;
+        width: 180px;
     }
 
     .mobileheader {
         display: block;
     }
 
-        .mobileheader ul {
-            float: left;
-            width: 100%;
+    #upperHeader {
+        background-image: linear-gradient(to bottom right, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+        clear: both;
+        float: left;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .mobileheader ul {
+       float: left;
+            width: 99%;
             margin: 0;
             padding: 0;
+             border: 2px solid #AECEE7;
+    }
+
+        .mobileheader ul li {
+            float: left;
+            width: 32.9%;
+            margin: 0;
+            padding: 0;
+            border-right: 2px solid #AECEE7;
+            cursor: pointer;
         }
 
-            .mobileheader ul li {
-                float: left;
-                width: 32%;
-                margin: 0;
-                padding: 0;
-                border-right: 2px solid #AECEE7;
-                cursor: pointer;
+            .mobileheader ul li:last-child {
+                width: 33%;
             }
 
-                .mobileheader ul li:last-child {
-                    border-right: none;
-                }
+            .mobileheader ul li:last-child {
+                border-right: none;
+            }
 
     #homeDiv {
         float: left;
@@ -1741,6 +1908,81 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     .loginBoxTest {
         float: left;
     }
+
+    #content-sidebar {
+        position: absolute;
+        width: 44%;
+        z-index: 9999;
+    }
+
+    #footer {
+        padding: 15px 0;
+    }
+
+    .footer_menu {
+        float: left;
+        margin: 0px 0 10px;
+        width: 100%;
+    }
+
+        .footer_menu ul li {
+            float: none;
+            border-right: 1px solid #ffffff;
+        }
+
+    #footer > h4 {
+        color: #ffffff;
+        float: left;
+        width: 100%;
+        margin: 0;
+    }
+
+    .share42init {
+        float: left;
+        margin-top: 25px;
+        width: 100%;
+    }
+
+    #flyerGridTable ul li img {
+        max-width: 90%;
+    }
+
+    #flyerGridTable ul li a img {
+        max-width: 100%;
+    }
+
+    #flyerGridTable ul li {
+        float: left;
+        list-style-type: none;
+        margin: 5px 0;
+        width: 50%;
+    }
+
+    .footer_menu ul {
+        clear: both;
+        float: none;
+        margin: 0 auto;
+        padding: 0;
+        width: 58%;
+    }
+
+        .footer_menu ul li {
+            border-right: 2px solid #fff;
+            float: left;
+            text-align: center;
+            padding: 0 5px;
+        }
+
+            .footer_menu ul li:last-child {
+                border-right: medium none;
+                width: 20%;
+            }
+
+    #footer > div a {
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: underline;
+    }   
 }
 
 @media only screen and (min-width: 300px) and (max-width: 399px) {
@@ -1765,25 +2007,31 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         width: 100%;
         position: relative;
         z-index: 101;
-        border-top: 2px solid #ffffff;
+        border-top: 0px solid #ffffff;
     }
 
         .header_menu ul {
             display: none;
             margin: 2px 0 0;
             padding: 0 5px;
-            background: #1974CF;
+            background: #f1f1f1;
             position: inherit;
             z-index: 9999;
         }
 
+            .header_menu ul li {
+                background: #f1f1f1;
+                color: #000;
+            }
+
         .header_menu li {
             float: none;
-            padding: 4px 0;
+            padding: 0;
             list-style: none;
             background: #0193CE;
             cursor: pointer;
             border-bottom: 1px solid #CCCDCC;
+            line-height: 25px;
             margin: 0;
         }
 
@@ -1799,11 +2047,15 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
 
         .header_menu ul li {
             margin: 0;
-            padding: 5px 3px;
+            padding: 0 3px;
             float: none;
             border-bottom: 1px solid #e0e0e0;
             list-style: circle;
         }
+
+            .header_menu ul li a {
+                color: #000 !important;
+            }
 
     .mobile_menu {
         display: block;
@@ -1839,41 +2091,53 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
             border: medium none;
             height: 67px;
             width: 150px;
+            margin: 0 0 0 5px;
         }
 
     div#slogan {
         color: #d3d3d3 !important;
         float: left;
-        font-size: 12px;
+        font-size: 11px;
+        line-height: 16px;
         margin-left: 0;
-        margin-top: 5px;
+        margin-top: 0;
         vertical-align: top;
-        width: 50%;
+        width: 160px;
     }
 
     .mobileheader {
         display: block;
     }
 
-        .mobileheader ul {
-            float: left;
-            width: 100%;
+    #upperHeader {
+        background-image: linear-gradient(to bottom right, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+        clear: both;
+        float: left;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .mobileheader ul {
+        float: left;
+            width: 99%;
             margin: 0;
             padding: 0;
+             border: 2px solid #AECEE7;
+    }
+
+        .mobileheader ul li {
+            float: left;
+            width: 32.9%;
+            margin: 0;
+            padding: 0;
+            border-right: 2px solid #AECEE7;
+            cursor: pointer;
         }
 
-            .mobileheader ul li {
-                float: left;
-                width: 32%;
-                margin: 0;
-                padding: 0;
-                border-right: 2px solid #AECEE7;
-                cursor: pointer;
-            }
 
-                .mobileheader ul li:last-child {
-                    border-right: none;
-                }
+            .mobileheader ul li:last-child {
+                border-right: none;
+            }
 
     #homeDiv {
         float: left;
@@ -1888,5 +2152,81 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
 
     .loginBoxTest {
         float: left;
+    }
+
+    #content-sidebar {
+        position: absolute;
+        width: 60%;
+        z-index: 9999;
+    }
+
+    #flyerGrid h1 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    #footer {
+        padding: 15px 0;
+    }
+
+    .footer_menu {
+        float: left;
+        margin: 0px 0 10px;
+        width: 100%;
+    }
+
+        .footer_menu ul li {
+            float: none;
+            border-right: none;
+        }
+
+    #footer > h4 {
+        color: #ffffff;
+        float: left;
+        width: 100%;
+        margin: 0;
+    }
+
+    .share42init {
+        float: left;
+        margin-top: 25px;
+        width: 100%;
+    }
+
+    #flyerGridTable ul li a img {
+        max-width: 100%;
+    }
+
+    #flyerGridTable ul li {
+        float: left;
+        list-style-type: none;
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .footer_menu ul {
+        clear: both;
+        float: none;
+        margin: 0 auto;
+        padding: 0;
+        width: 75%;
+    }
+
+        .footer_menu ul li {
+            border-right: 2px solid #fff;
+            float: left;
+            text-align: center;
+            padding: 0 5px;
+        }
+
+            .footer_menu ul li:last-child {
+                border-right: medium none;
+                width: 20%;
+            }
+
+    #footer > div a {
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: underline;
     }
 }
