@@ -1,11 +1,12 @@
 ﻿#holidayScheduleContainer {
-    float: right;
+    float: none;
     width: 200px;
     background-color: var(--contactinfo-bg-color);
     list-style: none;
     padding: 5px 4%;
     border-radius: 15px;
     text-align: center;
+    margin:10px auto;
 }
 
 #contactTable .firstChild {
@@ -18,9 +19,11 @@
 }
 
 #contactTable {
-    padding: 10px;
+    padding: 0;
     border-radius: 15px;
-    width: 700px;
+    float:left;
+    width:97%;
+
 }
 
 #contactTable > tr:nth-child(2){
@@ -31,13 +34,7 @@
     background-color: transparent;
 }
 
-#contactTable .contactInfo {
-    width: 200px;
-    background-color: var(--contactinfo-bg-color);
-    border-radius: 5px;
-    margin-bottom: 5px;
-    padding: 5px !important;
-}
+
 
 #contactTable p {
     background-color: white;

@@ -2,13 +2,13 @@
 
 <h2>Site Map Index</h2>
 <div class="smTable">
-    <div>
+    <div class="homeSitemap">
         <div class="center" colspan="3">
             <a class="largeLink smCenter" href="@Url.Action("Index", "Home")">Home</a>
         </div>
     </div>
-    <div>
-        <div style="float:left; width: 40%">
+    <div class="innerSitemap">
+        <div class="resources">
             <span style="float:left;color: black; text-decoration: underline;width:100%;">Resources</span>
             <ul style="float:left;width:40%; margin: 0 auto; display: block">
                 <li class="sub"><a href="http://www.nxtbook.com/nxtbooks/marksplumbing/edition_h/#/0" target="_blank">Online Catalog</a></li>
@@ -24,11 +24,11 @@
 
        
 
-        <div style="float:left;width:20%;" class="center"><a href="@Url.Action("Recovery", "Account")">Account Recovery</a></div>
-        <div style="float:left;width: 40%">
-            <span style="float:left;color: black; text-decoration: underline;width:100%;">Customer Service</span>
+        <div class="accountRecovery " ><a href="@Url.Action("Recovery", "Account")">Account Recovery</a></div>
+        <div class="customerService" style="float:left;width: 40%">
+            <span style="float:left;text-decoration: underline;width:100%;">Customer Service</span>
         
-            <ul style="float:left;width:100%; margin: 0 auto; display: block">
+            <ul style="float:left;width:75%; margin: 0 auto; display: block">
                 <li class="sub"><a href="@Url.Action("Contacts", "CustomerService")">Company Contacts</a></li>
                 <li class="sub"><a href="@Url.Action("ReturnsPolicy", "CustomerService")">Returns Policy</a></li>
                 <li class="sub"><a href="@Url.Action("Terms", "CustomerService")">Terms of Sale</a></li>

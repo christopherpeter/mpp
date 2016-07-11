@@ -92,8 +92,8 @@
 }
 
 .headerTest { width: 100%; clear: both; float: left; padding: 0; margin: 0; }
-#upperHeader {width: 100%; clear: both; float: left; padding: 5px 0 25px; background: #009933; /* IE10 Consumer Preview */ background-image: -ms-linear-gradient(top left, #009933 0%, #0C294A 100%); background-image: linear-gradient(to bottom right, #009933 0%, #0C294A 100%); }
-#footer {width: 100%; clear: both; float: left; padding: 5px 0 25px; background: #009933; /* IE10 Consumer Preview */ background-image: -ms-linear-gradient(top left, #009933 0%, #0C294A 100%); background-image: linear-gradient(to bottom right, #009933 0%, #0C294A 100%); }
+#upperHeader {width: 100%; clear: both; float: left; padding: 5px 0 25px; background: #009933; /* IE10 Consumer Preview */ background-image: -ms-linear-gradient(top left, #009933 0%, #0C294A 100%);  }
+#footer {width: 100%; clear: both; float: left; padding: 5px 0 25px; background: #009933; /* IE10 Consumer Preview */ background-image: -ms-linear-gradient(top left, #009933 0%, #0C294A 100%); }
 
 
 .loginBox {

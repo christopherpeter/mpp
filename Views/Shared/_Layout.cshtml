@@ -1,8 +1,6 @@
 ﻿@using System.Web.Configuration
 @using MarksPlumbing.OrderEntry.Business
 @model MarksPlumbing.WWW.UI.Models.BaseModel
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +12,8 @@
         if ((sBrowser == "INTERNETEXPLORER") | (sBrowser == "IE"))
         {
         <!-- tag that allows IE to emulate specific version -->
-            <meta http-equiv="x-ua-compatible" content="IE=EmulateIE9" />
-            <script src="~/scripts/html5shiv.js"></script>
+           // <meta http-equiv="x-ua-compatible" content="IE=EmulateIE9" />
+           // <script src="~/scripts/html5shiv.js"></script>
             //decimal IE_Version = System.Convert.ToDecimal(Context.Request.Browser.Version);
             //if (IE_Version < 9)
             isVariableCompliant = "ie";
@@ -173,39 +171,24 @@
                 <div class="mobileheader">
                     <ul>
                         <li id="mob_menu" class="mobile_menu">
-                            <img src="Content/images/menu_list.png" alt="menu" />
-                            <span>Menu</span>
+                            <img style="float: left; height: 32px;width: 32px;" src="/images/menu_list.png" alt="menu" />
+                            <span style="float: left;margin: 3px 0 0;">Menu</span>
                         </li>
                         <li id="search" class="mobile_menu">
-                            <img src="Content/images/menu_list.png" alt="menu" />
-                            <span>Search</span>
-                        </li>
-                        <li id="login" class="mobile_menu">
-                            <img src="Content/images/menu_list.png" alt="menu" />
-                            <span>Login</span>
+                            <img style="float: left; height: 24px;width: 24px;margin: 5px 5px 0;" src="/images/index.jpg" alt="search" />
+                            <span style="float: left;margin: 3px 0 0;">Search</span>
                         </li>
 
                     </ul>
-                    @*   <div id="mob_menu" class="mobile_menu">
-                            <img src="Content/images/menu_list.png" alt="menu" />
-                            <span>Menu</span>
-                        </div>
-                        <div id="search" class="mobile_menu">
-                            <img src="Content/images/menu_list.png" alt="menu" />
-                            <span>Search</span>
-                        </div>
-                        <div id="login" class="mobile_menu">
-                            <img src="Content/images/menu_list.png" alt="menu" />
-                            <span>Login</span>
-                        </div>*@
+
 
                 </div>
 
                 <ul class="header_menu" style="display: none;">
                     <li>
-                        <a href="index.html" title="Offshore Outsourcing Company">Home</a>
+                        <a href="@Url.Action("Index", "Home")" title="Offshore Outsourcing Company">Home</a>
                         <ul id="menu1">
-                            <li><a href="about-us.html" title="Company Overview">Site Map</a></li>
+                            <li><a href="@Url.Action("Index", "SiteMap")" title="Company Overview">Site Map</a></li>
 
                         </ul>
 
@@ -213,27 +196,49 @@
                     <li>
                         <a onclick="clickfn(id)" id="click_1" title="About Tychons">Resources</a>
                         <ul id="menu1">
-                            <li><a href="about-us.html" title="Company Overview">Online Catalog</a></li>
-                            <li><a href="vision.html" title="Tychons Mission & Values">Company Information</a></li>
-                            <li><a href="executive_team.html" title="Executive Team">Career at Mark's</a></li>
-                            <li><a href="message.html" title="Director Message">Credit Application</a></li>
-                            <li><a href="infrastructure.html" title="Our IT Infrastructure">Store Locations</a></li>
-                            <li><a href="infrastructure.html" title="Our IT Infrastructure">Printing Labels</a></li>
-                            <li><a href="infrastructure.html" title="Our IT Infrastructure">Tutorials</a></li>
+                            <li><a href="http://www.nxtbook.com/nxtbooks/marksplumbing/edition_h/#/0" target="_blank" title="Online Catalog">Online Catalog</a></li>
+                            <li><a href="@Url.Action("CompanyInformation", "Resources")" title="Company Information">Company Information</a></li>
+                            <li><a href="@Url.Action("Careers", "Resources")" title="Career at Mark's">Career at Mark's</a></li>
+                            <li><a href="~/Content/documents/creditapplication.pdf" target="_blank" title="Credit Application">Credit Application</a></li>
+                            <li><a href="@Url.Action("StoreLocations", "Resources")" title="Store Locations">Store Locations</a></li>
+                            <li><a href="@Url.Action("PrintingLabels", "Resources")" title="Printing Labels">Printing Labels</a></li>
+                            <li><a href="@Url.Action("Tutorials", "Resources")" title="Tutorials">Tutorials</a></li>
+
+
                         </ul>
                     </li>
                     <li>
-                        <a onclick="clickfn(id)" id="click_2" title="Services">Customer Services</a>
+                        <a onclick="clickfn(id)" id="click_2" title="Customer Services">Customer Services</a>
                         <ul id="menu2">
-                            <li><a href="application-development.html" title="Application Development">Company Contacts</a></li>
-                            <li><a href="platformmodernization.html" title="Platform Modernization">Returns Policy</a></li>
-                            <li><a href="application-management.html" class="parent" title="Application Management">Terms of Sale</a></li>
-                            <li><a href="business-intelligence.html" title="Business Intelligence and Analytics">Tax Exempt Instructions</a></li>
-
-
+                            <li><a href="@Url.Action("Contacts", "CustomerService")" title="Company Contacts">Company Contacts</a></li>
+                            <li><a href="@Url.Action("ReturnsPolicy", "CustomerService")" title="Returns Policy">Returns Policy</a></li>
+                            <li><a href="@Url.Action("Terms", "CustomerService")" class="parent" title="Terms of Sale">Terms of Sale</a></li>
+                            <li><a href="@Url.Action("TaxExemptInstructions", "CustomerService")" title="Tax Exempt Instructions">Tax Exempt Instructions</a></li>
                         </ul>
                     </li>
-                    <li><a onclick="clickfn(id)" href="technology.html" id="click_3" title="Software Development Technology">Online Catalog</a> </li>
+                    <li><a onclick="clickfn(id)" href="technology.html" id="click_3" title="Online Catalog">Online Catalog</a> </li>
+
+                    <li>
+                        <a class="inline" href="#">My Account</a>
+                        <ul>
+                            <li class="sub"><a href="@Url.Action("Preferences", "Account")">Settings</a> </li>
+                            <li class="sub"><a href="@Url.Action("Index", "Favorites")">Favorites / Print Labels</a> </li>
+                            <li class="sub"><a href="@Url.Action("Invoices", "Account")">Invoices</a> </li>
+                            <li class="sub"><a href="@Url.Action("Quotes", "Account")">Quotes</a> </li>
+                            <li class="sub"><a href="@Url.Action("History", "Account")">Part History</a> </li>
+                            <li class="sub">@Html.ActionLink("Pay Invoices", "ePay", "Account", null, new { target = "_blank" })</li>
+                            <li class="sub">@Html.ActionLink("PrePay an Order", "ePay", "Account", null, new { target = "_blank" })</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="inline" href="#">My Reports</a>
+                        <ul>
+                            <li class="sub"><a href="@Url.Action("PopularParts", "MyReports")">Popular Parts</a></li>
+                            <li class="sub"><a href="@Url.Action("RepeatPurchases", "MyReports")">Repeat Purchases</a></li>
+                            @*<li class="sub"><a href="@Url.Action("PrintLabels", "MyReports")">Label Printing</a></li>*@
+                        </ul>
+                    </li>
+
 
 
                 </ul>
@@ -242,15 +247,27 @@
 
 
 
-                    <div style="width:100%;height:100px;float:left;">
+                    <div style="width:100%;float:left;">
 
-                        <div id="advancedSearch">
-                            <a id="advancedSearchLink" href="javascript:void(0)">Advanced Search</a>
+
+                        @*<div id="advancedSearch">
+
+                            @Html.ActionLink("Advanced Search", "AdvancedSearch", "Catalog", null, new { id = "advancedSearchLink" })
                         </div>
                         <div id="SearchBox">
-                            <form method="post" id="searchForm" action="/Catalog/Search">
+                            @{ Html.RenderAction("SearchBox", "Catalog"); }
+                        </div>*@
+
+                        <div id="advancedSearchmobile">
+                            @Html.ActionLink("Advanced Search", "AdvancedSearch", "Catalog", null, new { id = "advancedSearchLink" })
+                            @*<a id="advancedSearchLink" href="javascript:void(0)">Advanced Search</a>*@
+                        </div>
+                        <div id="SearchBoxmobile">
+                            @{ Html.RenderAction("SearchBox", "Catalog"); }
+
+                            @*<form method="post" id="searchForm" action="/Catalog/Search">
                                 <input type="text" value="" title="Enter part number or part name to search" name="SearchParamaters.SearchText" id="searchTextBox" data-bind="value: vm.SearchText" class="ui-corner-all">    <input type="submit" value="Search" id="searchButton" class="marksButton ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">
-                            </form>
+                            </form>*@
                         </div>
 
                     </div>
@@ -353,101 +370,108 @@
 
 
             <div style="width: 100%; float: left">
+
                 @if (Model.ShowSideBar == true)
                 {
                     <div id="content-sidebar" class="ui-corner-bottom">
-                        <div id="sidebar-top">
-                            @if (Model.IsLoggedIn == true)
-                            {
-                                <div>
-                                    <div id="promocodeDiv">
-                                        <input id="promoCodeText" placeholder="Enter promo code" class="ui-corner-all" title="Enter a promo code to get discounts on items" type="text" onkeyup="applyPromo()" data-bind="event: { keyup: vm.ShoppingCart.pcApplyBtn}" />
-                                        <input type="button" id="promotionCodeButton" class="marksButton" value="Apply" data-bind="click:vm.ShoppingCart.ApplyPromotionCode,button:{disabled:vm.ShoppingCart.pcApplyEnabled()===false} " onclick=" $('#promoCodeText').focus()" />
-                                        <br />
-                                        <span id="layoutPromoCode" style="color: white" data-bind="text:(vm.ShoppingCart.CurrentPromoCode() === undefined || vm.ShoppingCart.CurrentPromoCode() === '')? 'Current Promo Code: None' : 'Current Promo Code: ' + vm.ShoppingCart.CurrentPromoCode()"></span>
-                                        <div data-bind="template:{name:'ui-messagelist-template',data:vm.ShoppingCart.PromotionCodeMessages}"></div>
-                                    </div>
-                                    <hr />
-                                    <input id="showHideSwitchCart" class="section-toggle-btn" type="button" value="Hide Cart" data-bind="click:vm.ToggleCartPreview" onclick=" switchHideShow('showHideSwitchCart')" />
-                                    <div id="cartBox" data-bind="if:vm.ShowCartPreview()==true">
-                                        <table id="miniCart">
-                                            <thead>
-                                                <tr>
-                                                    <th>Part#</th>
-                                                    <th>Qty</th>
-                                                    <th>Price</th>
-                                                    <th>Ext. Price</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody data-bind="foreach: vm.ShoppingCart.CartItems">
-                                                <tr>
-                                                    <td class="text rightBorder"><a data-bind="text: PartNumber, attr: { href: ViewDetailRoute, title: PartNumber }"></a></td>
-                                                    <td class="number rightBorder" data-bind="text: Quantity"></td>
-                                                    <td class="number rightBorder" data-bind="text: UnitPrice"></td>
-                                                    <td class="number" data-bind="text: ExtendedPrice"></td>
-                                                </tr>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td class="number">SubTotal:</td>
-                                                    <td class="number" data-bind="text: vm.ShoppingCart.SubTotal"></td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
-                                    <hr />
+                        <div id="login12">
+
+                            <span>Click here to open</span>
+                            <span style="display:none;" title="Close" class="close"></span>
+                        </div>
+                        <div class="innerContentsidebar">
+                            <div id="sidebar-top">
+                                @if (Model.IsLoggedIn == true)
+                                {
                                     <div>
-                                        <div id="cartButtonLine">
-                                            <input type="button" id="viewCartButton" value="View Cart" class="marksButton cartButton" data-actionurl="@Url.Action("Index", "ShoppingCart")" data-bind="click:vm.LinkButtonClick" />
-                                            <input type="button" id="quoteButton" value="Quote" class="marksButton cartButton" data-actionurl="/Checkout/2" data-bind="click:vm.LinkButtonClick,button:{disabled:vm.ShoppingCart.CheckoutEnabled()===false || vm.UserAccount.EmailVerifiedString()!=='true' }" />
-                                            <input type="button" id="checkoutButton" value="Checkout" class="marksButton cartButton" data-actionurl="/Checkout/1" data-bind="click:vm.LinkButtonClick,button:{disabled:vm.ShoppingCart.CheckoutEnabled()===false || vm.UserAccount.EmailVerifiedString()!=='true' }" />
+                                        <div id="promocodeDiv">
+                                            <input id="promoCodeText" placeholder="Enter promo code" class="ui-corner-all" title="Enter a promo code to get discounts on items" type="text" onkeyup="applyPromo()" data-bind="event: { keyup: vm.ShoppingCart.pcApplyBtn}" />
+                                            <input type="button" id="promotionCodeButton" class="marksButton" value="Apply" data-bind="click:vm.ShoppingCart.ApplyPromotionCode,button:{disabled:vm.ShoppingCart.pcApplyEnabled()===false} " onclick=" $('#promoCodeText').focus()" />
+                                            <br />
+                                            <span id="layoutPromoCode" style="color: white" data-bind="text:(vm.ShoppingCart.CurrentPromoCode() === undefined || vm.ShoppingCart.CurrentPromoCode() === '')? 'Current Promo Code: None' : 'Current Promo Code: ' + vm.ShoppingCart.CurrentPromoCode()"></span>
+                                            <div data-bind="template:{name:'ui-messagelist-template',data:vm.ShoppingCart.PromotionCodeMessages}"></div>
                                         </div>
-                                        <div data-bind="validationOptions: { insertMessages: false}">
-                                            <div id="quickPartAddLine">
-                                                <input id="partNo" class="ui-corner-all quickAdd" type="text" title="Enter a part number to purchase."
-                                                       data-bind="value:vm.ShoppingCart.QuickAddPartNumber,attr:{placeholder: 'Part #'}" onkeyup="toQty(event)" />
-                                                <input id="qtyAmt" class="ui-corner-all quickAdd" type="text" title="Enter a part quantity to purchase."
-                                                       data-bind="value:vm.ShoppingCart.QuickAddQuantity,attr:{placeholder: 'Qty.'}, pattern:'^\d+$' " onkeyup="quickAdd(event)" />
-                                                <input id="quickAddButton" value="Quick Add" type="button" class="marksButton quickAdd" data-bind="click: vm.ShoppingCart.QuickAddItem" onclick=" partNo.focus(); partNo.value='' ; qtyAmt.value='' ">
+                                        <hr />
+                                        <input id="showHideSwitchCart" class="section-toggle-btn" type="button" value="Hide Cart" data-bind="click:vm.ToggleCartPreview" onclick=" switchHideShow('showHideSwitchCart')" />
+                                        <div id="cartBox" data-bind="if:vm.ShowCartPreview()==true">
+                                            <table id="miniCart">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Part#</th>
+                                                        <th>Qty</th>
+                                                        <th>Price</th>
+                                                        <th>Ext. Price</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody data-bind="foreach: vm.ShoppingCart.CartItems">
+                                                    <tr>
+                                                        <td class="text rightBorder"><a data-bind="text: PartNumber, attr: { href: ViewDetailRoute, title: PartNumber }"></a></td>
+                                                        <td class="number rightBorder" data-bind="text: Quantity"></td>
+                                                        <td class="number rightBorder" data-bind="text: UnitPrice"></td>
+                                                        <td class="number" data-bind="text: ExtendedPrice"></td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td class="number">SubTotal:</td>
+                                                        <td class="number" data-bind="text: vm.ShoppingCart.SubTotal"></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                        <hr />
+                                        <div>
+                                            <div id="cartButtonLine">
+                                                <input type="button" id="viewCartButton" value="View Cart" class="marksButton cartButton" data-actionurl="@Url.Action("Index", "ShoppingCart")" data-bind="click:vm.LinkButtonClick" />
+                                                <input type="button" id="quoteButton" value="Quote" class="marksButton cartButton" data-actionurl="/Checkout/2" data-bind="click:vm.LinkButtonClick,button:{disabled:vm.ShoppingCart.CheckoutEnabled()===false || vm.UserAccount.EmailVerifiedString()!=='true' }" />
+                                                <input type="button" id="checkoutButton" value="Checkout" class="marksButton cartButton" data-actionurl="/Checkout/1" data-bind="click:vm.LinkButtonClick,button:{disabled:vm.ShoppingCart.CheckoutEnabled()===false || vm.UserAccount.EmailVerifiedString()!=='true' }" />
                                             </div>
-                                            <div id="quickAddValidationMessages"><span class="error" data-bind="validationMessage:vm.ShoppingCart.QuickAddPartNumber"></span>&nbsp;<span class="error" data-bind=" validationMessage:vm.ShoppingCart.QuickAddQuantity"></span></div>
-                                            <div id="quickAddUIMessages" style="background-color: white; margin: 0 10px; border-radius: 15px;" data-bind="template: { name: 'ui-messagelist-template', data: vm.ShoppingCart.UIMessages }"></div>
+                                            <div data-bind="validationOptions: { insertMessages: false}">
+                                                <div id="quickPartAddLine">
+                                                    <input id="partNo" class="ui-corner-all quickAdd" type="text" title="Enter a part number to purchase."
+                                                           data-bind="value:vm.ShoppingCart.QuickAddPartNumber,attr:{placeholder: 'Part #'}" onkeyup="toQty(event)" />
+                                                    <input id="qtyAmt" class="ui-corner-all quickAdd" type="text" title="Enter a part quantity to purchase."
+                                                           data-bind="value:vm.ShoppingCart.QuickAddQuantity,attr:{placeholder: 'Qty.'}, pattern:'^\d+$' " onkeyup="quickAdd(event)" />
+                                                    <input id="quickAddButton" value="Quick Add" type="button" class="marksButton quickAdd" data-bind="click: vm.ShoppingCart.QuickAddItem" onclick=" partNo.focus(); partNo.value='' ; qtyAmt.value='' ">
+                                                </div>
+                                                <div id="quickAddValidationMessages"><span class="error" data-bind="validationMessage:vm.ShoppingCart.QuickAddPartNumber"></span>&nbsp;<span class="error" data-bind=" validationMessage:vm.ShoppingCart.QuickAddQuantity"></span></div>
+                                                <div id="quickAddUIMessages" style="background-color: white; margin: 0 10px; border-radius: 15px;" data-bind="template: { name: 'ui-messagelist-template', data: vm.ShoppingCart.UIMessages }"></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            }
-                            @if (Model.IsLoggedIn == false)
-                            {
-                                <div>
-                                    @{ Html.RenderAction("LoginBox", "Account"); }
-                                </div>
-                                        }
-                        </div>
-
-
-                        <div class="container breadcrumb" data-bind="foreach:vm.BreadCrumbs" style="display: none;">
-                            @*<div class="breadcrumb" data-bind="html:value"></div>*@
-                        </div>
-                        <input id="showHideSwitchProducts" class="section-toggle-btn" type="button" value="Hide Product Categories" data-bind="click:vm.ToggleCatalogMenu" onclick="switchHideShow('showHideSwitchProducts')" />
-                        <div id="catalog-menu">
-                            <div data-bind="if:vm.ShowCatalogMenu()==true">
-                                <ul id="catalogMenu" style="cursor: pointer" data-bind="foreach: vm.CatalogMenu.Items">
-                                    <li>
-                                        <a data-bind="text: Text, click:vm.CatalogMenu.ItemClicked"></a>
-                                        <ul data-bind="foreach: SubMenuItems">
-                                            <li><a data-bind="text: Text, click:vm.CatalogMenu.ItemClicked"></a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                }
+                                @if (Model.IsLoggedIn == false)
+                                {
+                                    <div>
+                                        @{ Html.RenderAction("LoginBox", "Account"); }
+                                    </div>
+                                            }
                             </div>
 
-                        </div>
 
+                            <div class="container breadcrumb" data-bind="foreach:vm.BreadCrumbs" style="display: none;">
+                                @*<div class="breadcrumb" data-bind="html:value"></div>*@
+                            </div>
+                            <input id="showHideSwitchProducts" class="section-toggle-btn" type="button" value="Hide Product Categories" data-bind="click:vm.ToggleCatalogMenu" onclick="switchHideShow('showHideSwitchProducts')" />
+                            <div id="catalog-menu">
+                                <div data-bind="if:vm.ShowCatalogMenu()==true">
+                                    <ul id="catalogMenu" style="cursor: pointer" data-bind="foreach: vm.CatalogMenu.Items">
+                                        <li>
+                                            <a data-bind="text: Text, click:vm.CatalogMenu.ItemClicked"></a>
+                                            <ul data-bind="foreach: SubMenuItems">
+                                                <li><a data-bind="text: Text, click:vm.CatalogMenu.ItemClicked"></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
-                                        }
+                                            }
 
 
 
@@ -509,7 +533,14 @@
 
                 </div>
 
-                <div class="browsericon" style="display: none;">
+              
+                <div class="share42init"></div>
+                <div id="marksPhonediv" style="display: none;">
+                    <span class="marksGSAno" data-bind="text:'GSA# GS-07F0342U'"></span>
+
+                </div>
+
+                <div class="browsericon">
                     @{
                         var serverName = System.Environment.MachineName;
                         <span style="vertical-align: top">
@@ -517,11 +548,7 @@
                         </span>
                     }
                 </div>
-                <div class="share42init"></div>
-                <div id="marksPhonediv" style="display: none;">
-                    <span class="marksGSAno" data-bind="text:'GSA# GS-07F0342U'"></span>
 
-                </div>
             </div>
             <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
             <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
@@ -597,36 +624,42 @@
                 menuflag=false;
             });
             $('#mob_menu').click(function(){
-               // $('.active').css('background', 'none');
-               // $("#login").removeClass('active');
-               // $("#search").removeClass('active');
-               // $(this).toggleClass('active');
-               //  $('.active').css('background', 'red');
+                // $('.active').css('background', 'none');
+                // $("#login").removeClass('active');
+                // $("#search").removeClass('active');
+                // $(this).toggleClass('active');
+                //  $('.active').css('background', 'red');
                 $('#mobloginBox').hide();
                 $('#mobsearch_section').hide();
-                $('ul.header_menu').slideToggle(700);
+                $('ul.header_menu').slideToggle(500);
             });
             $('#search').click(function(){
-               // $('.active').css('background', 'none');
-               // $("#mob_menu").removeClass('active');
-               // $("#login").removeClass('active');
-               // $(this).toggleClass('active');
-               // $('.active').css('background', 'red');
-                $('#mobsearch_section').slideToggle(700);
+                // $('.active').css('background', 'none');
+                // $("#mob_menu").removeClass('active');
+                // $("#login").removeClass('active');
+                // $(this).toggleClass('active');
+                // $('.active').css('background', 'red');
+                $('#mobsearch_section').slideToggle(500);
                 $('ul.header_menu').hide();
                 $('#mobloginBox').hide();
-              
+
             });
-            $('#login').click(function(){
-               // $('.active').css('background', 'none');
-               // $("#mob_menu").removeClass('active');
-               // $("#search").removeClass('active');
-               //  $(this).toggleClass('active');
-               // $('.active').css('background', 'red');
+            $('#login12').click(function(){
+
+                // $('.active').css('background', 'none');
+                // $("#mob_menu").removeClass('active');
+                // $("#search").removeClass('active');
+                // $(this).toggleClass('active');
+                // $('.active').css('background', 'red');
+
                 $('ul.header_menu').hide();
                 $('#mobsearch_section').hide();
-                $("#content-sidebar").toggle("slide", { direction: "left" }, 700);
-                // $('#content-sidebar').slideToggle(700);
+                // $("#sidebar-top").toggle("slide", { direction: "left" }, 700);
+                // $("#catalog-menu").toggle("slide", { direction: "left" }, 700);
+                $(".innerContentsidebar").toggle("slide", { direction: "left" }, 500);
+                //  $('#content-sidebar').slideToggle(700);
+
+
             });
 
 
@@ -642,11 +675,17 @@
             if($(window).width() >= 591){
                 //alert("591");
                 $('.header_menu').css('display', 'none');
-                $('#content-sidebar').css('display', 'block');
+                $('.innerContentsidebar').css('display', 'block');
+                $('#login12').css('display', 'none');
+                $('#mobsearch_section').css('display', 'none');
+
+
+
             }
             else{
-                $('#content-sidebar').css('display', 'none');
+                $('.innerContentsidebar').css('display', 'none');
                 $('#mobsearch_section').css('display', 'none')
+                $('#login12').css('display', 'block');
             }
 
 

@@ -21,11 +21,6 @@
 
 
 }
-    .smTable > ul {
-        float: left;
-        width: 33%;
-        padding: 0;
-    }
 
         .smTable > ul li {
             list-style: none;
@@ -44,5 +39,7 @@
 }
 
 .smCenter {
+    float:left;
     text-align: center;
+    width:100%;
 }

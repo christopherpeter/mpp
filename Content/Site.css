@@ -11,6 +11,142 @@
         width: 1024px;
         margin: 0 auto;
     }
+    .ui-tabs-nav > li {
+    width: 18%;
+    height: 85px;
+    margin:0 !important;
+    padding:5px !important;
+  
+
+}
+#searchResultsDiv {
+    width: 100%;
+}
+
+.resources {
+    float: left;
+    width: 40%;
+}
+
+.accountRecovery {
+    float: left;
+    width: 20%;
+}
+
+.customerService {
+    float: left;
+    width: 40%;
+}
+
+#contactTable > div {
+    float: left;
+    width: 100%;
+}
+
+div.pagerDiv {
+    width: 99%;
+    padding: 2px 2px 2px 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+    clear: both;
+    float: left;
+}
+
+#contactTable .contactInfo {
+    background-color: #00a438;
+    border-radius: 5px;
+    float: left;
+    margin: 5px;
+    padding: 5px !important;
+    width: 30%;
+}
+
+.innerpagerDiv div:nth-child(1) {
+    float: left;
+    width: 20%;
+}
+
+.innerpagerDiv div:nth-child(2) {
+    float: left;
+    width: 20%;
+}
+
+.innerpagerDiv div:nth-child(3) {
+    float: left;
+    width: 30%;
+}
+
+#registrationSteps, #accountBenefitsDiv {
+    float: left;
+    width: 45%;
+    margin: 2px;
+    padding: 5px;
+}
+
+.IsExistingCustomer {
+    float: left;
+    font-size: 14px;
+    width: 90%;
+}
+
+.registrationStep {
+    float: left;
+}
+
+.smTable > ul {
+    float: left;
+    width: 33%;
+    padding: 0;
+}
+
+.active {
+    display: block;
+    background: rgba(0, 0, 0, 0) url("../images/newvdsprite.png") no-repeat scroll 3px -659px;
+    float: left;
+    height: 14px;
+    margin: 6px 0 0 6px;
+    width: 14px;
+}
+
+#login12 {
+    background: #ffffff none repeat scroll 0 0;
+    border: 2px solid #aecee7;
+    cursor: pointer;
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+    left: -75px;
+    padding: 0 10px;
+    position: fixed;
+    text-align: center;
+    top: 185px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    z-index: 2147483647;
+}
+
+#registrationDiv {
+    float: left;
+    width: 100%;
+}
+
+.recoveryinnerDiv {
+    float: left;
+    width: 100%;
+}
+
+.recoveryUsername {
+    float: left;
+    width: 50%;
+}
+
+.recoveryPassword {
+    float: left;
+    width: 50%;
+}
 
 .active {
     background: red;
@@ -181,13 +317,14 @@ span.label {
     width: 25%;
     padding: 0px;
     margin: 0px 0 0;
-    background: var(--light-bg-color); /* IE10 Consumer Preview */
-    background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
-    background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
-    background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
-    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
-    background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
-    background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+}
+
+.innerContentsidebar {
+    background-image: -moz-radial-gradient(center, ellipse farthest-side, #009933 0%, #0C294A 100%); /* Opera */
+    background-image: -o-radial-gradient(center, ellipse farthest-side, #009933 0%, #0C294A 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, #009933 ), color-stop(1, #0C294A)); /* Webkit (Chrome 11+) */
+    background-image: -webkit-radial-gradient(center, ellipse farthest-side, #009933 0%, #0C294A 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: radial-gradient(ellipse farthest-side at center, #009933 0%, #0C294A 100%);
 }
 
 #flyerGrid {
@@ -244,13 +381,13 @@ span.label {
 
 #footer {
     padding: 5px 0 25px;
-    background: var(--light-bg-color); /* IE10 Consumer Preview */
-    background-image: -ms-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
-    background-image: -moz-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
-    background-image: -o-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
-    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
-    background-image: -webkit-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
-    background-image: linear-gradient(to bottom right, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+    background: #009933; /* IE10 Consumer Preview */
+    background-image: -ms-linear-gradient(top left, #009933 0%, #0C294A 100%); /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top left, #009933 0%, #0C294A 100%); /* Opera */
+    background-image: -o-linear-gradient(top left, #009933 0%, #0C294A 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #009933), color-stop(1, #0C294A )); /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(top left, #009933 0%, #0C294A 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: linear-gradient(to bottom right, #009933 0%, #0C294A 100%);
     clear: both;
     float: left;
     width: 100%;
@@ -345,14 +482,14 @@ span.label {
     width: 100%;
     clear: both;
     float: left;
-    padding: 5px 0 25px;
-    background: var(--light-bg-color); /* IE10 Consumer Preview */
-    background-image: -ms-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
-    background-image: -moz-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
-    background-image: -o-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
-    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
-    background-image: -webkit-linear-gradient(top left, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
-    background-image: linear-gradient(to bottom right, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+    padding: 10px 0 10px;
+    background: #009933; /* IE10 Consumer Preview */
+    background-image: -ms-linear-gradient(top left, #009933 0%, #0C294A 100%); /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top left, #009933 0%, #0C294A 100%); /* Opera */
+    background-image: -o-linear-gradient(top left, #009933 0%, #0C294A 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #009933), color-stop(1, #0C294A )); /* Webkit (Chrome 11+) */
+   /* background-image: -webkit-linear-gradient(top left, #009933 0%, #0C294A 100%);*/ /* W3C Markup, IE10 Release Preview */
+    background-image: linear-gradient(to bottom right, #009933 0%, #0C294A 100%);
 }
 
 div#slogan {
@@ -393,7 +530,7 @@ ul#menu {
 
 .mobileheader {
     float: left;
-    width: 100%;
+    width: 99.2%;
 }
 
 #headermenu .ui-menu {
@@ -432,17 +569,19 @@ ul#headermenu li a.inline {
 #searchForm {
     display: inline;
     float: right;
+    width: 55%;
 }
 
 input#searchTextBox {
-    width: 180px;
+    float: left;
+    width: 60%;
 }
 
 
 #userInfo {
     float: right;
-    padding: 4px 4px 4px 4px;
-    font: 16px Arial;
+    padding: 0;
+    font: 13px Arial;
     font-weight: bold;
     color: lightgray !important;
 }
@@ -452,7 +591,7 @@ input#searchTextBox {
     }
 
     #userInfo a {
-        font: 10px Arial;
+        font: 13px Arial;
         float: right;
     }
 
@@ -480,13 +619,11 @@ input#searchTextBox {
     text-align: center;
     color: white; /*background-image: url(/Content/images/login_bg.jpg);*/
     padding-bottom: 5px;
-    background: var(--light-bg-color); /* IE10 Consumer Preview */
-    background-image: -ms-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Mozilla Firefox */
-    background-image: -moz-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Opera */
-    background-image: -o-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* Webkit (Safari/Chrome 10) */
-    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, var(--light-bg-color)), color-stop(1, var(--dark-bg-color))); /* Webkit (Chrome 11+) */
-    background-image: -webkit-radial-gradient(center, ellipse farthest-side, var(--light-bg-color) 0%, var(--dark-bg-color) 100%); /* W3C Markup, IE10 Release Preview */
-    background-image: radial-gradient(ellipse farthest-side at center, var(--light-bg-color) 0%, var(--dark-bg-color) 100%);
+    background-image: -moz-radial-gradient(center, ellipse farthest-side, #009933 0%, #0C294A 100%); /* Opera */
+    background-image: -o-radial-gradient(center, ellipse farthest-side, #009933 0%, #0C294A 100%); /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(radial, center center, 0, center center, 487, color-stop(0, #009933 ), color-stop(1, #0C294A)); /* Webkit (Chrome 11+) */
+    background-image: -webkit-radial-gradient(center, ellipse farthest-side, #009933 0%, #0C294A 100%); /* W3C Markup, IE10 Release Preview */
+    background-image: radial-gradient(ellipse farthest-side at center, #009933 0%, #0C294A 100%);
 }
 
 
@@ -774,6 +911,7 @@ div.slider {
 
 .search_section {
     float: right;
+    padding: 0 10px 0 0;
     width: 50%;
 }
 
@@ -783,7 +921,7 @@ div#advancedSearch {
     font: 12px Arial;
     font-weight: bold;
     float: right;
-    margin: 20px 10px 20px;
+    margin: 20px 0px 20px;
 }
 
     div#advancedSearch a {
@@ -795,7 +933,7 @@ div#advancedSearch {
 #SearchBox {
     float: right;
     width: 100%;
-    margin: 0 6px 0 0px;
+    margin: 0px;
     clear: both;
 }
 
@@ -808,8 +946,8 @@ a#advancedSearchLink {
 }
 
 form#advancedSearchForm {
-    width: 240px;
-    height: 160px;
+    float: left;
+    width: 100%;
 }
 
     form#advancedSearchForm div {
@@ -851,17 +989,18 @@ div#favorites_quickAdd {
 
 .recoveryInput {
     background-color: #07507C;
-    height: 25px;
     border-radius: 5px;
+    float: left;
     padding: 3% !important;
     border: 2px solid slategray !important;
     display: block;
     margin: 0 auto;
+    width: 90%;
 }
 
 input.marksButton {
-    border: solid var(--dark-bg-color) 2px;
-    background-color: var(--light-bg-color);
+    border: 2px solid #0C294A;
+    background-color: #009933;
 }
 
     input.marksButton:hover {
@@ -886,7 +1025,7 @@ input.marksButton {
 }
 
 #searchForm .marksButton {
-    margin-top: -5px;
+    margin: 0 0 0 25px;
 }
 
 #loginBox > .loginClassButton {
@@ -894,14 +1033,13 @@ input.marksButton {
 }
 
 #contentTabList h2 {
-    background: -webkit-linear-gradient(right, var(--light-bg-color), var(--dark-bg-color));
-    background: -o-linear-gradient(left, var(--light-bg-color), var(--dark-bg-color));
-    background: -moz-linear-gradient(left, var(--light-bg-color), var(--dark-bg-color));
-    background: linear-gradient(to left, var(--light-bg-color), var(--dark-bg-color));
-    background-color: var(--light-bg-color);
+    background: -webkit-linear-gradient(right, #009933, #0C294A);
+    background: -o-linear-gradient(left, #009933, #0C294A);
+    background: -moz-linear-gradient(left, #009933, #0C294A);
+    background: linear-gradient(to left, #009933, #0C294A);
+    background-color: #009933;
     padding: 5px 0 5px 20px;
     border-top-left-radius: 0px;
-    margin: 0 5px !important;
     color: white;
     text-align: left !important;
 }
@@ -912,7 +1050,20 @@ input.marksButton {
     text-align: center;
 }
 
-#contentTabList div {
+.recoveryUsername h2 {
+    margin: 0 5px !important;
+}
+
+.recoveryPassword h2 {
+    margin: 0 5px !important;
+}
+
+.recoveryemptyTitle {
+    float: left;
+    width: 100%;
+}
+
+.recoveryUsername div {
     border: solid var(--dark-bg-color) 3px;
     border-top: none;
     padding: 5px;
@@ -920,9 +1071,25 @@ input.marksButton {
     max-width: 100%;
 }
 
-    #contentTabList div img {
-        max-width: 100%;
-    }
+.recoveryPassword div {
+    border: solid var(--dark-bg-color) 3px;
+    border-top: none;
+    padding: 5px;
+    margin: 0 5px 10px;
+    max-width: 100%;
+}
+
+.recoveryemptyTitle div {
+    border: solid var(--dark-bg-color) 3px;
+    border-top: none;
+    padding: 5px;
+    margin: 0 5px 10px;
+    max-width: 100%;
+}
+
+#contentTabList div img {
+    max-width: 100%;
+}
 
 #cartButtonLine .marksButton {
     width: 75px;
@@ -951,7 +1118,8 @@ input.marksButton {
 }
 
 #searchButton {
-    width: 60px;
+    width: 72px;
+    float: right;
 }
 
 #SliderControl {
@@ -1111,17 +1279,24 @@ div#PartLabelTable {
     text-align: right;
 }
 
-
-div.partDetailSmall {
-    margin: 2px;
-    width: 49%;
-    height: 180px;
-    float: left;
-    border-width: 1px;
+.partDetailSmall:nth-child(odd) {
+    border-color: #d3d3d3;
     border-style: solid;
-    border-color: lightgray;
+    border-width: 1px;
+    float: left;
+    margin: 5px auto;
+    width: 49%;
 }
 
+.partDetailSmall:nth-child(2n) {
+    border-color: #d3d3d3;
+    border-style: solid;
+    border-width: 1px;
+    float: right;
+    margin: 5px 2px 5px auto;
+    padding: 0;
+    width: 49%;
+}
 /*slider changes*/
 
 .rslides {
@@ -1302,16 +1477,22 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     margin: 100px 200px;
 }
 
+.browsericon {
+float:left;
+width:100%;
+}
 
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 1040px) {
     body > div {
         width: 100%;
         margin: 0 auto;
     }
-
+    .browsericon{
+        display:none;
+    }
     .search_section {
         float: right;
-        width: 38%;
+        width: 36%;
     }
 
     #slogan span:nth-child(1) {
@@ -1389,14 +1570,115 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         vertical-align: top;
         width: 250px;
     }
+
+    #login12 {
+        top: 250px;
+    }
+
+    #searchForm {
+        display: inline;
+        float: right;
+        width: 100%;
+    }
+
+    .recoveryUsername {
+        float: left;
+        width: 100%;
+    }
+
+    .recoveryPassword {
+        float: left;
+        width: 100%;
+    }
+
+    ul#headermenu li a.inline {
+        display: block;
+        padding: 10px 2px;
+    }
+
+    #headermenu li {
+        display: inline-block;
+        padding: 0 2px;
+        text-align: center;
+        width: auto;
+    }
+
+    #contactTable .contactInfo {
+        background-color: #00a438;
+        border-radius: 5px;
+        float: none;
+        margin: 5px auto;
+        padding: 5px !important;
+        width: 50%;
+    }
+
+    .innerpagerDiv div:nth-child(1) {
+        float: left;
+        width: 32%;
+        margin: 5px 0;
+    }
+
+    .innerpagerDiv div:nth-child(2) {
+        float: right;
+        margin: 10px 0;
+        width: 20%;
+    }
+
+    .innerpagerDiv div:nth-child(3) {
+        float: left;
+        width: 50%;
+    }
+
+    #SearchBox {
+        clear: both;
+        float: right;
+        margin: 0 0 20px;
+        width: 100%;
+    }
+
+    #advancedSearchForm #contentTabList {
+        margin: 0 auto;
+        float: none;
+        width: 300px;
+    }
 }
-
-
 
 @media only screen and (min-width: 591px) and (max-width: 768px) {
     body > div {
         width: 100%;
         margin: 0 auto;
+    }
+     .browsericon{
+        display:none;
+    }
+    #content-sidebar {
+        display: block;
+        float: left;
+        width: 30%;
+        padding: 0px;
+        margin: 0px 0 0;
+    }
+    .header_menu {
+    display:none;
+    
+    }
+
+
+    #content {
+        float: right;
+        width: 69%;
+    }
+
+    #promoCodeText {
+        width: 50%;
+    }
+
+    #login12 {
+        display: none !important;
+    }
+
+    .innerContentsidebar {
+        display: block !important;
     }
 
     .search_section {
@@ -1404,8 +1686,21 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         width: 35%;
     }
 
+    .search_section {
+        padding: 0 5px 0 0;
+    }
+
+    #searchForm .marksButton {
+        margin: 0 0 0 10px;
+    }
+
     input#searchTextBox {
-        width: 65%;
+        width: 60%;
+    }
+
+    #searchButton {
+        float: right;
+        width: 60px;
     }
 
     #slogan span:nth-child(1) {
@@ -1434,9 +1729,17 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         }
 
     #searchResultsDiv {
-        float: left;
-        width: 100%;
+        float: none;
+        margin: 0 auto;
+        width: 99%;
     }
+
+    .partDetailSmallImage a img {
+        border: medium hidden !important;
+        float: none !important;
+        width: auto !important;
+    }
+
 
     div.partDetailSmall {
         margin: 2px;
@@ -1500,19 +1803,146 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         clear: both;
         float: right;
         font: bold 12px Arial;
-        margin: 18px 10px 18px 0;
+        margin: 10px 0;
         width: 100%;
     }
+
+    #login12 {
+        display: block;
+        top: 250px;
+    }
+
+    #searchForm {
+        display: inline;
+        float: right;
+        width: 100%;
+    }
+
+    .recoveryUsername {
+        float: left;
+        width: 100%;
+    }
+
+    .recoveryPassword {
+        float: left;
+        width: 100%;
+    }
+
+    ul#headermenu li a.inline {
+        display: block;
+        font-size: 12px;
+        padding: 10px 2px;
+    }
+
+    #headermenu li {
+        display: inline-block;
+        text-align: center;
+        width: auto;
+    }
+
+    .sortby {
+        margin: 10px 0;
+    }
+
+    #contactTable .contactInfo {
+        background-color: #00a438;
+        border-radius: 5px;
+        float: none;
+        margin: 5px auto;
+        padding: 5px !important;
+        width: 50%;
+    }
+
+    .resources {
+        float: left;
+        width: 100%;
+    }
+
+    .accountRecovery {
+        float: left;
+        width: 100%;
+    }
+
+    .customerService {
+        float: left;
+        width: 100%;
+    }
+
+    .smTable {
+        border: 0 none #ffeeee;
+        float: left;
+        width: 95%;
+    }
+
+        .smTable > ul {
+            float: left;
+            padding: 0;
+            width: 100%;
+        }
+
+    #registrationSteps, #accountBenefitsDiv {
+        float: left;
+        margin: 2px;
+        padding: 5px;
+        width: 96%;
+    }
+
+    .innerpagerDiv div:nth-child(1) {
+        float: left;
+        width: 40%;
+        margin: 5px 0;
+    }
+
+    .innerpagerDiv div:nth-child(2) {
+        float: right;
+        margin: 10px 0;
+        text-align: right;
+        width: 50%;
+    }
+
+    .innerpagerDiv div:nth-child(3) {
+        float: left;
+        width: 60%;
+    }
+
+    #SearchBox {
+        clear: both;
+        float: right;
+        margin: 0 0 20px;
+        width: 100%;
+    }
+
+    #cartButtonLine .marksButton {
+        margin: 5px 0;
+        width: 75px;
+    }
+
+    #quickPartAddLine .marksButton {
+        margin: 5px 0 5px 5px;
+        width: 75px;
+    }
+
+    #advancedSearchForm #contentTabList {
+        margin: 0 25px;
+        width: 300px;
+    }
+
 }
 
 
 
 @media only screen and (min-width: 500px) and (max-width: 590px) {
+    .innerContentsidebar {
+        display: none;
+    }
+
     body > div {
         width: 100%;
         margin: 0 auto;
     }
-
+     .browsericon{
+        display:none;
+    }
 
     ul#headermenu {
         display: none;
@@ -1560,7 +1990,7 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
             .header_menu li a {
                 padding: 0px 7px;
                 text-decoration: none;
-                font-size: 13px;
+                font-size: 14px;
                 color: #fff;
                 font-weight: normal;
                 border-right: none;
@@ -1604,9 +2034,6 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         width: 100%;
     }
 
-    #content-sidebar {
-        display: none;
-    }
 
     #content {
         float: right;
@@ -1614,6 +2041,34 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     }
 
     .search_section {
+        display: block;
+        float: right;
+        padding: 0;
+        width: 100%;
+    }
+
+    #userInfo {
+       float: none;
+    margin: 0 auto;
+    width: 95%;
+    }
+
+        #userInfo span {
+            display: block;
+            width: 50%;
+            float: left;
+        }
+
+        #userInfo a {
+            float: right;
+            font: 13px Arial;
+        }
+
+    div#advancedSearch {
+        display: none;
+    }
+
+    #SearchBox {
         display: none;
     }
 
@@ -1652,24 +2107,21 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
 
         .mobileheader ul {
             float: left;
-            width: 99.5%;
+            width: 100%;
             margin: 0;
             padding: 0;
-             border: 2px solid #AECEE7;
+            border: 2px solid #AECEE7;
         }
 
             .mobileheader ul li {
                 float: left;
-                width: 32.9%;
+                width: 49%;
                 margin: 0;
                 padding: 0;
                 border-right: 2px solid #AECEE7;
                 cursor: pointer;
             }
 
-                .mobileheader ul li:last-child {
-                    width: 33%;
-                }
 
                 .mobileheader ul li:last-child {
                     border-right: none;
@@ -1706,19 +2158,30 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     }
 
     #mobsearch_section {
+        background: #0193ce none repeat scroll 0 0;
         float: left;
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    div#advancedSearch {
+        clear: both;
+        float: right;
+        font: bold 12px Arial;
+        margin: 0 0 15px;
         width: 100%;
     }
 
     #flyerGridTable ul li img {
         max-width: 90%;
     }
-     .footer_menu ul {
+
+    .footer_menu ul {
         clear: both;
         float: none;
         margin: 0 auto;
         padding: 0;
-        width: 58%;
+        width: 270px;
     }
 
         .footer_menu ul li {
@@ -1737,16 +2200,140 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         color: #ffffff;
         font-weight: bold;
         text-decoration: underline;
-    }   
+    }
+
+    #login12 {
+        display: block;
+        top: 250px;
+    }
+
+    #searchForm {
+        display: inline;
+        float: right;
+        margin: 0 0 15px;
+        width: 100%;
+    }
+
+    input#searchTextBox {
+        float: left;
+        margin: 0 0 0 25px;
+        padding: 3px;
+        width: 70%;
+    }
+
+    #searchButton {
+        float: left;
+        width: 72px;
+        margin:0 0 0 50px;
+    }
+
+    .recoveryUsername {
+        float: left;
+        width: 100%;
+    }
+
+    .recoveryPassword {
+        float: left;
+        width: 100%;
+    }
+
+    .partDetailSmall:nth-child(odd) {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        float: left;
+        margin: 5px auto;
+        width: 49%;
+    }
+
+    .partDetailSmall:nth-child(even) {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        float: right;
+        margin: 5px auto;
+        width: 49%;
+    }
+
+    div.pagerDiv {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        clear: both;
+        float: left;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        padding: 2px;
+        width: 98%;
+    }
+
+    #promoCodeText {
+        width: 50%;
+    }
+
+    #contactTable .contactInfo {
+        background-color: #00a438;
+        border-radius: 5px;
+        float: none;
+        margin: 5px auto;
+        padding: 5px !important;
+        width: 50%;
+    }
+
+    .innerpagerDiv div:nth-child(1) {
+        float: left;
+        width: 32%;
+        margin: 5px 0;
+    }
+
+    .innerpagerDiv div:nth-child(2) {
+        float: right;
+        margin: 10px 0;
+        text-align: right;
+        width: 30%;
+    }
+
+    .sortby {
+        float: right;
+        margin: 0 0 10px;
+        text-align: right;
+        width: 48%;
+    }
+
+    .innerpagerDiv div:nth-child(3) {
+        float: left;
+        margin: 5px 0 0;
+        width: 50%;
+    }
+
+    #advancedSearchForm #contentTabList {
+        margin: 0 auto;
+        float: none;
+        width: 300px;
+    }
+    
+    #advancedSearchmobile {
+        clear: both;
+        float: right;
+        font: bold 12px Arial;
+        margin: 0px 10px 10px; 
+        width: 100%;
+    }
 }
 
 
 @media only screen and (min-width: 400px) and (max-width: 499px) {
+    .innerContentsidebar {
+        display: none;
+    }
+
     body > div {
         width: 100%;
         margin: 0 auto;
     }
-
+     .browsericon{
+        display:none;
+    }
     ul#headermenu {
         display: none;
     }
@@ -1831,6 +2418,35 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     }
 
     .search_section {
+        display: block;
+        float: right;
+        padding: 0;
+        width: 100%;
+    }
+
+    #userInfo {
+       float: none;
+    margin: 0 auto;
+    width: 95%;
+    }
+
+        #userInfo span {
+            display: block;
+            width: 60%;
+            float: left;
+        }
+
+        #userInfo a {
+            float: right;
+            font: 13px Arial;
+            margin:0;
+        }
+
+    div#advancedSearch {
+        display: none;
+    }
+
+    #SearchBox {
         display: none;
     }
 
@@ -1870,16 +2486,16 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     }
 
     .mobileheader ul {
-       float: left;
-            width: 99%;
-            margin: 0;
-            padding: 0;
-             border: 2px solid #AECEE7;
+        float: left;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 2px solid #AECEE7;
     }
 
         .mobileheader ul li {
             float: left;
-            width: 32.9%;
+            width: 49%;
             margin: 0;
             padding: 0;
             border-right: 2px solid #AECEE7;
@@ -1901,8 +2517,10 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     }
 
     #mobsearch_section {
+        background: #0193ce none repeat scroll 0 0;
         float: left;
-        width: 100%;
+        padding: 5px;
+        width: 98%;
     }
 
     .loginBoxTest {
@@ -1913,6 +2531,7 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         position: absolute;
         width: 44%;
         z-index: 9999;
+        display: block;
     }
 
     #footer {
@@ -1963,7 +2582,7 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         float: none;
         margin: 0 auto;
         padding: 0;
-        width: 58%;
+        width:280px;
     }
 
         .footer_menu ul li {
@@ -1982,15 +2601,169 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         color: #ffffff;
         font-weight: bold;
         text-decoration: underline;
-    }   
+    }
+
+    #login12 {
+        display: block;
+        top: 315px;
+    }
+
+    #searchForm {
+        display: inline;
+        float: left;
+        width: 100%;
+    }
+
+    input#searchTextBox {
+        float: left;
+        margin: 0 0 0 25px;
+        width: 65%;
+    }
+
+    .recoveryUsername {
+        float: left;
+        width: 100%;
+    }
+
+    .recoveryPassword {
+        float: left;
+        width: 100%;
+    }
+
+    #registrationSteps, #accountBenefitsDiv {
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .smTable > ul li {
+        font-size: 11px;
+    }
+
+    #registrationSteps hr {
+        float: left;
+        width: 100%;
+    }
+
+    input.marksButton.accountInfoSection {
+        float: right;
+        margin: 10px;
+        width: 100px;
+    }
+
+    .partDetailSmall:nth-child(odd) {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        float: left;
+        margin: 5px auto;
+        width: 49%;
+    }
+
+    .partDetailSmall:nth-child(even) {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        float: right;
+        margin: 5px auto;
+        width: 49%;
+    }
+
+    div.pagerDiv {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        clear: both;
+        float: left;
+        margin: 0 auto;
+        padding: 2px;
+        width: 98%;
+    }
+
+    #contactTable .contactInfo {
+        background-color: #00a438;
+        border-radius: 5px;
+        float: none;
+        margin: 5px auto;
+        padding: 5px !important;
+        width: 60%;
+    }
+
+    .innerpagerDiv div:nth-child(1) {
+        float: left;
+        width: 40%;
+        margin: 5px 0;
+    }
+
+    .innerpagerDiv div:nth-child(2) {
+        float: right;
+        margin: 10px 0;
+        text-align: right;
+        width: 60%;
+    }
+
+    .innerpagerDiv div:nth-child(3) {
+        float: left;
+        width: 100%;
+        text-align: center;
+    }
+
+    .sortby {
+        float: left;
+        text-align: center;
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    #advancedSearchmobile {
+        clear: both;
+        float: right;
+        font: bold 12px Arial;
+        margin: 20px 10px;
+        width: 100%;
+    }
+
+    #SearchBoxmobile {
+        clear: both;
+        float: right;
+        margin: 0 0 20px;
+        width: 100%;
+    }
+
+    #advancedSearchForm #contentTabList {
+        margin: 0 25px;
+        width: 300px;
+    }
+      .outercartTable {
+        overflow:auto;
+        width:100%;
+    
+    }
+    #cartTable {
+    
+      width: 980px;
+    }
+    .ui-tabs-nav > li {
+    height: auto;
+    margin: 0 !important;
+    padding: 2px !important;
+    width: 18%;
+}
 }
 
 @media only screen and (min-width: 300px) and (max-width: 399px) {
+    .innerContentsidebar {
+        display: none;
+    }
+
     body > div {
         width: 100%;
         margin: 0 auto;
     }
-
+     .browsericon{
+        display:none;
+    }
     ul#headermenu {
         display: none;
     }
@@ -2070,7 +2843,7 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     }
 
     #content-sidebar {
-        display: none;
+        display: block;
     }
 
     #content {
@@ -2079,9 +2852,45 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     }
 
     .search_section {
+        display: block;
+        float: right;
+        padding: 0;
+        width: 100%;
+    }
+
+    #userInfo {
+       float: none;
+    margin: 0 auto;
+    width: 95%;
+    }
+
+        #userInfo span {
+            display: block;
+            width: 60%;
+            float: left;
+        }
+
+        #userInfo a {
+            float: right;
+            font: 13px Arial;
+            margin:0;
+        }
+
+    div#advancedSearch {
         display: none;
     }
 
+    #SearchBox {
+        display: none;
+    }
+    
+    #advancedSearchmobile {
+        clear: both;
+        float: right;
+        font: bold 12px Arial;
+        margin: 10px;
+        width: 100%;
+    }
     #logoBox {
         float: left;
         width: 50%;
@@ -2107,6 +2916,7 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
 
     .mobileheader {
         display: block;
+        width: 99%;
     }
 
     #upperHeader {
@@ -2119,15 +2929,15 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
 
     .mobileheader ul {
         float: left;
-            width: 99%;
-            margin: 0;
-            padding: 0;
-             border: 2px solid #AECEE7;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 2px solid #AECEE7;
     }
 
         .mobileheader ul li {
             float: left;
-            width: 32.9%;
+            width: 49%;
             margin: 0;
             padding: 0;
             border-right: 2px solid #AECEE7;
@@ -2146,8 +2956,10 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
     }
 
     #mobsearch_section {
+        background: #0193ce none repeat scroll 0 0;
         float: left;
-        width: 100%;
+        padding: 7px;
+        width: 96%;
     }
 
     .loginBoxTest {
@@ -2209,7 +3021,7 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         float: none;
         margin: 0 auto;
         padding: 0;
-        width: 75%;
+        width: 270px;
     }
 
         .footer_menu ul li {
@@ -2229,4 +3041,156 @@ ul.header_menu ul#menu6 li:first-child + li + li + li + li + li {
         font-weight: bold;
         text-decoration: underline;
     }
+
+
+
+    #login12 {
+        display: block;
+        top:325px;
+    }
+
+    #searchForm {
+        display: inline;
+        float: right;
+        width: 100%;
+    }
+
+    input#searchTextBox {
+        float: left;
+        margin: 0 0 0 10px;
+        width: 65%;
+    }
+
+    #searchForm .marksButton {
+        margin: 0 0 0 15px;
+    }
+
+    #advancedSearchForm #contentTabList {
+        margin: 0 25px;
+        width: 300px;
+    }
+
+    .recoveryUsername {
+        float: left;
+        width: 100%;
+    }
+
+    .recoveryPassword {
+        float: left;
+        width: 100%;
+    }
+
+    #registrationSteps, #accountBenefitsDiv {
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+        #registrationSteps hr {
+            float: left;
+            width: 100%;
+        }
+
+    input.marksButton.accountInfoSection {
+        float: right;
+        margin: 10px;
+        width: 100px;
+    }
+
+    div.partDetailSmall {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        float: none;
+        margin: 5px auto;
+        width: 95%;
+    }
+
+    #contactTable .contactInfo {
+        background-color: #00a438;
+        border-radius: 5px;
+        float: none;
+        margin: 5px auto;
+        padding: 5px !important;
+        width: 75%;
+    }
+
+    div.pagerDiv {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        clear: both;
+        float: left;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        padding: 2px;
+        width: 96%;
+    }
+
+    .innerpagerDiv div:nth-child(1) {
+        float: left;
+        width: 45%;
+        margin: 5px 0;
+    }
+
+    .innerpagerDiv div:nth-child(2) {
+        float: right;
+        margin: 10px 0;
+        width: 50%;
+        text-align: right;
+    }
+
+    .innerpagerDiv div:nth-child(3) {
+        float: left;
+        width: 100%;
+        text-align: center;
+    }
+
+    .sortby {
+        float: right;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    #SearchBox {
+        clear: both;
+        float: right;
+        margin: 0 0 20px;
+        width: 100%;
+    }
+
+    .partDetailSmall:nth-child(odd) {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        float: none;
+        margin: 5px auto;
+        width: 98%;
+    }
+
+    .partDetailSmall:nth-child(even) {
+        border-color: #d3d3d3;
+        border-style: solid;
+        border-width: 1px;
+        float: none;
+        margin: 5px auto;
+        width: 98%;
+    }
+    .outercartTable {
+        overflow:auto;
+        width:100%;
+    
+    }
+    #cartTable {
+    
+      width: 980px;
+    }
+    .ui-tabs-nav > li {
+    height: auto;
+    margin: 0 !important;
+    padding: 2px !important;
+    width: 18%;
+}
 }

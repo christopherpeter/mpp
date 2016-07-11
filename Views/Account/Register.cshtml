@@ -6,11 +6,11 @@
     <div id="registrationSteps">
         <div id="step1" class="registrationStep" data-bind="if:vm.Registration.RegistrationStep()==1">
             <div style="font-size:20px">
-                <div><input style="float: left; margin-top: 1px;" type="radio" name="accountTypeGroup" value="true" data-bind="checked:vm.Registration.IsExistingCustomer.ForEditing" /><div style="margin-left: 18px;">I want to add online access to my <u>existing</u> Marks account.</div></div>
+                <div><input style="float: left; margin-top: 1px;" type="radio" name="accountTypeGroup" value="true" data-bind="checked:vm.Registration.IsExistingCustomer.ForEditing" /><div class="IsExistingCustomer" >I want to add online access to my <u>existing</u> Marks account.</div></div>
                 <br/>
-                <div><input style="float: left; margin-top: 1px;" type="radio" name="accountTypeGroup" value="false" data-bind="checked:vm.Registration.IsExistingCustomer.ForEditing" /><div style="margin-left: 18px;">I do not have an account with Marks and would like to create one now.</div></div>
+                <div><input style="float: left; margin-top: 1px;" type="radio" name="accountTypeGroup" value="false" data-bind="checked:vm.Registration.IsExistingCustomer.ForEditing" /><div class="IsExistingCustomer" >I do not have an account with Marks and would like to create one now.</div></div>
             </div>
-            <div>
+            <div style="float:left;width:100%;">
                 <br /><br />
                 <hr />
                 <h2>Account Setup</h2>

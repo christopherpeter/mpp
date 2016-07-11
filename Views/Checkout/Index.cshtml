@@ -16,35 +16,35 @@ else
             <li><a href="#step-1">
                 <div class="checkoutstep">
                     <span class="checkoutstep checkoutstep-title">Step 1: Review</span>
-                    <hr style="margin-right: 20px;"/>
+                    <hr style="margin-right: 0px;"/>
                     <span class="checkoutstep checkoutstep-descrip">Final order adjustment</span>
                 </div>
             </a></li>
             <li><a href="#step-2">
                 <div class="checkoutstep">
                     <span class="checkoutstep checkoutstep-title">Step 2: Shipping</span>
-                    <hr style="margin-right: 20px;"/>
+                    <hr style="margin-right: 0px;"/>
                     <span class="checkoutstep checkoutstep-descrip">Select shipping options</span>
                 </div>
             </a></li>
             <li><a href="#step-3">
                 <div class="checkoutstep">
                     <span class="checkoutstep checkoutstep-title">Step 3: Billing</span>
-                    <hr style="margin-right: 20px;"/>
+                    <hr style="margin-right: 0px;"/>
                     <span class="checkoutstep checkoutstep-descrip">Enter payment info</span>
                 </div>
             </a></li>
             <li><a href="#step-4">
                 <div class="checkoutstep">
                     <span class="checkoutstep checkoutstep-title">Step 4: Finalize</span>
-                    <hr style="margin-right: 20px;"/>
+                    <hr style="margin-right: 0px;"/>
                     <span class="checkoutstep checkoutstep-descrip">View and complete order</span>
                 </div>
             </a></li>
             <li><a href="#step-5">
                 <div class="checkoutstep">
                     <span class="checkoutstep checkoutstep-title">Step 5: Confirmation</span>
-                    <hr style="margin-right: 20px;"/>
+                    <hr style="margin-right: 0px;"/>
                     <span class="checkoutstep checkoutstep-descrip">Check email for receipt</span>
                 </div>
             </a></li>
@@ -74,6 +74,12 @@ else
 
     <script>
         var checkoutModel = @Html.Raw(Json.Encode(Model));
+
+        $(document).ready(function(){
+            alert("checkout");
+            $("#content").css("width","100%");
+
+        });
                 
     </script>
 }

@@ -29,4 +29,4 @@
 <select id="backorderOptions" data-bind="options: vm.Checkout.BackorderOptions, optionsText: 'Text', optionsValue: 'Value', value: vm.Checkout.SelectedBackorderOption"></select>
 <br />
 <br />
-<input class="marksButton" style="margin-left: 87%" type="button" onclick="$('#step-1 #cartTable .dataUpdate a').click();" data-bind="click: vm.Checkout.NextStep, button: { disabled: vm.ShoppingCart.CheckoutEnabled() === false || vm.UserAccount.EmailVerifiedString() !== 'true' }" value="Save & Continue" />
+<input class="marksButton" style="float:right;" type="button" onclick="$('#step-1 #cartTable .dataUpdate a').click();" data-bind="click: vm.Checkout.NextStep, button: { disabled: vm.ShoppingCart.CheckoutEnabled() === false || vm.UserAccount.EmailVerifiedString() !== 'true' }" value="Save & Continue" />

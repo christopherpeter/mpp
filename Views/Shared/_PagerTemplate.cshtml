@@ -1,14 +1,20 @@
 ﻿<script type="text/html" id="pager-template">
-    <div>
-        <input class="pagerButton marksButton" type="button" value="<<" data-bind="click: MoveFirst" />
-        <input class="pagerButton marksButton" type="button" value="<" data-bind="click: MovePrevious" />
-        &nbsp;&nbsp;
-        <input class="pagerButton marksButton" type="button" value=">" data-bind="click: MoveNext" />
-        <input class="pagerButton marksButton" type="button" value=">>" data-bind="click: MoveLast" />
-        Page size: <select  data-bind="options: AvailablePageSizes, value: PageSize"></select>
-        Page: <input type="number" style="width : 30px;" data-bind="value: CurrentPage, attr: { 'max': PageCount }" min="1" /> of <span data-bind="text: PageCount"></span>
-        &nbsp;&nbsp;&nbsp;<span data-bind="text: ShowingItemsString"></span>
-        <span style="float:right" data-bind="visible:!vm.SearchResults.IsMyReports()">Sort By: <select data-bind="    options: AvailableSortBy, value: SortValueChoice"></select></span>
+    <div class="innerpagerDiv">
+        <div>
+            <input class="pagerButton marksButton" type="button" value="<<" data-bind="click: MoveFirst" />
+            <input class="pagerButton marksButton" type="button" value="<" data-bind="click: MovePrevious" />
+            &nbsp;&nbsp;
+            <input class="pagerButton marksButton" type="button" value=">" data-bind="click: MoveNext" />
+            <input class="pagerButton marksButton" type="button" value=">>" data-bind="click: MoveLast" />
+        </div>
+        <div>
+            Page size: <select data-bind="options: AvailablePageSizes, value: PageSize"></select>
+        </div>
+        <div class="page">
+            Page: <input type="number" style="width : 30px;" data-bind="value: CurrentPage, attr: { 'max': PageCount }" min="1" /> of <span data-bind="text: PageCount"></span>
+            &nbsp;&nbsp;&nbsp;<span data-bind="text: ShowingItemsString"></span>
+        </div>
+        <span class="sortby" style="float:right" data-bind="visible:!vm.SearchResults.IsMyReports()">Sort By: <select data-bind="    options: AvailableSortBy, value: SortValueChoice"></select></span>
     </div>
     @*, event: { change: selectionChanged }*@
 </script>
